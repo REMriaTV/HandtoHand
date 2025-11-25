@@ -7,10 +7,24 @@ title: Manuscript | Hand to Hand
 
 `content/manuscript.md` にまとめている本文メモのサマリページです。章ごとの状態と読みどころ、気になる課題をざっと確認できます。
 
+> **重要**: 原稿テキストは原文のまま掲載し、許可なく修正・削除しないこと（引き継ぎ最重要事項）。
+
 ## 進行状況
 - **（一）〜（七）**: 教室での失言から体育館地下倉庫までの出来事をラフに執筆済み。
 - **（八）**: バレー部員との会話中心の書きかけ。以降は未着手。
 - **今後**: 終章「嘘」の仕掛けと横野が手を差し伸べるクライマックスを執筆予定。
+
+## 公開中の章
+- [（一）](./manuscript/chapter-01.html)
+- [（ニ）](./manuscript/chapter-02.html)
+- [（三）](./manuscript/chapter-03.html)
+- [（四）](./manuscript/chapter-04.html)
+- [（五）](./manuscript/chapter-05.html)
+- [（六）](./manuscript/chapter-06.html)
+- [（七）](./manuscript/chapter-07.html)
+- [（八・書きかけ）](./manuscript/chapter-08.html)
+
+※ 現状は横書きレイアウトで公開し、後日縦書き表示へ調整予定。
 
 ## 章ごとのハイライト
 ### （一）手
