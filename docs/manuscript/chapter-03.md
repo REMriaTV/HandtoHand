@@ -4,8 +4,6 @@ title: 原稿（三） | Hand to Hand
 section_title: ハンカチ
 ---
 
-# （三）
-
 <div class="manuscript-scroll">
 <div class="manuscript-body" markdown="1">
 

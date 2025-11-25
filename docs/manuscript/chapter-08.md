@@ -4,8 +4,6 @@ title: 原稿（八・書きかけ） | Hand to Hand
 section_title: ちくわ
 ---
 
-# （八・書きかけ）
-
 <div class="manuscript-scroll">
 <div class="manuscript-body" markdown="1">
 

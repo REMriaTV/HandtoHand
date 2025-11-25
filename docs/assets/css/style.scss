@@ -2,15 +2,31 @@
 ---
 @import "jekyll-theme-minimal";
 
-.manuscript-page {
-  background: #fdf9f3;
+:root {
+  --manuscript-frame-width: min(52vw, 880px);
 }
 
+html,
+body.manuscript-page {
+  height: 100%;
+}
+
+body.manuscript-page {
+  background: #fdf9f3;
+  margin: 0;
+  overflow: hidden;
+}
 
 .manuscript-wrapper {
-  max-width: 70vw;
-  margin: 2rem auto;
-  padding-bottom: 2rem;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 2.5rem 0 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .manuscript-header {
@@ -19,8 +35,21 @@
   align-items: baseline;
   font-size: 1rem;
   letter-spacing: 0.2em;
-  margin-bottom: 1rem;
+  width: var(--manuscript-frame-width);
   color: #5a4c3a;
+  position: sticky;
+  top: 1.5rem;
+  z-index: 2;
+}
+
+.manuscript-content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .manuscript-title a {
@@ -34,14 +63,21 @@
 }
 
 .manuscript-scroll {
+  width: var(--manuscript-frame-width);
+  height: calc(100vh - 10rem);
   overflow-x: auto;
+  overflow-y: hidden;
   padding: 1rem;
   background: #fefcf7;
   border: 1px solid #eee2cf;
-  min-height: 70vh;
   direction: rtl;
-  margin-bottom: 1rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.manuscript-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .manuscript-body {
@@ -52,7 +88,7 @@
   line-height: 2;
   letter-spacing: 0.1em;
   margin: 1rem auto;
-  width: 28rem;
+  width: 24rem;
   text-align: justify;
   white-space: normal;
 }
@@ -67,12 +103,13 @@
 }
 
 .manuscript-nav {
-  margin-top: 1rem;
+  width: var(--manuscript-frame-width);
   text-align: center;
   font-size: 0.95rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 1rem;
+  align-self: center;
 }
 
 .manuscript-nav a {

@@ -4,8 +4,6 @@ title: 原稿（五） | Hand to Hand
 section_title: 12時
 ---
 
-# （五）
-
 <div class="manuscript-scroll">
 <div class="manuscript-body" markdown="1">
 

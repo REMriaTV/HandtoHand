@@ -13,7 +13,9 @@
         <div class="manuscript-title"><a href="{{ '/' | relative_url }}">{{ site.title | default: 'Hand to Hand' }}</a></div>
         <div class="manuscript-chapter">{{ page.section_title | default: page.title }}</div>
       </header>
-      {{ content }}
+      <div class="manuscript-content">
+        {{ content }}
+      </div>
     </main>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
