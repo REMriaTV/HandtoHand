@@ -41,6 +41,7 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 進捗: REMriaTV/HandtoHand リポジトリを作成し push、GitHub Pages (main / docs) を公開。`docs/_config.yml` の description を修正してビルド成功。
 - 更新: `docs/index.md` にログライン・テーマ・プロット概要・執筆メモ・お題・主要キャラ要約を追記し、ブラウザから全体像を把握できるようにした。
 - 構成: トップページをサマリ化し、`docs/plot.md`・`docs/characters.md`・`docs/memos.md` を新設。各ページへリンクするナビゲーションを追加。
+- 追加: 原稿の進行状況をまとめる `docs/manuscript.md` を作成し、トップページからリンク。
 
 ### 2025-11-21
 - ハンドオフ理解を整理 (README.md に記載)。
