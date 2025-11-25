@@ -9,12 +9,23 @@
   </head>
   <body class="manuscript-page">
     <main class="manuscript-wrapper">
-      <header class="manuscript-header">
-        <div class="manuscript-title"><a href="{{ '/' | relative_url }}">{{ site.title | default: 'Hand to Hand' }}</a></div>
-        <div class="manuscript-chapter">{{ page.section_title | default: page.title }}</div>
-      </header>
+      {% capture manuscript_content %}{{ content }}{% endcapture %}
       <div class="manuscript-content">
-        {{ content }}
+        <div class="manuscript-frame">
+          <header class="manuscript-header">
+            <div class="manuscript-title"><a href="{{ '/' | relative_url }}">{{ site.title | default: 'Hand to Hand' }}</a></div>
+            <div class="manuscript-chapter">{{ page.section_title | default: page.title }}</div>
+          </header>
+          {% if manuscript_content contains '<nav class="manuscript-nav">' %}
+            {% assign manuscript_parts = manuscript_content | split: '<nav class="manuscript-nav">' %}
+            {{ manuscript_parts[0] }}
+          {% else %}
+            {{ manuscript_content }}
+          {% endif %}
+        </div>
+        {% if manuscript_content contains '<nav class="manuscript-nav">' %}
+          <nav class="manuscript-nav">{{ manuscript_parts[1] }}
+        {% endif %}
       </div>
     </main>
     <script>

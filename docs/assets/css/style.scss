@@ -35,7 +35,6 @@ body.manuscript-page {
   align-items: baseline;
   font-size: 1rem;
   letter-spacing: 0.2em;
-  width: var(--manuscript-frame-width);
   color: #5a4c3a;
 }
 
@@ -44,10 +43,21 @@ body.manuscript-page {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   gap: 0.75rem;
   min-height: 0;
+}
+
+.manuscript-frame {
+  background: #fefcf7;
+  border: 1px solid #eee2cf;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 1.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 0 0 auto;
 }
 
 .manuscript-title a {
@@ -62,15 +72,11 @@ body.manuscript-page {
 
 .manuscript-scroll {
   width: 100%;
-  flex: 1;
-  min-height: 0;
+  flex: 0 0 auto;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 1rem;
-  background: #fefcf7;
-  border: 1px solid #eee2cf;
+  padding: 0.25rem 0;
   direction: rtl;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -86,8 +92,9 @@ body.manuscript-page {
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   line-height: 2;
   letter-spacing: 0.1em;
-  margin: 1rem auto;
+  margin: 0 auto;
   width: 24rem;
+  height: 32rem;
   text-align: justify;
   white-space: normal;
 }
@@ -102,14 +109,14 @@ body.manuscript-page {
 }
 
 .manuscript-nav {
-  width: 100%;
+  width: var(--manuscript-frame-width);
   text-align: center;
   font-size: 0.95rem;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   align-self: center;
-  padding-top: 0.5rem;
+  padding-top: 0.25rem;
 }
 
 .manuscript-nav a {
