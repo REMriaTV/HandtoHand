@@ -8,23 +8,26 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   </head>
   <body class="manuscript-page">
+    {% capture manuscript_content %}{{ content }}{% endcapture %}
+    {% assign has_nav = manuscript_content contains '<nav class="manuscript-nav">' %}
+    {% if has_nav %}
+      {% assign manuscript_parts = manuscript_content | split: '<nav class="manuscript-nav">' %}
+      {% capture manuscript_body %}{{ manuscript_parts[0] }}{% endcapture %}
+      {% capture manuscript_nav %}<nav class="manuscript-nav">{{ manuscript_parts[1] }}{% endcapture %}
+    {% else %}
+      {% capture manuscript_body %}{{ manuscript_content }}{% endcapture %}
+    {% endif %}
     <main class="manuscript-wrapper">
-      {% capture manuscript_content %}{{ content }}{% endcapture %}
       <div class="manuscript-content">
+        <header class="manuscript-header">
+          <div class="manuscript-title">{{ site.story_title | default: '道程' }}</div>
+          <div class="manuscript-chapter">{{ page.section_title | default: page.title }}</div>
+        </header>
         <div class="manuscript-frame">
-          <header class="manuscript-header">
-            <div class="manuscript-title"><a href="{{ '/' | relative_url }}">{{ site.title | default: 'Hand to Hand' }}</a></div>
-            <div class="manuscript-chapter">{{ page.section_title | default: page.title }}</div>
-          </header>
-          {% if manuscript_content contains '<nav class="manuscript-nav">' %}
-            {% assign manuscript_parts = manuscript_content | split: '<nav class="manuscript-nav">' %}
-            {{ manuscript_parts[0] }}
-          {% else %}
-            {{ manuscript_content }}
-          {% endif %}
+          {{ manuscript_body }}
         </div>
-        {% if manuscript_content contains '<nav class="manuscript-nav">' %}
-          <nav class="manuscript-nav">{{ manuscript_parts[1] }}
+        {% if manuscript_nav %}
+          {{ manuscript_nav }}
         {% endif %}
       </div>
     </main>
