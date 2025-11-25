@@ -46,6 +46,7 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 表示: `docs/assets/css/style.scss` で縦書きレイアウトを追加し、章ページ(`docs/manuscript/chapter-XX.md`)を `div.manuscript-body` で包んで閲覧できる形にした。
 - UI: 原稿ページ専用レイアウト (`docs/_layouts/manuscript.html`) を追加し、サイトタイトル等のサイドバーを非表示にして本文へ集中できる画面にした。横スクロール＆前後章ナビを装備し、段落の改行・余白・冒頭表示位置も調整済み。見出し（作品名 / 章タイトル）を左右に配置し、本文幅を中央に絞って読みやすさを優先。
 - 2025-11-25 追加: 原稿ページの上下スクロールを禁止し、作品名・章題を固定表示。原稿枠を中央に細め、枠内のみ横スクロールかつバーは非表示化。章本文の`# （一）`などのヘッダを削除し、ページ下部ナビを同一画面内に収めるよう CSS を再調整。変更は GitHub Pages へ push 済み。
+- 2025-11-25 追記: 原稿枠に作品名と章題を内包させる `manuscript-frame` を導入。見出し〜本文を同一パネル化し、列の高さを約30文字（`height:32rem`）に制限してフッターナビが 1 画面に収まるよう再レイアウト。`docs/_layouts/manuscript.html` で `<nav>` を判定し枠外に出す処理を追加。
 
 ### 2025-11-21
 - ハンドオフ理解を整理 (README.md に記載)。
