@@ -1,6 +1,7 @@
 ---
 layout: manuscript
 title: 原稿（四） | Hand to Hand
+section_title: 12時
 ---
 
 # （四）
@@ -26,4 +27,4 @@ title: 原稿（四） | Hand to Hand
 </div>
 </div>
 
-<nav class="manuscript-nav">[← 前へ](./chapter-03.html) | [原稿トップ](./../manuscript.html) | [次へ →](./chapter-05.html)</nav>
+<nav class="manuscript-nav"><a href="./chapter-03.html">← 前へ</a> <a href="./../manuscript.html">原稿トップ</a> <a href="./chapter-05.html">次へ →</a></nav>

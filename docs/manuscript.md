@@ -15,14 +15,14 @@ title: Manuscript | Hand to Hand
 - **今後**: 終章「嘘」の仕掛けと横野が手を差し伸べるクライマックスを執筆予定。
 
 ## 公開中の章
-- [（一）](./manuscript/chapter-01.html)
-- [（ニ）](./manuscript/chapter-02.html)
-- [（三）](./manuscript/chapter-03.html)
-- [（四）](./manuscript/chapter-04.html)
-- [（五）](./manuscript/chapter-05.html)
-- [（六）](./manuscript/chapter-06.html)
-- [（七）](./manuscript/chapter-07.html)
-- [（八・書きかけ）](./manuscript/chapter-08.html)
+- [（一）](./manuscript/chapter-01.html) — 手
+- [（ニ）](./manuscript/chapter-02.html) — ハンカチ
+- [（三）](./manuscript/chapter-03.html) — ハンカチ
+- [（四）](./manuscript/chapter-04.html) — 12時
+- [（五）](./manuscript/chapter-05.html) — 12時
+- [（六）](./manuscript/chapter-06.html) — 12時
+- [（七）](./manuscript/chapter-07.html) — ちくわ
+- [（八・書きかけ）](./manuscript/chapter-08.html) — ちくわ
 
 ※ 章ページは縦書き表示 & 横スクロールで閲覧できます。必要に応じて前後の章リンクで移動してください。
 

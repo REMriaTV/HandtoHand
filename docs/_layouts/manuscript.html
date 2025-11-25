@@ -9,7 +9,19 @@
   </head>
   <body class="manuscript-page">
     <main class="manuscript-wrapper">
+      <header class="manuscript-header">
+        <div class="manuscript-title"><a href="{{ '/' | relative_url }}">{{ site.title | default: 'Hand to Hand' }}</a></div>
+        <div class="manuscript-chapter">{{ page.section_title | default: page.title }}</div>
+      </header>
       {{ content }}
     </main>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const scroller = document.querySelector('.manuscript-scroll');
+        if (scroller) {
+          scroller.scrollLeft = scroller.scrollWidth;
+        }
+      });
+    </script>
   </body>
 </html>

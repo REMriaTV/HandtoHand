@@ -6,10 +6,31 @@
   background: #fdf9f3;
 }
 
+
 .manuscript-wrapper {
-  max-width: 90vw;
+  max-width: 70vw;
   margin: 2rem auto;
   padding-bottom: 2rem;
+}
+
+.manuscript-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+  color: #5a4c3a;
+}
+
+.manuscript-title a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.manuscript-chapter {
+  font-size: 0.95rem;
 }
 
 .manuscript-scroll {
@@ -20,6 +41,7 @@
   min-height: 70vh;
   direction: rtl;
   margin-bottom: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .manuscript-body {
@@ -29,8 +51,8 @@
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   line-height: 2;
   letter-spacing: 0.1em;
-  margin: 2rem auto;
-  min-width: 40rem;
+  margin: 1rem auto;
+  width: 28rem;
   text-align: justify;
   white-space: normal;
 }
