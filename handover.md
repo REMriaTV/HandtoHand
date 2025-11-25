@@ -48,6 +48,7 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 2025-11-25 追加: 原稿ページの上下スクロールを禁止し、作品名・章題を固定表示。原稿枠を中央に細め、枠内のみ横スクロールかつバーは非表示化。章本文の`# （一）`などのヘッダを削除し、ページ下部ナビを同一画面内に収めるよう CSS を再調整。変更は GitHub Pages へ push 済み。
 - 2025-11-25 追記: 原稿枠に作品名と章題を内包させる `manuscript-frame` を導入。見出し〜本文を同一パネル化し、列の高さを約30文字（`height:32rem`）に制限してフッターナビが 1 画面に収まるよう再レイアウト。`docs/_layouts/manuscript.html` で `<nav>` を判定し枠外に出す処理を追加。
 - 2025-11-25 追記2: 作品タイトル「道程」を `docs/_config.yml` で `story_title` として定義し、原稿ページでは枠外に表示。章題は右端固定、サイト名は非表示。原稿枠の上下余白とカラム高さ（`--manuscript-body-height: 30rem`）を見直し、ページリンクが常に 1 ビュー内に入るよう CSS/HTML を再構成。
+- 2025-11-25 追記3: 作品名・章題を完全に原稿枠の外に出す `manuscript-meta` を新設。左に「道程」、右に章題を縦書きで配置し、枠との距離を `--manuscript-meta-offset` で制御。カード自体のセンタリングを調整し、meta → 原稿 → ナビが縦方向に独立して並ぶ構造へ更新。
 
 ### 2025-11-21
 - ハンドオフ理解を整理 (README.md に記載)。

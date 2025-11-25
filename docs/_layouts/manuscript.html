@@ -19,10 +19,10 @@
     {% endif %}
     <main class="manuscript-wrapper">
       <div class="manuscript-content">
-        <header class="manuscript-header">
+        <div class="manuscript-meta">
           <div class="manuscript-title">{{ site.story_title | default: '道程' }}</div>
           <div class="manuscript-chapter">{{ page.section_title | default: page.title }}</div>
-        </header>
+        </div>
         <div class="manuscript-frame">
           {{ manuscript_body }}
         </div>

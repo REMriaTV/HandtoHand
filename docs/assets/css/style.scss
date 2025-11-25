@@ -5,6 +5,7 @@
 :root {
   --manuscript-frame-width: min(48vw, 820px);
   --manuscript-body-height: 30rem;
+  --manuscript-meta-offset: 1.8rem;
 }
 
 html,
@@ -22,36 +23,45 @@ body.manuscript-page {
   height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  padding: 1.5rem 0 1rem;
+  padding: 1.5rem 0;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .manuscript-content {
   width: var(--manuscript-frame-width);
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  align-items: center;
+  gap: 0.6rem;
 }
 
-.manuscript-header {
+.manuscript-meta {
+  width: calc(var(--manuscript-frame-width) + var(--manuscript-meta-offset) * 2);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  font-size: 1rem;
-  letter-spacing: 0.18em;
   color: #503d2b;
+  margin-bottom: 0.25rem;
 }
 
-.manuscript-title {
-  font-size: 1.25rem;
+.manuscript-title,
+.manuscript-chapter {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.2em;
   font-weight: 600;
 }
 
+.manuscript-title {
+  font-size: 1.3rem;
+  transform: translateX(-var(--manuscript-meta-offset));
+}
+
 .manuscript-chapter {
-  font-size: 1rem;
-  text-align: right;
+  font-size: 1.15rem;
+  transform: translateX(var(--manuscript-meta-offset));
 }
 
 .manuscript-frame {
@@ -59,6 +69,7 @@ body.manuscript-page {
   border: 1px solid #eee2cf;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   padding: 1.25rem 1.5rem;
+  width: var(--manuscript-frame-width);
 }
 
 .manuscript-scroll {
