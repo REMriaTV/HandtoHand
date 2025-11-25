@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: manuscript
 title: 原稿（三） | Hand to Hand
 ---
 

@@ -2,6 +2,15 @@
 ---
 @import "jekyll-theme-minimal";
 
+.manuscript-page {
+  background: #fdf9f3;
+}
+
+.manuscript-wrapper {
+  max-width: 90vw;
+  margin: 2rem auto;
+}
+
 .manuscript-body {
   writing-mode: vertical-rl;
   text-orientation: upright;
