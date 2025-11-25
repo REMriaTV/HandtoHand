@@ -18,15 +18,15 @@ body.manuscript-page {
 }
 
 .manuscript-wrapper {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   margin: 0;
-  padding: 2.5rem 0 2rem;
+  padding: 2.5rem 0 1.5rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .manuscript-header {
@@ -37,19 +37,17 @@ body.manuscript-page {
   letter-spacing: 0.2em;
   width: var(--manuscript-frame-width);
   color: #5a4c3a;
-  position: sticky;
-  top: 1.5rem;
-  z-index: 2;
 }
 
 .manuscript-content {
+  width: var(--manuscript-frame-width);
   flex: 1;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.75rem;
+  min-height: 0;
 }
 
 .manuscript-title a {
@@ -63,8 +61,9 @@ body.manuscript-page {
 }
 
 .manuscript-scroll {
-  width: var(--manuscript-frame-width);
-  height: calc(100vh - 10rem);
+  width: 100%;
+  flex: 1;
+  min-height: 0;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 1rem;
@@ -103,13 +102,14 @@ body.manuscript-page {
 }
 
 .manuscript-nav {
-  width: var(--manuscript-frame-width);
+  width: 100%;
   text-align: center;
   font-size: 0.95rem;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   align-self: center;
+  padding-top: 0.5rem;
 }
 
 .manuscript-nav a {
