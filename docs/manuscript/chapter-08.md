@@ -5,7 +5,8 @@ title: 原稿（八・書きかけ） | Hand to Hand
 
 # （八・書きかけ）
 
-<div class="manuscript-body">
+<div class="manuscript-scroll">
+<div class="manuscript-body" markdown="1">
 
 「ほんっとこの倉庫使いにくいよね、まじなんでわざわざ地下に埋めたんだよ。」
 「うん。改装して使いにくくなるの謎すぎる...」
@@ -26,5 +27,6 @@ title: 原稿（八・書きかけ） | Hand to Hand
 大したやる気のない探し物はすぐに終わり、2人は部屋を後にした。腹の空く昼休みに真っ先に倉庫へ来たのには、2人が早弁をすでに済ませ昼練を控えているからだった。
 
 </div>
+</div>
 
-[← 原稿トップへ](./../manuscript.html)
+<nav class="manuscript-nav">[← 前へ](./chapter-07.html) | [原稿トップ](./../manuscript.html)</nav>

@@ -24,7 +24,7 @@ title: Manuscript | Hand to Hand
 - [（七）](./manuscript/chapter-07.html)
 - [（八・書きかけ）](./manuscript/chapter-08.html)
 
-※ 現状は横書きレイアウトで公開し、後日縦書き表示へ調整予定。
+※ 章ページは縦書き表示 & 横スクロールで閲覧できます。必要に応じて前後の章リンクで移動してください。
 
 ## 章ごとのハイライト
 ### （一）手

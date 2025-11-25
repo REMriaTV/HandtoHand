@@ -5,7 +5,8 @@ title: 原稿（一） | Hand to Hand
 
 # （一）
 
-<div class="manuscript-body">
+<div class="manuscript-scroll">
+<div class="manuscript-body" markdown="1">
 
 好きな子と付き合えたら何したい？と聞かれて、「手を握るだけでいい」と答えたら「またまたぁ〜笑」「お前なにかっこつけてんだよ〜！」「小学生の恋愛かよっ！」などと総ツッコミを受けてたじろいでいると、教室の隅の女子グループに意中の女子・川原さんを見つけた。
 そんな下心だけで生きてるわけではない。いや、むしろ心から好きな相手だからこそ手を握るだけで十分に幸せなのだ。''異性と手を繋いだことのない歴＝年齢''である瀬田は心からそう思った。
@@ -25,5 +26,6 @@ title: 原稿（一） | Hand to Hand
 まさかの''手つなぎ童貞''が発覚した上にオチまでついて再び賑やかさを取り戻したクラスに、３時限目のチャイムが鳴った。
 
 </div>
+</div>
 
-[← 原稿トップへ](./../manuscript.html)
+<nav class="manuscript-nav">[原稿トップ](./../manuscript.html) | [次へ →](./chapter-02.html)</nav>

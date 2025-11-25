@@ -5,7 +5,8 @@ title: 原稿（二） | Hand to Hand
 
 # （ニ）
 
-<div class="manuscript-body">
+<div class="manuscript-scroll">
+<div class="manuscript-body" markdown="1">
 
 歴史の授業を受け持つクボセンの代わりに同じ社会科だが公民を担当するザキヤマが教室に現れると、やにわに白い紙を前列の生徒に配布した。
 「えー、久保先生は風邪でお休みです。なのでこの時間は自習としまーす。自習内容は好きな歴史の時代について、各自リサーチしたことをレポートにして提出してくださーい。」
@@ -21,5 +22,6 @@ title: 原稿（二） | Hand to Hand
 自習といえど無断で授業をサボるような娘じゃないんだけどな、川原さん...！トイレを通り過ぎた瀬田が階段の手前までやってきたとき、隣接する体育館に通じる渡り廊下に何かが落ちているのに気づいた。それは紛れも無く川原さんの愛用の白いハンカチだった。
 
 </div>
+</div>
 
-[← 原稿トップへ](./../manuscript.html)
+<nav class="manuscript-nav">[← 前へ](./chapter-01.html) | [原稿トップ](./../manuscript.html) | [次へ →](./chapter-03.html)</nav>

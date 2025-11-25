@@ -11,6 +11,14 @@
   margin: 2rem auto;
 }
 
+.manuscript-scroll {
+  overflow-x: auto;
+  padding: 1rem;
+  background: #fefcf7;
+  border: 1px solid #eee2cf;
+  min-height: 70vh;
+}
+
 .manuscript-body {
   writing-mode: vertical-rl;
   text-orientation: upright;
@@ -18,14 +26,25 @@
   line-height: 2;
   letter-spacing: 0.1em;
   margin: 2rem auto;
-  max-width: 90vw;
+  min-width: 40rem;
   text-align: justify;
+  white-space: pre-wrap;
 }
 
 .manuscript-body p {
-  margin: 0 0 1.5rem 0;
+  margin: 0;
+  text-indent: 1em;
 }
 
+.manuscript-body p + p {
+  margin-inline-start: 2rem;
+}
+
+.manuscript-nav {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
 .manuscript-note {
   font-size: 0.9rem;
   color: #666;
