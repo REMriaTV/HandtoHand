@@ -3,7 +3,7 @@
 @import "jekyll-theme-minimal";
 
 :root {
-  --manuscript-frame-width: min(48vw, 820px);
+  --manuscript-frame-width: min(78vw, 960px);
   --manuscript-body-height: 30rem;
 }
 
@@ -22,10 +22,10 @@ body.manuscript-page {
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  padding: 0.5rem 0 1rem;
+  padding: 1rem 0 2rem;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .manuscript-content {
@@ -33,15 +33,44 @@ body.manuscript-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.4rem;
+  position: relative;
 }
 
 .manuscript-frame {
   background: #fefcf7;
   border: 1px solid #eee2cf;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  padding: 1.25rem 1.5rem;
+  padding: 1.75rem 3.75rem 1.5rem 3.75rem;
   width: var(--manuscript-frame-width);
+  position: relative;
+  overflow: hidden;
+}
+
+.manuscript-frame::before {
+  content: '';
+  position: absolute;
+  top: 1.4rem;
+  bottom: 1.4rem;
+  left: 50%;
+  width: 3.2rem;
+  background: #fefcf7;
+  transform: translateX(-50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.manuscript-frame::after {
+  content: '';
+  position: absolute;
+  top: 1.4rem;
+  bottom: 1.4rem;
+  left: 50%;
+  width: 1px;
+  background: #e4d7c2;
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .manuscript-scroll {
@@ -52,6 +81,8 @@ body.manuscript-page {
   direction: rtl;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  position: relative;
+  z-index: 0;
 }
 
 .manuscript-scroll::-webkit-scrollbar {
@@ -66,10 +97,13 @@ body.manuscript-page {
   line-height: 2;
   letter-spacing: 0.08em;
   margin: 0 auto;
-  width: 22rem;
+  width: max-content;
+  min-width: calc(var(--manuscript-frame-width) - 7.5rem);
   height: var(--manuscript-body-height);
   text-align: justify;
   white-space: normal;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .manuscript-body p {
@@ -90,14 +124,87 @@ body.manuscript-page {
   gap: 1rem;
   margin: 0 auto;
   padding-top: 0.25rem;
+  flex-wrap: wrap;
 }
 
 .manuscript-nav a {
-  color: #5a4c3a;
+  color: #b79f84;
+  font-weight: 400;
+  letter-spacing: 0.1em;
 }
 
 .manuscript-note {
   font-size: 0.9rem;
   color: #666;
   margin-bottom: 1rem;
+}
+
+.manuscript-chapter-label {
+  position: absolute;
+  top: 1.4rem;
+  right: 0.6rem;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.3em;
+  font-size: 0.95rem;
+  color: #907659;
+  z-index: 3;
+}
+
+.manuscript-page-number {
+  font-size: 0.8rem;
+  color: #b9a890;
+  letter-spacing: 0.2em;
+  text-align: center;
+  width: var(--manuscript-frame-width);
+}
+
+.turn-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid #e2d5c6;
+  color: #a78c6f;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  z-index: 4;
+}
+
+.turn-prev {
+  left: -3.6rem;
+}
+
+.turn-next {
+  right: -3.6rem;
+}
+
+.turn-button:hover {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --manuscript-frame-width: min(92vw, 520px);
+  }
+  .turn-prev {
+    left: -2.4rem;
+  }
+  .turn-next {
+    right: -2.4rem;
+  }
+  .manuscript-frame {
+    padding: 1.35rem 1.8rem;
+  }
+  .manuscript-body {
+    min-width: calc(var(--manuscript-frame-width) - 4rem);
+    padding: 0;
+  }
 }
