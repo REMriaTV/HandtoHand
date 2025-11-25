@@ -39,6 +39,7 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 相談: Obsidian/Spreadsheet との同期が常に最新でないため、ここを一次参照位置とする。
 - 必要事項: act 4〜終章の詳細と、ハンカチ設定（所持者/意味）の固め。
 - 進捗: REMriaTV/HandtoHand リポジトリを作成し push、GitHub Pages (main / docs) を公開。`docs/_config.yml` の description を修正してビルド成功。
+- 更新: `docs/index.md` にログライン・テーマ・プロット概要・執筆メモ・お題・主要キャラ要約を追記し、ブラウザから全体像を把握できるようにした。
 
 ### 2025-11-21
 - ハンドオフ理解を整理 (README.md に記載)。
