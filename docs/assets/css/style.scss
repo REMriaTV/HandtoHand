@@ -1,0 +1,24 @@
+---
+---
+@import "jekyll-theme-minimal";
+
+.manuscript-body {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  line-height: 2;
+  letter-spacing: 0.1em;
+  margin: 2rem auto;
+  max-width: 90vw;
+  text-align: justify;
+}
+
+.manuscript-body p {
+  margin: 0 0 1.5rem 0;
+}
+
+.manuscript-note {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}

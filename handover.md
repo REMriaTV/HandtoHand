@@ -43,6 +43,7 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 構成: トップページをサマリ化し、`docs/plot.md`・`docs/characters.md`・`docs/memos.md` を新設。各ページへリンクするナビゲーションを追加。
 - 追加: 原稿の進行状況をまとめる `docs/manuscript.md` を作成し、トップページからリンク。
 - ルール: 原稿テキストは原文のまま掲載し、許可がない限り修正・削除しない（最重要事項）。
+- 表示: `docs/assets/css/style.scss` で縦書きレイアウトを追加し、章ページ(`docs/manuscript/chapter-XX.md`)を `div.manuscript-body` で包んで閲覧できる形にした。
 
 ### 2025-11-21
 - ハンドオフ理解を整理 (README.md に記載)。
