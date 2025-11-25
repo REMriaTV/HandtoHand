@@ -38,6 +38,7 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 決定: リポジトリ直下に `handover.md` を新設し、Codex との共有ログとして使う。
 - 相談: Obsidian/Spreadsheet との同期が常に最新でないため、ここを一次参照位置とする。
 - 必要事項: act 4〜終章の詳細と、ハンカチ設定（所持者/意味）の固め。
+- 進捗: REMriaTV/HandtoHand リポジトリを作成し push、GitHub Pages (main / docs) を公開。`docs/_config.yml` の description を修正してビルド成功。
 
 ### 2025-11-21
 - ハンドオフ理解を整理 (README.md に記載)。
