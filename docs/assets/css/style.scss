@@ -9,6 +9,7 @@
 .manuscript-wrapper {
   max-width: 90vw;
   margin: 2rem auto;
+  padding-bottom: 2rem;
 }
 
 .manuscript-scroll {
@@ -17,18 +18,21 @@
   background: #fefcf7;
   border: 1px solid #eee2cf;
   min-height: 70vh;
+  direction: rtl;
+  margin-bottom: 1rem;
 }
 
 .manuscript-body {
   writing-mode: vertical-rl;
   text-orientation: upright;
+  direction: ltr;
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   line-height: 2;
   letter-spacing: 0.1em;
   margin: 2rem auto;
   min-width: 40rem;
   text-align: justify;
-  white-space: pre-wrap;
+  white-space: normal;
 }
 
 .manuscript-body p {
@@ -37,13 +41,20 @@
 }
 
 .manuscript-body p + p {
-  margin-inline-start: 2rem;
+  margin-block-start: 2rem;
 }
 
 .manuscript-nav {
   margin-top: 1rem;
   text-align: center;
   font-size: 0.95rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.manuscript-nav a {
+  color: #5a4c3a;
 }
 .manuscript-note {
   font-size: 0.9rem;

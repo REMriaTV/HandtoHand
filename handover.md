@@ -44,7 +44,7 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 追加: 原稿の進行状況をまとめる `docs/manuscript.md` を作成し、トップページからリンク。
 - ルール: 原稿テキストは原文のまま掲載し、許可がない限り修正・削除しない（最重要事項）。
 - 表示: `docs/assets/css/style.scss` で縦書きレイアウトを追加し、章ページ(`docs/manuscript/chapter-XX.md`)を `div.manuscript-body` で包んで閲覧できる形にした。
-- UI: 原稿ページ専用レイアウト (`docs/_layouts/manuscript.html`) を追加し、サイトタイトル等のサイドバーを非表示にして本文へ集中できる画面にした。横スクロール＆前後章ナビを装備し、段落の改行・余白も保持。
+- UI: 原稿ページ専用レイアウト (`docs/_layouts/manuscript.html`) を追加し、サイトタイトル等のサイドバーを非表示にして本文へ集中できる画面にした。横スクロール＆前後章ナビを装備し、段落の改行・余白・冒頭表示位置も調整済み。
 
 ### 2025-11-21
 - ハンドオフ理解を整理 (README.md に記載)。
