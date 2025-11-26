@@ -17,10 +17,10 @@
           {% assign prev_href = '/manuscript.html' %}
           {% assign prev_label = '戻る' %}
         {% endif %}
-        <a class="turn-button turn-prev" href="{{ prev_href | relative_url }}" title="{{ prev_label }}" aria-label="{{ prev_label }}">&#x25C0;</a>
         {% if page.next_page %}
-          <a class="turn-button turn-next" href="{{ page.next_page | relative_url }}" title="次の章へ" aria-label="次の章へ">&#x25B6;</a>
+          <a class="turn-button turn-prev" href="{{ page.next_page | relative_url }}" title="次の章へ" aria-label="次の章へ">&#x25C0;</a>
         {% endif %}
+        <a class="turn-button turn-next" href="{{ prev_href | relative_url }}" title="{{ prev_label }}" aria-label="{{ prev_label }}">&#x25B6;</a>
         <div class="manuscript-frame">
           <div class="manuscript-scroll">
             <div class="manuscript-body">
