@@ -3,7 +3,7 @@
 @import "jekyll-theme-minimal";
 
 :root {
-  --manuscript-frame-width: min(54vw, 720px);
+  --manuscript-frame-width: min(48vw, 720px);
   --manuscript-body-height: 25rem;
   --manuscript-column-width: 1.15rem;
   --manuscript-center-gap-columns: 8;
@@ -47,7 +47,7 @@ body.manuscript-page {
   background: #fefcf7;
   border: 1px solid #eee2cf;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  padding: 6rem 6rem;
+  padding: 5rem 5rem;
   width: 100%;
   position: relative;
   overflow: hidden;
