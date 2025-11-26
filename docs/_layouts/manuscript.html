@@ -10,8 +10,17 @@
   <body class="manuscript-page">
     <main class="manuscript-wrapper">
       <div class="manuscript-content">
-        <button class="turn-button turn-prev" type="button" aria-label="次のページ">&#x25C0;</button>
-        <button class="turn-button turn-next" type="button" aria-label="前のページ">&#x25B6;</button>
+        {% if page.prev_page %}
+          {% assign prev_href = page.prev_page %}
+          {% assign prev_label = '前の章へ' %}
+        {% else %}
+          {% assign prev_href = '/manuscript.html' %}
+          {% assign prev_label = '戻る' %}
+        {% endif %}
+        <a class="turn-button turn-prev" href="{{ prev_href | relative_url }}" title="{{ prev_label }}" aria-label="{{ prev_label }}">&#x25C0;</a>
+        {% if page.next_page %}
+          <a class="turn-button turn-next" href="{{ page.next_page | relative_url }}" title="次の章へ" aria-label="次の章へ">&#x25B6;</a>
+        {% endif %}
         <div class="manuscript-frame">
           <div class="manuscript-scroll">
             <div class="manuscript-body">
@@ -24,43 +33,14 @@
             </div>
           </div>
         </div>
-        <nav class="manuscript-nav{% unless page.prev_page %} has-no-prev{% endunless %}">
-          {% if page.prev_page %}<a class="nav-prev" href="{{ page.prev_page | relative_url }}">← 前へ</a>{% endif %}
-          <a class="nav-top" href="{{ '/manuscript.html' | relative_url }}">トップ</a>
-          {% if page.next_page %}<a class="nav-next" href="{{ page.next_page | relative_url }}">次へ →</a>{% endif %}
-        </nav>
       </div>
     </main>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const scroller = document.querySelector('.manuscript-scroll');
-        const frame = document.querySelector('.manuscript-frame');
-        const prevBtn = document.querySelector('.turn-prev');
-        const nextBtn = document.querySelector('.turn-next');
 
         if (scroller) {
           scroller.scrollLeft = scroller.scrollWidth;
-        }
-
-        const scrollByPage = (direction) => {
-          if (!scroller) return;
-          const base = frame ? frame.clientWidth : scroller.clientWidth;
-          const offset = base * 0.9 * direction;
-          scroller.scrollBy({ left: offset, behavior: 'smooth' });
-        };
-
-        if (prevBtn) {
-          prevBtn.addEventListener('click', function (event) {
-            event.preventDefault();
-            scrollByPage(-1);
-          });
-        }
-
-        if (nextBtn) {
-          nextBtn.addEventListener('click', function (event) {
-            event.preventDefault();
-            scrollByPage(1);
-          });
         }
       });
     </script>
