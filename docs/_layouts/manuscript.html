@@ -24,10 +24,10 @@
             </div>
           </div>
         </div>
-        <nav class="manuscript-nav">
-          {% if page.prev_page %}<a class="nav-prev" href="{{ page.prev_page | relative_url }}">← 前へ</a>{% else %}<span></span>{% endif %}
+        <nav class="manuscript-nav{% unless page.prev_page %} has-no-prev{% endunless %}">
+          {% if page.prev_page %}<a class="nav-prev" href="{{ page.prev_page | relative_url }}">← 前へ</a>{% endif %}
           <a class="nav-top" href="{{ '/manuscript.html' | relative_url }}">トップ</a>
-          {% if page.next_page %}<a class="nav-next" href="{{ page.next_page | relative_url }}">次へ →</a>{% else %}<span></span>{% endif %}
+          {% if page.next_page %}<a class="nav-next" href="{{ page.next_page | relative_url }}">次へ →</a>{% endif %}
         </nav>
       </div>
     </main>
