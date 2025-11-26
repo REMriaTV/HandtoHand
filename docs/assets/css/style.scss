@@ -180,26 +180,32 @@ body.manuscript-page {
 }
 
 @media (max-width: 640px) {
+  html,
+  body.manuscript-page {
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
   :root {
     --manuscript-frame-width: calc(100vw - 2rem);
     --manuscript-center-gap-width: 0;
   }
 
-  body.manuscript-page {
-    overflow: auto;
-  }
-
   .manuscript-wrapper {
-    padding: 1.75rem 0 4rem;
+    padding: 1rem 0 3.5rem;
+    min-height: auto;
   }
 
   .manuscript-content {
-    width: 100%;
-    gap: 0.25rem;
+    width: calc(100% - 2rem);
+    gap: 0.5rem;
   }
 
   .manuscript-frame {
-    padding: 1.5rem 1rem;
+    order: 1;
+    width: 100%;
+    padding: 1rem;
   }
 
   .manuscript-frame::before,
@@ -209,6 +215,8 @@ body.manuscript-page {
 
   .manuscript-scroll {
     overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 70vh;
     padding: 0;
   }
 
@@ -220,18 +228,19 @@ body.manuscript-page {
   }
 
   .turn-button {
-    bottom: -2.8rem;
-    top: auto;
+    position: static;
+    order: 2;
     transform: none;
+    margin-top: 0.5rem;
     width: 2.4rem;
     height: 2.4rem;
   }
 
   .turn-prev {
-    left: 0;
+    align-self: flex-start;
   }
 
   .turn-next {
-    right: 0;
+    align-self: flex-end;
   }
 }
