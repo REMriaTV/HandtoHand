@@ -21,6 +21,21 @@
           <a class="turn-button turn-prev" href="{{ page.next_page | relative_url }}" title="次の章へ" aria-label="次の章へ">&#x25C0;</a>
         {% endif %}
         <a class="turn-button turn-next" href="{{ prev_href | relative_url }}" title="{{ prev_label }}" aria-label="{{ prev_label }}">&#x25B6;</a>
+        <div class="mobile-chapter-menu" aria-label="章を選ぶ">
+          <button class="mobile-menu-toggle" type="button" aria-haspopup="true" aria-expanded="false">章を選ぶ</button>
+          <div class="mobile-menu-panel" hidden>
+            {% assign mobile_menu = "/manuscript/hand.html|手,/manuscript/handkerchief.html|ハンカチ,/manuscript/noon.html|１２時,/manuscript/chikuwa.html|ちくわ,/manuscript/lie.html|嘘（予定）" | split: ',' %}
+            {% for entry in mobile_menu %}
+              {% assign trimmed = entry | strip %}
+              {% assign parts = trimmed | split: '|' %}
+              {% assign href = parts[0] | strip %}
+              {% assign label = parts[1] | strip %}
+              {% assign is_current = page.url == href %}
+              <a class="mobile-menu-link{% if is_current %} is-active{% endif %}" href="{{ href | relative_url }}">{{ label }}</a>
+            {% endfor %}
+            <a class="mobile-menu-link" href="{{ '/manuscript.html' | relative_url }}">戻る</a>
+          </div>
+        </div>
         <div class="manuscript-frame">
           <div class="manuscript-scroll">
             <div class="manuscript-body">
@@ -33,9 +48,28 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const scroller = document.querySelector('.manuscript-scroll');
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const menuPanel = document.querySelector('.mobile-menu-panel');
 
         if (scroller) {
           scroller.scrollLeft = scroller.scrollWidth;
+        }
+
+        if (menuToggle && menuPanel) {
+          const closeMenu = () => {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuPanel.hidden = true;
+          };
+
+          menuToggle.addEventListener('click', function () {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', (!expanded).toString());
+            menuPanel.hidden = expanded;
+          });
+
+          menuPanel.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', closeMenu);
+          });
         }
       });
     </script>
