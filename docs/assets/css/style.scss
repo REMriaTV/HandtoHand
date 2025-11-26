@@ -100,6 +100,7 @@ body.manuscript-page {
   text-orientation: upright;
   direction: ltr;
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: 0.9rem;        /* ここを追加 */
   line-height: 2;
   letter-spacing: 0.08em;
   margin: 0 auto;
@@ -175,6 +176,7 @@ body.manuscript-page {
   height: 10rem; /* 好みの高さに変更 */
   justify-content: center;
   align-items: flex-end;
+  margin-right: 1rem;
   padding: 1rem 0;
   background: linear-gradient(90deg, rgba(254, 252, 247, 0.98), rgba(254, 252, 247, 0.4));
   pointer-events: none;
