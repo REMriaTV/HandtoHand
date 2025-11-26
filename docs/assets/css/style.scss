@@ -3,12 +3,16 @@
 @import "jekyll-theme-minimal";
 
 :root {
-  --manuscript-frame-width: min(60vw, 720px);
-  --manuscript-body-height: 35rem;
-  --manuscript-column-width: 1.15rem;
-  --manuscript-center-gap-columns: 8;
-  --manuscript-center-gap-width: calc(var(--manuscript-column-width) * var(--manuscript-center-gap-columns));
-  --manuscript-outer-margin-columns: 3;
+  --manuscript-frame-width: min(48vw, 540px);
+  --manuscript-columns: 10;
+  --manuscript-column-width: 1.25rem;
+  --manuscript-body-width: calc(var(--manuscript-column-width) * var(--manuscript-columns));
+  --manuscript-characters-per-column: 32;
+  --manuscript-font-size: 1rem;
+  --manuscript-line-height: 1.35;
+  --manuscript-line-step: calc(var(--manuscript-font-size) * var(--manuscript-line-height));
+  --manuscript-body-height: calc(var(--manuscript-line-step) * var(--manuscript-characters-per-column));
+  --manuscript-outer-margin-columns: 2;
   --manuscript-outer-margin-width: calc(var(--manuscript-column-width) * var(--manuscript-outer-margin-columns));
 }
 
@@ -46,37 +50,10 @@ body.manuscript-page {
   background: #fefcf7;
   border: 1px solid #eee2cf;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  padding: 4rem 6rem;
+  padding: 3rem 3.5rem;
   width: 100%;
   position: relative;
   overflow: hidden;
-}
-
-
-.manuscript-frame::before {
-  content: '';
-  position: absolute;
-  top: 3rem;
-  bottom: 3rem;
-  left: 50%;
-  width: var(--manuscript-center-gap-width);
-  background: #fefcf7;
-  transform: translateX(-50%);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.manuscript-frame::after {
-  content: '';
-  position: absolute;
-  top: 3rem;
-  bottom: 3rem;
-  left: 50%;
-  width: 1px;
-  background: rgba(114, 114, 114, 0.2);
-  transform: translateX(-50%);
-  z-index: 0;
-  pointer-events: none;
 }
 
 .manuscript-scroll {
@@ -90,20 +67,6 @@ body.manuscript-page {
   z-index: 1;
 }
 
-.manuscript-scroll::after {
-  content: '';
-  position: absolute;
-  top: 1.5rem;
-  bottom: 1.5rem;
-  left: 50%;
-  width: var(--manuscript-center-gap-width);
-  background: #fefcf7;
-  box-shadow: inset 0 0 0 1px rgba(114, 114, 114, 0.08);
-  transform: translateX(-50%);
-  pointer-events: none;
-  z-index: 0;
-}
-
 .manuscript-scroll::-webkit-scrollbar {
   display: none;
 }
@@ -113,16 +76,16 @@ body.manuscript-page {
   text-orientation: upright;
   direction: ltr;
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
-  font-size: 1rem;        /* ここを追加 */
-  line-height: 2;
+  font-size: var(--manuscript-font-size);
+  line-height: var(--manuscript-line-height);
   letter-spacing: 0.08em;
   margin: 0 auto;
-  width: max-content;
-  min-width: calc(var(--manuscript-frame-width) - (var(--manuscript-outer-margin-width) * 4));
+  width: var(--manuscript-body-width);
+  min-width: var(--manuscript-body-width);
   height: var(--manuscript-body-height);
   text-align: justify;
   white-space: normal;
-  padding: 1rem calc(var(--manuscript-outer-margin-width) + 0.5rem) 1rem var(--manuscript-outer-margin-width);
+  padding: 0.75rem var(--manuscript-outer-margin-width) 0.75rem calc(var(--manuscript-outer-margin-width) + 0.25rem);
   box-sizing: border-box;
   position: relative;
 }
@@ -356,7 +319,7 @@ body.manuscript-page.is-mobile-menu-open {
 
 @media (max-width: 900px) {
   :root {
-    --manuscript-frame-width: min(92vw, 520px);
+    --manuscript-frame-width: min(92vw, 480px);
   }
   .turn-prev {
     left: -2.8rem;
@@ -365,11 +328,7 @@ body.manuscript-page.is-mobile-menu-open {
     right: -2.8rem;
   }
   .manuscript-frame {
-    padding: 1.3rem 1.6rem;
-  }
-  .manuscript-body {
-    min-width: calc(var(--manuscript-frame-width) - 2rem);
-    padding: 0 1rem 0 calc(var(--manuscript-column-width) * 1.5);
+    padding: 2rem 2.25rem;
   }
 }
 
@@ -387,8 +346,7 @@ body.manuscript-page.is-mobile-menu-open {
   }
 
   :root {
-    --manuscript-frame-width: calc(100vw - 2rem);
-    --manuscript-center-gap-width: 0;
+    --manuscript-frame-width: calc(100vw - 1.25rem);
   }
 
   .manuscript-wrapper {
@@ -403,12 +361,7 @@ body.manuscript-page.is-mobile-menu-open {
 
   .manuscript-frame {
     width: 100%;
-    padding: 1rem;
-  }
-
-  .manuscript-frame::before,
-  .manuscript-frame::after {
-    display: none;
+    padding: 1.25rem;
   }
 
   .manuscript-scroll {
@@ -417,15 +370,11 @@ body.manuscript-page.is-mobile-menu-open {
     padding: 0 0 0.25rem;
   }
 
-  .manuscript-scroll::after {
-    display: none;
-  }
-
   .manuscript-body {
-    min-width: 320px;
+    min-width: max(320px, var(--manuscript-body-width));
     width: max-content;
-    height: 75vh;
-    padding: 2rem 2rem;
+    height: max(75vh, var(--manuscript-body-height));
+    padding: 2.25rem 3rem;
     font-size: 0.95rem;
   }
 
