@@ -57,8 +57,8 @@ body.manuscript-page {
 .manuscript-frame::before {
   content: '';
   position: absolute;
-  top: 1.5rem;
-  bottom: 1.5rem;
+  top: 3rem;
+  bottom: 3rem;
   left: 50%;
   width: var(--manuscript-center-gap-width);
   background: #fefcf7;
@@ -70,8 +70,8 @@ body.manuscript-page {
 .manuscript-frame::after {
   content: '';
   position: absolute;
-  top: 1.5rem;
-  bottom: 1.5rem;
+  top: 3rem;
+  bottom: 3rem;
   left: 50%;
   width: 1px;
   background: #727272; /* 本文に合わせる色 */
