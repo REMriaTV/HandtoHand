@@ -21,8 +21,22 @@
           <a class="turn-button turn-prev" href="{{ page.next_page | relative_url }}" title="次の章へ" aria-label="次の章へ">&#x25C0;</a>
         {% endif %}
         <a class="turn-button turn-next" href="{{ prev_href | relative_url }}" title="{{ prev_label }}" aria-label="{{ prev_label }}">&#x25B6;</a>
+        <div class="manuscript-frame">
+          <div class="manuscript-scroll">
+            <div class="manuscript-body">
+              {{ content }}
+            </div>
+          </div>
+        </div>
         <div class="mobile-chapter-menu" aria-label="章を選ぶ">
-          <button class="mobile-menu-toggle" type="button" aria-haspopup="true" aria-expanded="false">章を選ぶ</button>
+          <button class="mobile-menu-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">章を選ぶ</span>
+            <span class="mobile-menu-icon" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
           <div class="mobile-menu-panel" hidden>
             {% assign mobile_menu = "/manuscript/hand.html|手,/manuscript/handkerchief.html|ハンカチ,/manuscript/noon.html|１２時,/manuscript/chikuwa.html|ちくわ,/manuscript/lie.html|嘘（予定）" | split: ',' %}
             {% for entry in mobile_menu %}
@@ -34,13 +48,6 @@
               <a class="mobile-menu-link{% if is_current %} is-active{% endif %}" href="{{ href | relative_url }}">{{ label }}</a>
             {% endfor %}
             <a class="mobile-menu-link" href="{{ '/manuscript.html' | relative_url }}">戻る</a>
-          </div>
-        </div>
-        <div class="manuscript-frame">
-          <div class="manuscript-scroll">
-            <div class="manuscript-body">
-              {{ content }}
-            </div>
           </div>
         </div>
       </div>
