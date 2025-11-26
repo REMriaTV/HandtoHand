@@ -3,7 +3,7 @@
 @import "jekyll-theme-minimal";
 
 :root {
-  --manuscript-frame-width: min(48vw, 720px);
+  --manuscript-frame-width: min(54vw, 720px);
   --manuscript-body-height: 28.5rem;
   --manuscript-column-width: 1.15rem;
   --manuscript-center-gap-columns: 8;
@@ -100,7 +100,7 @@ body.manuscript-page {
   text-orientation: upright;
   direction: ltr;
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
-  font-size: 0.8rem;        /* ここを追加 */
+  font-size: 0.75rem;        /* ここを追加 */
   line-height: 2;
   letter-spacing: 0.08em;
   margin: 0 auto;
