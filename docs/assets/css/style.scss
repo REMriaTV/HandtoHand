@@ -376,6 +376,8 @@ body.manuscript-page.is-mobile-menu-open {
 @media (max-width: 640px) {
   html,
   body.manuscript-page {
+    .manuscript-body { font-
+  size: 0.95rem; }
     height: auto;
     min-height: 100vh;
     overflow-x: hidden;
@@ -425,7 +427,7 @@ body.manuscript-page.is-mobile-menu-open {
     min-width: 320px;
     width: max-content;
     height: 75vh;
-    padding: 2rem;
+    padding: 2rem 2rem;
   }
 
   .turn-button {
