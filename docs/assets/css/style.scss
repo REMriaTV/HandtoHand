@@ -74,7 +74,7 @@ body.manuscript-page {
   bottom: 1.2rem;
   left: 50%;
   width: 1px;
-  background: #000; /* 本文に合わせる色 */
+  background: ##333333; /* 本文に合わせる色 */
   transform: translateX(-50%);
   z-index: 2;
   pointer-events: none;
@@ -135,7 +135,7 @@ body.manuscript-page {
 }
 
 .manuscript-nav a {
-  background: #000; /* 本文に合わせる色 */
+  background: #b79f84;
   font-weight: 400;
   letter-spacing: 0.1em;
   text-decoration: none;
@@ -144,16 +144,19 @@ body.manuscript-page {
 .manuscript-nav .nav-prev {
   grid-column: 1;
   text-align: left;
+  color: #333333;
 }
 
 .manuscript-nav .nav-top {
   grid-column: 2;
   text-align: center;
+  color: #333333;
 }
 
 .manuscript-nav .nav-next {
   grid-column: 3;
   text-align: right;
+  color: #333333;
 }
 
 .manuscript-nav.has-no-prev .nav-top {
@@ -168,26 +171,27 @@ body.manuscript-page {
   margin-bottom: 1rem;
 }
 
+ .manuscript-intro {
+    display: inline-flex;
+    flex-direction: column;
+    width: var(--manuscript-intro-width);
+    height: 10rem;          /* 高さは固定のままでOK */
+    justify-content: center;
+    align-items: flex-start;    /* 上揃えに変更。 */
+    margin-right: 1rem;
+    padding: 1rem 0;
+    background: linear-gradient(90deg, rgba(254, 252, 247, 0.98), rgba(254, 252, 247, 0.4));
+    pointer-events: none;
+  }
 
-.manuscript-intro {
-  display: inline-flex;
-  flex-direction: column;
-  width: var(--manuscript-intro-width);
-  height: 10rem; /* 好みの高さに変更 */
-  justify-content: center;
-  align-items: flex-end;
-  margin-right: 1rem;
-  padding: 1rem 0;
-  background: linear-gradient(90deg, rgba(254, 252, 247, 0.98), rgba(254, 252, 247, 0.4));
-  pointer-events: none;
-}
+
 
 .manuscript-intro-title {
   writing-mode: vertical-rl;
   text-orientation: upright;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   letter-spacing: 0.5em;
-  color: #000; /* 本文と同じ色に合わせる */
+  color: #333333; /* 本文と同じ色に合わせる */
 }
 
 .turn-button {
