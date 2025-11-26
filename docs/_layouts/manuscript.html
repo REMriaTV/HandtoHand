@@ -29,15 +29,17 @@
           </div>
         </div>
         <div class="mobile-chapter-menu" aria-label="章を選ぶ">
-          <button class="mobile-menu-toggle" type="button" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">章を選ぶ</span>
+          <button class="mobile-menu-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-menu-panel">
+            <span id="mobile-menu-label" class="sr-only">章を選ぶ</span>
             <span class="mobile-menu-icon" aria-hidden="true">
               <span></span>
               <span></span>
               <span></span>
             </span>
           </button>
-          <div class="mobile-menu-panel" hidden>
+          <div class="mobile-menu-backdrop" hidden aria-hidden="true"></div>
+          <div class="mobile-menu-panel" id="mobile-menu-panel" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-label" hidden>
+            <button class="mobile-menu-close" type="button" aria-label="閉じる">&times;</button>
             {% assign mobile_menu = "/manuscript/hand.html|手,/manuscript/handkerchief.html|ハンカチ,/manuscript/noon.html|１２時,/manuscript/chikuwa.html|ちくわ,/manuscript/lie.html|嘘（予定）" | split: ',' %}
             {% for entry in mobile_menu %}
               {% assign trimmed = entry | strip %}
@@ -57,25 +59,110 @@
         const scroller = document.querySelector('.manuscript-scroll');
         const menuToggle = document.querySelector('.mobile-menu-toggle');
         const menuPanel = document.querySelector('.mobile-menu-panel');
+        const menuBackdrop = document.querySelector('.mobile-menu-backdrop');
+        const body = document.body;
 
         if (scroller) {
           scroller.scrollLeft = scroller.scrollWidth;
         }
 
-        if (menuToggle && menuPanel) {
+        if (menuToggle && menuPanel && menuBackdrop) {
+          const closeButton = menuPanel.querySelector('.mobile-menu-close');
+          const getMenuLinks = () => menuPanel.querySelectorAll('a');
+          const firstMenuLink = menuPanel.querySelector('.mobile-menu-link');
+
+          let hideTimer = null;
+          menuPanel.setAttribute('aria-hidden', 'true');
+          menuBackdrop.setAttribute('aria-hidden', 'true');
+
+          const revealMenu = () => {
+            if (hideTimer) {
+              window.clearTimeout(hideTimer);
+            }
+            if (menuPanel.hidden) {
+              menuPanel.hidden = false;
+              menuBackdrop.hidden = false;
+              menuPanel.getBoundingClientRect();
+            }
+          };
+
+          const openMenu = () => {
+            revealMenu();
+            menuToggle.setAttribute('aria-expanded', 'true');
+            menuToggle.classList.add('is-open');
+            menuPanel.setAttribute('aria-hidden', 'false');
+            menuBackdrop.setAttribute('aria-hidden', 'false');
+            body.classList.add('is-mobile-menu-open');
+            requestAnimationFrame(() => {
+              menuPanel.classList.add('is-visible');
+              menuBackdrop.classList.add('is-visible');
+            });
+            if (firstMenuLink) {
+              firstMenuLink.focus({ preventScroll: true });
+            }
+          };
+
           const closeMenu = () => {
             menuToggle.setAttribute('aria-expanded', 'false');
-            menuPanel.hidden = true;
+            menuToggle.classList.remove('is-open');
+            menuPanel.classList.remove('is-visible');
+            menuPanel.setAttribute('aria-hidden', 'true');
+            menuBackdrop.classList.remove('is-visible');
+            menuBackdrop.setAttribute('aria-hidden', 'true');
+            body.classList.remove('is-mobile-menu-open');
+            hideTimer = window.setTimeout(() => {
+              menuPanel.hidden = true;
+              menuBackdrop.hidden = true;
+            }, 320);
+            menuToggle.focus({ preventScroll: true });
           };
 
           menuToggle.addEventListener('click', function () {
             const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', (!expanded).toString());
-            menuPanel.hidden = expanded;
+            if (expanded) {
+              closeMenu();
+            } else {
+              openMenu();
+            }
           });
 
-          menuPanel.querySelectorAll('a').forEach(function (link) {
+          if (closeButton) {
+            closeButton.addEventListener('click', closeMenu);
+          }
+
+          menuBackdrop.addEventListener('click', closeMenu);
+
+          getMenuLinks().forEach(function (link) {
             link.addEventListener('click', closeMenu);
+          });
+
+          document.addEventListener('keydown', function (event) {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            if (!expanded) {
+              return;
+            }
+
+            if (event.key === 'Escape') {
+              event.preventDefault();
+              closeMenu();
+            }
+
+            if (event.key === 'Tab') {
+              const focusable = menuPanel.querySelectorAll('button:not([disabled]), a[href]');
+              if (!focusable.length) {
+                return;
+              }
+
+              const first = focusable[0];
+              const last = focusable[focusable.length - 1];
+              if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+              } else if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+              }
+            }
           });
         }
       });

@@ -159,26 +159,32 @@ body.manuscript-page {
   align-items: center;
   flex-direction: column;
   gap: 0.5rem;
+  position: relative;
+  z-index: 90;
 }
 
 .mobile-menu-toggle {
   width: 3rem;
   height: 3rem;
   border-radius: 999px;
-  border: 1px solid rgba(231, 214, 196, 0.9);
-  background: rgba(255, 255, 255, 0.75);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  background: linear-gradient(145deg, #1f1f1f, #0e0e0e);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
 }
 
 .mobile-menu-toggle:focus-visible,
 .mobile-menu-toggle:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   transform: translateY(-1px);
+}
+
+.mobile-menu-toggle.is-open {
+  background: linear-gradient(145deg, #2f2f2f, #0e0e0e);
 }
 
 .mobile-menu-icon {
@@ -190,26 +196,109 @@ body.manuscript-page {
 
 .mobile-menu-icon span {
   display: block;
-  height: 2px;
-  border-radius: 1px;
-  background: #6b5a45;
+  height: 0.18rem;
+  border-radius: 999px;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-icon span:nth-child(1) {
+  width: 1.1rem;
+  transform: translateX(0.2rem);
+}
+
+.mobile-menu-icon span:nth-child(2) {
+  width: 0.9rem;
+  transform: translateX(0.05rem);
+}
+
+.mobile-menu-icon span:nth-child(3) {
+  width: 0.7rem;
+  transform: translateX(-0.15rem);
+}
+
+
+.mobile-menu-toggle.is-open .mobile-menu-icon span:nth-child(1) {
+  transform: translateY(0.35rem) rotate(45deg);
+  width: 1.15rem;
+}
+
+.mobile-menu-toggle.is-open .mobile-menu-icon span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0.25);
+}
+
+.mobile-menu-toggle.is-open .mobile-menu-icon span:nth-child(3) {
+  transform: translateY(-0.35rem) rotate(-45deg);
+  width: 1.15rem;
+}
+
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 8, 4, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 80;
+}
+
+.mobile-menu-backdrop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .mobile-menu-panel {
-  width: 100%;
-  margin-top: 0.25rem;
-  padding: 0.65rem 0.75rem;
-  border: 1px solid #e3d5c4;
-  border-radius: 0.85rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(82vw, 320px);
+  max-width: 360px;
+  padding: 3.75rem 1.25rem 2rem;
+  border-left: 1px solid #e3d5c4;
   background: #fffbf6;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  gap: 0.35rem;
+  box-shadow: -18px 0 30px rgba(0, 0, 0, 0.18);
+  transform: translateX(100%);
+  transition: transform 0.32s ease;
+  overflow-y: auto;
+  z-index: 90;
+}
+
+.mobile-menu-panel.is-visible {
+  transform: translateX(0);
 }
 
 .mobile-menu-panel[hidden] {
   display: none;
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: 1.3rem;
+  right: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.85);
+  color: #5b4630;
+  font-size: 1.25rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobile-menu-close:hover,
+.mobile-menu-close:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .mobile-menu-link {
@@ -226,6 +315,10 @@ body.manuscript-page {
   font-weight: 600;
   color: #b07d4f;
   background: rgba(176, 125, 79, 0.08);
+}
+
+body.manuscript-page.is-mobile-menu-open {
+  overflow: hidden;
 }
 
 .turn-button {
@@ -289,6 +382,10 @@ body.manuscript-page {
     overflow-y: auto;
   }
 
+  body.manuscript-page.is-mobile-menu-open {
+    overflow: hidden;
+  }
+
   :root {
     --manuscript-frame-width: calc(100vw - 2rem);
     --manuscript-center-gap-width: 0;
@@ -337,5 +434,10 @@ body.manuscript-page {
 
   .mobile-chapter-menu {
     display: flex;
+    width: auto;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.25rem;
+    gap: 0;
   }
 }
