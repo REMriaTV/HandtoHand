@@ -423,7 +423,7 @@ body.manuscript-page.is-mobile-menu-open {
 
   .manuscript-body {
     min-width: 320px;
-    width: 320px;
+    width: max-content;
     height: 75vh;
     padding: 0;
   }
