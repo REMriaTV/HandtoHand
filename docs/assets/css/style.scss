@@ -6,9 +6,8 @@
   --manuscript-frame-width: min(54vw, 720px);
   --manuscript-body-height: 30rem;
   --manuscript-column-width: 1.15rem;
-  --manuscript-intro-columns: 6;
   --manuscript-center-gap-columns: 4;
-  --manuscript-intro-width: calc(var(--manuscript-column-width) * var(--manuscript-intro-columns));
+  --manuscript-intro-width: 9rem;
   --manuscript-center-gap-width: calc(var(--manuscript-column-width) * var(--manuscript-center-gap-columns));
   --manuscript-outer-margin-columns: 2;
   --manuscript-outer-margin-width: calc(var(--manuscript-column-width) * var(--manuscript-outer-margin-columns));
@@ -29,7 +28,7 @@ body.manuscript-page {
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  padding: 2.75rem 0 1.75rem;
+  padding: 1.5rem 0 1.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -193,18 +192,18 @@ body.manuscript-page {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid #e2d5c6;
-  color: #a78c6f;
-  width: 2.25rem;
-  height: 2.25rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(231, 214, 196, 0.8);
+  color: #b9a17f;
+  width: 1.85rem;
+  height: 1.85rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  font-size: 1.2rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   z-index: 4;
   border: none;
   cursor: pointer;
@@ -219,13 +218,13 @@ body.manuscript-page {
 }
 
 .turn-button:hover {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.85);
 }
 
 @media (max-width: 900px) {
   :root {
     --manuscript-frame-width: min(92vw, 520px);
-    --manuscript-intro-width: calc(var(--manuscript-column-width) * 4.5);
+    --manuscript-intro-width: 6rem;
   }
   .turn-prev {
     left: -2.8rem;
