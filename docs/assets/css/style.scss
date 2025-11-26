@@ -424,7 +424,7 @@ body.manuscript-page.is-mobile-menu-open {
   .manuscript-body {
     min-width: calc(var(--manuscript-frame-width) - (var(--manuscript-outer-margin-width) * 2));
     width: max-content;
-    height: auto;
+    height: 75vh;
     padding: 0;
   }
 
