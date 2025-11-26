@@ -104,7 +104,7 @@ body.manuscript-page {
   letter-spacing: 0.08em;
   margin: 0 auto;
   width: max-content;
-  min-width: calc(var(--manuscript-frame-width) - (var(--manuscript-outer-margin-width) * 2));
+  min-width: calc(var(--manuscript-frame-width) - (var(--manuscript-outer-margin-width) * 4));
   height: var(--manuscript-body-height);
   text-align: justify;
   white-space: normal;
