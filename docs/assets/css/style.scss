@@ -179,8 +179,8 @@ body.manuscript-page {
     justify-content: center;
     align-items: flex-start;    /* 上揃えに変更。 */
     margin-right: 0.1rem;  /* ← 右端との距離を変えたいときに調整 */
-    margin-left: 1rem; /* ← 左側にも余白を加えたいなら追加 */
-    padding: 2rem 0;     /* ← ブロック内で上下の余白を増やす */
+    margin-left: 3rem; /* ← 左側にも余白を加えたいなら追加 */
+    padding: 4rem 0;     /* ← ブロック内で上下の余白を増やす */
     background: linear-gradient(90deg, rgba(254, 252, 247, 0.98), rgba(254, 252, 247, 0.4));
     pointer-events: none;
   }
