@@ -7,7 +7,7 @@
   --manuscript-body-height: 28.5rem;
   --manuscript-column-width: 1.15rem;
   --manuscript-center-gap-columns: 8;
-  --manuscript-intro-width: 4.5rem;
+  --manuscript-intro-width: 2rem;
   --manuscript-center-gap-width: calc(var(--manuscript-column-width) * var(--manuscript-center-gap-columns));
   --manuscript-outer-margin-columns: 3;
   --manuscript-outer-margin-width: calc(var(--manuscript-column-width) * var(--manuscript-outer-margin-columns));
@@ -178,7 +178,7 @@ body.manuscript-page {
     height: 18rem;          /* 高さは固定のままでOK */
     justify-content: center;
     align-items: flex-start;    /* 上揃えに変更。 */
-    margin-right: 0.1rem;  /* ← 右端との距離を変えたいときに調整 */
+    margin-right: 0.5rem;  /* ← 右端との距離を変えたいときに調整 */
     margin-left: 3rem; /* ← 左側にも余白を加えたいなら追加 */
     padding: 4rem 0;     /* ← ブロック内で上下の余白を増やす */
     background: linear-gradient(90deg, rgba(254, 252, 247, 0.98), rgba(254, 252, 247, 0.4));
