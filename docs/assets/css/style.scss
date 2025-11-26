@@ -10,6 +10,8 @@
   --manuscript-center-gap-columns: 4;
   --manuscript-intro-width: calc(var(--manuscript-column-width) * var(--manuscript-intro-columns));
   --manuscript-center-gap-width: calc(var(--manuscript-column-width) * var(--manuscript-center-gap-columns));
+  --manuscript-outer-margin-columns: 2;
+  --manuscript-outer-margin-width: calc(var(--manuscript-column-width) * var(--manuscript-outer-margin-columns));
 }
 
 html,
@@ -27,7 +29,7 @@ body.manuscript-page {
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  padding: 2rem 0 2.5rem;
+  padding: 2.75rem 0 1.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,11 +48,12 @@ body.manuscript-page {
   background: #fefcf7;
   border: 1px solid #eee2cf;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  padding: 1.65rem 2.5rem 1.4rem 2.5rem;
+  padding: 1.65rem 2.5rem;
   width: 100%;
   position: relative;
   overflow: hidden;
 }
+
 
 .manuscript-frame::before {
   content: '';
@@ -102,11 +105,11 @@ body.manuscript-page {
   letter-spacing: 0.08em;
   margin: 0 auto;
   width: max-content;
-  min-width: calc(var(--manuscript-frame-width) - 2rem);
+  min-width: calc(var(--manuscript-frame-width) - (var(--manuscript-outer-margin-width) * 2));
   height: var(--manuscript-body-height);
   text-align: justify;
   white-space: normal;
-  padding: 0 1.5rem 0 calc(var(--manuscript-column-width) * 2);
+  padding: 1rem calc(var(--manuscript-outer-margin-width) + 0.5rem) 1rem calc(var(--manuscript-outer-margin-width));
   box-sizing: border-box;
   position: relative;
 }
@@ -168,10 +171,12 @@ body.manuscript-page {
 
 .manuscript-intro {
   display: inline-flex;
+  flex-direction: column;
   width: var(--manuscript-intro-width);
   height: var(--manuscript-body-height);
   justify-content: center;
-  padding-top: 3em;
+  align-items: center;
+  padding: 1rem 0;
   background: linear-gradient(90deg, rgba(254, 252, 247, 0.98), rgba(254, 252, 247, 0.4));
   pointer-events: none;
 }
@@ -206,11 +211,11 @@ body.manuscript-page {
 }
 
 .turn-prev {
-  left: -4.25rem;
+  left: -4.5rem;
 }
 
 .turn-next {
-  right: -4.25rem;
+  right: -4.5rem;
 }
 
 .turn-button:hover {

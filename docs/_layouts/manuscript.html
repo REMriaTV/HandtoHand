@@ -10,8 +10,8 @@
   <body class="manuscript-page">
     <main class="manuscript-wrapper">
       <div class="manuscript-content">
-        <button class="turn-button turn-prev" type="button" aria-label="前のページ">&#x25C0;</button>
-        <button class="turn-button turn-next" type="button" aria-label="次のページ">&#x25B6;</button>
+        <button class="turn-button turn-prev" type="button" aria-label="次のページ">&#x25C0;</button>
+        <button class="turn-button turn-next" type="button" aria-label="前のページ">&#x25B6;</button>
         <div class="manuscript-frame">
           <div class="manuscript-scroll">
             <div class="manuscript-body">
@@ -52,14 +52,14 @@
         if (prevBtn) {
           prevBtn.addEventListener('click', function (event) {
             event.preventDefault();
-            scrollByPage(1);
+            scrollByPage(-1);
           });
         }
 
         if (nextBtn) {
           nextBtn.addEventListener('click', function (event) {
             event.preventDefault();
-            scrollByPage(-1);
+            scrollByPage(1);
           });
         }
       });
