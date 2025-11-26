@@ -18,15 +18,25 @@ body.manuscript-page {
 
 .manuscript-entry {
   width: 100%;
-  max-width: 760px;
+  max-width: 540px;
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif;
-  font-size: 1.05rem;
-  line-height: 1.85;
-  letter-spacing: 0.05em;
+  font-size: 1rem;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  direction: ltr;
+  margin: 0 auto;
+  min-height: 60vh;
 }
 
 .manuscript-entry p {
-  margin: 0 0 1.5rem;
+  margin: 0;
+  text-indent: 1em;
+}
+
+.manuscript-entry p + p {
+  margin-block-start: 2rem;
 }
 
 @media (max-width: 640px) {
@@ -35,7 +45,7 @@ body.manuscript-page {
   }
 
   .manuscript-entry {
-    font-size: 1rem;
-    line-height: 1.75;
+    font-size: 0.95rem;
+    line-height: 1.9;
   }
 }
