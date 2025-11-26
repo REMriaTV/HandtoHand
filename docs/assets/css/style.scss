@@ -3,17 +3,16 @@
 @import "jekyll-theme-minimal";
 
 :root {
-  --manuscript-frame-width: min(48vw, 540px);
-  --manuscript-columns: 10;
-  --manuscript-column-width: 1.25rem;
-  --manuscript-body-width: calc(var(--manuscript-column-width) * var(--manuscript-columns));
+  --manuscript-frame-width: min(46vw, 520px);
+  --manuscript-column-count: 10;
+  --manuscript-column-width: 1.18rem;
+  --manuscript-body-width: calc(var(--manuscript-column-count) * var(--manuscript-column-width));
   --manuscript-characters-per-column: 32;
   --manuscript-font-size: 1rem;
-  --manuscript-line-height: 1.35;
-  --manuscript-line-step: calc(var(--manuscript-font-size) * var(--manuscript-line-height));
-  --manuscript-body-height: calc(var(--manuscript-line-step) * var(--manuscript-characters-per-column));
-  --manuscript-outer-margin-columns: 2;
-  --manuscript-outer-margin-width: calc(var(--manuscript-column-width) * var(--manuscript-outer-margin-columns));
+  --manuscript-line-height: 1.9;
+  --manuscript-body-height: calc(var(--manuscript-font-size) * var(--manuscript-line-height) * var(--manuscript-characters-per-column));
+  --manuscript-body-padding-inline: 1.6rem;
+  --manuscript-body-padding-block: 0.75rem;
 }
 
 html,
@@ -50,7 +49,7 @@ body.manuscript-page {
   background: #fefcf7;
   border: 1px solid #eee2cf;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  padding: 3rem 3.5rem;
+  padding: 2.75rem 3rem;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -85,7 +84,7 @@ body.manuscript-page {
   height: var(--manuscript-body-height);
   text-align: justify;
   white-space: normal;
-  padding: 0.75rem var(--manuscript-outer-margin-width) 0.75rem calc(var(--manuscript-outer-margin-width) + 0.25rem);
+  padding: var(--manuscript-body-padding-block) var(--manuscript-body-padding-inline);
   box-sizing: border-box;
   position: relative;
 }
@@ -347,6 +346,8 @@ body.manuscript-page.is-mobile-menu-open {
 
   :root {
     --manuscript-frame-width: calc(100vw - 1.25rem);
+    --manuscript-body-padding-inline: clamp(2.4rem, 10vw, 3.6rem);
+    --manuscript-body-padding-block: 1.4rem;
   }
 
   .manuscript-wrapper {
@@ -361,7 +362,7 @@ body.manuscript-page.is-mobile-menu-open {
 
   .manuscript-frame {
     width: 100%;
-    padding: 1.25rem;
+    padding: 1.35rem;
   }
 
   .manuscript-scroll {
@@ -373,8 +374,9 @@ body.manuscript-page.is-mobile-menu-open {
   .manuscript-body {
     min-width: max(320px, var(--manuscript-body-width));
     width: max-content;
-    height: max(75vh, var(--manuscript-body-height));
-    padding: 2.25rem 3rem;
+    height: auto;
+    min-height: var(--manuscript-body-height);
+    padding: var(--manuscript-body-padding-block) var(--manuscript-body-padding-inline);
     font-size: 0.95rem;
   }
 
