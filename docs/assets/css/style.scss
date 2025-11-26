@@ -62,7 +62,7 @@ body.manuscript-page {
   width: var(--manuscript-center-gap-width);
   background: #fefcf7;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -75,7 +75,7 @@ body.manuscript-page {
   width: 1px;
   background: rgba(114, 114, 114, 0.2);
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -87,7 +87,7 @@ body.manuscript-page {
   scrollbar-width: none;
   -ms-overflow-style: none;
   position: relative;
-  z-index: 0;
+  z-index: 1;
 }
 
 .manuscript-scroll::after {
@@ -101,7 +101,7 @@ body.manuscript-page {
   box-shadow: inset 0 0 0 1px rgba(114, 114, 114, 0.08);
   transform: translateX(-50%);
   pointer-events: none;
-  z-index: 5;
+  z-index: 0;
 }
 
 .manuscript-scroll::-webkit-scrollbar {
