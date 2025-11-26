@@ -147,21 +147,25 @@ body.manuscript-page {
 .manuscript-nav .nav-prev {
   grid-column: 1;
   text-align: left;
+  text-indent: 5rem;
 }
 
 .manuscript-nav .nav-top {
   grid-column: 2;
   text-align: center;
+  text-indent: 5rem;
 }
 
 .manuscript-nav .nav-next {
   grid-column: 3;
   text-align: right;
+  text-indent: 5rem;
 }
 
 .manuscript-nav.has-no-prev .nav-top {
   grid-column: 1;
   text-align: left;
+  text-indent: 5rem;
 }
 
 
@@ -190,7 +194,7 @@ body.manuscript-page {
 .manuscript-intro-title {
   writing-mode: vertical-rl;
   text-orientation: upright;
-  font-size: 0.85rem;
+  font-size: 0.72rem;
   letter-spacing: 0.5em;
   color: #727272; /* 本文と同じ色に合わせる */
 }
