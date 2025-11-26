@@ -7,7 +7,6 @@
   --manuscript-body-height: 35rem;
   --manuscript-column-width: 1.15rem;
   --manuscript-center-gap-columns: 8;
-  --manuscript-intro-width: 0.1rem;
   --manuscript-center-gap-width: calc(var(--manuscript-column-width) * var(--manuscript-center-gap-columns));
   --manuscript-outer-margin-columns: 3;
   --manuscript-outer-margin-width: calc(var(--manuscript-column-width) * var(--manuscript-outer-margin-columns));
@@ -123,82 +122,11 @@ body.manuscript-page {
   margin-block-start: 2rem;
 }
 
-.manuscript-nav {
-  width: 100%;
-  font-size: 0.95rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-  margin: 0 auto;
-  padding: 0.25rem 5rem 0;
-  align-items: center;
-}
-
-.manuscript-nav a {
-  color: #9a9a9a;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-}
-
-.manuscript-nav .nav-prev {
-  grid-column: 1;
-  text-align: left;
-  text-indent: 5rem;
-}
-
-.manuscript-nav .nav-top {
-  grid-column: 2;
-  text-align: center;
-  text-indent: 5rem;
-}
-
-.manuscript-nav .nav-next {
-  grid-column: 3;
-  text-align: right;
-  text-indent: 5rem;
-}
-
-.manuscript-nav.has-no-prev .nav-top {
-  grid-column: 1;
-  text-align: left;
-  text-indent: 5rem;
-}
-
-
 .manuscript-note {
   font-size: 0.9rem;
   color: #727272;
   margin-bottom: 1rem;
 }
-
-.manuscript-intro {
-    display: inline-flex;
-    flex-direction: column;
-    width: var(--manuscript-intro-width);
-    height: 10rem;
-    justify-content: center;
-    align-items: flex-end;
-    margin-left: 3rem;
-    margin-right: 0.5rem;
-    padding: 4rem 0;
-    background: linear-gradient(90deg, rgba(254, 252, 247, 0.98), rgba(254, 252, 247, 0.4));
-    pointer-events: none;
-  }
-
-  .manuscript-intro-title {
-    margin-right: 0.5rem;
-  }
-
-
-.manuscript-intro-title {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  font-size: 1.1rem;
-  letter-spacing: 0.5em;
-  color: #727272; /* 本文と同じ色に合わせる */
-}
-
 .turn-button {
   position: absolute;
   top: 50%;
@@ -235,7 +163,6 @@ body.manuscript-page {
 @media (max-width: 900px) {
   :root {
     --manuscript-frame-width: min(92vw, 520px);
-    --manuscript-intro-width: 6rem;
   }
   .turn-prev {
     left: -2.8rem;
@@ -250,8 +177,61 @@ body.manuscript-page {
     min-width: calc(var(--manuscript-frame-width) - 2rem);
     padding: 0 1rem 0 calc(var(--manuscript-column-width) * 1.5);
   }
-  .manuscript-intro {
-    width: calc(var(--manuscript-column-width) * 3);
-    padding-top: 4.5em;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --manuscript-frame-width: calc(100vw - 2rem);
+    --manuscript-center-gap-width: 0;
+  }
+
+  body.manuscript-page {
+    overflow: auto;
+  }
+
+  .manuscript-wrapper {
+    padding: 1.75rem 0 4rem;
+  }
+
+  .manuscript-content {
+    width: 100%;
+    gap: 0.25rem;
+  }
+
+  .manuscript-frame {
+    padding: 1.5rem 1rem;
+  }
+
+  .manuscript-frame::before,
+  .manuscript-frame::after {
+    display: none;
+  }
+
+  .manuscript-scroll {
+    overflow-x: hidden;
+    padding: 0;
+  }
+
+  .manuscript-body {
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+
+  .turn-button {
+    bottom: -2.8rem;
+    top: auto;
+    transform: none;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .turn-prev {
+    left: 0;
+  }
+
+  .turn-next {
+    right: 0;
   }
 }
