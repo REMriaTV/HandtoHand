@@ -74,7 +74,7 @@ body.manuscript-page {
   bottom: 3rem;
   left: 50%;
   width: 1px;
-  background: rgba(114,114,114,0.6); /* 本文に合わせる色 */
+  background: rgba(114,114,114,0.2); /* 本文に合わせる色 */
   transform: translateX(-50%);
   z-index: 2;
   pointer-events: none;
