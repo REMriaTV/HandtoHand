@@ -175,19 +175,25 @@ body.manuscript-page {
   margin-bottom: 1rem;
 }
 
- .manuscript-intro {
+  .manuscript-intro {
     display: inline-flex;
     flex-direction: column;
     width: var(--manuscript-intro-width);
-    height: 18rem;          /* 高さは固定のままでOK */
-    justify-content: center;
-    align-items: flex-start;    /* 上揃えに変更。 */
-    margin-right: 0.5rem;  /* ← 右端との距離を変えたいときに調整 */
-    margin-left: 3rem; /* ← 左側にも余白を加えたいなら追加 */
-    padding: 4rem 0;     /* ← ブロック内で上下の余白を増やす */
+    height: 18rem;
+    justify-content: center;     /* 高さはそのまま */
+    align-items: flex-start;     /* 上揃え */
+    margin-left: 3rem;
+    margin-right: 0.5rem;
+    padding: 4rem 0;
     background: linear-gradient(90deg, rgba(254, 252, 247, 0.98), rgba(254, 252, 247, 0.4));
     pointer-events: none;
   }
+
+  .manuscript-intro-title {
+    align-self: flex-end;        /* 章題だけ右寄せ */
+    margin-right: 0.5rem;        /* 右端との距離を微調整 */
+  }
+
 
 
 
