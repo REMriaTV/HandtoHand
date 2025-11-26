@@ -175,13 +175,13 @@ body.manuscript-page {
   margin-bottom: 1rem;
 }
 
-  .manuscript-intro {
+.manuscript-intro {
     display: inline-flex;
     flex-direction: column;
     width: var(--manuscript-intro-width);
     height: 10rem;
-    justify-content: center;     /* 高さはそのまま */
-    align-items: flex-start;     /* 上揃え */
+    justify-content: center;
+    align-items: flex-end;
     margin-left: 3rem;
     margin-right: 0.5rem;
     padding: 4rem 0;
@@ -190,11 +190,8 @@ body.manuscript-page {
   }
 
   .manuscript-intro-title {
-    align-self: flex-end;        /* 章題だけ右寄せ */
-    margin-right: 0.5rem;        /* 右端との距離を微調整 */
+    margin-right: 0.5rem;
   }
-
-
 
 
 .manuscript-intro-title {
