@@ -10,37 +10,57 @@
   <body class="manuscript-page">
     <main class="manuscript-wrapper">
       <div class="manuscript-content">
-        {% if page.prev_page %}
-          <a class="turn-button turn-prev" href="{{ page.prev_page | relative_url }}" aria-label="前の見開き">&#x25C0;</a>
-        {% endif %}
-        {% if page.next_page %}
-          <a class="turn-button turn-next" href="{{ page.next_page | relative_url }}" aria-label="次の見開き">&#x25B6;</a>
-        {% endif %}
+        <button class="turn-button turn-prev" type="button" aria-label="前のページ">&#x25C0;</button>
+        <button class="turn-button turn-next" type="button" aria-label="次のページ">&#x25B6;</button>
         <div class="manuscript-frame">
-          {% if page.section_title %}
-            <div class="manuscript-chapter-label">{{ page.section_title }}</div>
-          {% endif %}
           <div class="manuscript-scroll">
             <div class="manuscript-body">
+              {% if page.section_title %}
+                <div class="manuscript-intro" aria-hidden="true">
+                  <div class="manuscript-intro-title">{{ page.section_title }}</div>
+                </div>
+              {% endif %}
               {{ content }}
             </div>
           </div>
         </div>
-        {% if page.page_number %}
-          <div class="manuscript-page-number">p.{{ page.page_number }}</div>
-        {% endif %}
         <nav class="manuscript-nav">
-          <a href="{{ '/manuscript.html' | relative_url }}">原稿トップ</a>
-          {% if page.prev_page %}<a href="{{ page.prev_page | relative_url }}">← 前へ</a>{% endif %}
-          {% if page.next_page %}<a href="{{ page.next_page | relative_url }}">次へ →</a>{% endif %}
+          {% if page.prev_page %}<a class="nav-prev" href="{{ page.prev_page | relative_url }}">← 前へ</a>{% else %}<span></span>{% endif %}
+          <a class="nav-top" href="{{ '/manuscript.html' | relative_url }}">トップ</a>
+          {% if page.next_page %}<a class="nav-next" href="{{ page.next_page | relative_url }}">次へ →</a>{% else %}<span></span>{% endif %}
         </nav>
       </div>
     </main>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const scroller = document.querySelector('.manuscript-scroll');
+        const frame = document.querySelector('.manuscript-frame');
+        const prevBtn = document.querySelector('.turn-prev');
+        const nextBtn = document.querySelector('.turn-next');
+
         if (scroller) {
           scroller.scrollLeft = scroller.scrollWidth;
+        }
+
+        const scrollByPage = (direction) => {
+          if (!scroller) return;
+          const base = frame ? frame.clientWidth : scroller.clientWidth;
+          const offset = base * 0.9 * direction;
+          scroller.scrollBy({ left: offset, behavior: 'smooth' });
+        };
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            scrollByPage(1);
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            scrollByPage(-1);
+          });
         }
       });
     </script>
