@@ -7,7 +7,7 @@
   --manuscript-body-height: 30rem;
   --manuscript-column-width: 1.15rem;
   --manuscript-center-gap-columns: 4;
-  --manuscript-intro-width: 9rem;
+  --manuscript-intro-width: 4.5rem;
   --manuscript-center-gap-width: calc(var(--manuscript-column-width) * var(--manuscript-center-gap-columns));
   --manuscript-outer-margin-columns: 2;
   --manuscript-outer-margin-width: calc(var(--manuscript-column-width) * var(--manuscript-outer-margin-columns));
@@ -241,6 +241,6 @@ body.manuscript-page {
   }
   .manuscript-intro {
     width: calc(var(--manuscript-column-width) * 3);
-    padding-top: 2.5em;
+    padding-top: 4.5em;
   }
 }
