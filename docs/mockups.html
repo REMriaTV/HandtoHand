@@ -1,0 +1,210 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Concept Mockups</title>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: 'Hiragino Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #0f0f0f;
+        color: #111;
+      }
+      section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6vw;
+      }
+      .panel {
+        width: min(1100px, 100%);
+        border-radius: 32px;
+        overflow: hidden;
+        box-shadow: 0 35px 90px rgba(0, 0, 0, 0.25);
+      }
+      .panel > div {
+        padding: clamp(2rem, 4vw, 4rem);
+      }
+      .eyebrow {
+        letter-spacing: 0.3em;
+        font-size: 0.8rem;
+      }
+      .title {
+        font-size: clamp(2.4rem, 6vw, 4rem);
+        margin: 0.5rem 0 1.5rem;
+      }
+      .text {
+        font-size: clamp(1rem, 1.4vw, 1.25rem);
+        line-height: 1.9;
+        margin: 0;
+      }
+      .palette {
+        margin-top: 2rem;
+        display: flex;
+        gap: 0.5rem;
+      }
+      .swatch {
+        flex: 1;
+        height: 2.5rem;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+      .tagline {
+        font-size: 1.05rem;
+        letter-spacing: 0.1em;
+        margin-top: 1rem;
+      }
+      .classic {
+        background: #faf3e7;
+        color: #2e1a16;
+      }
+      .classic .title {
+        font-family: 'Didot', 'Playfair Display', 'Times New Roman', serif;
+        letter-spacing: 0.08em;
+      }
+      .classic .eyebrow {
+        color: rgba(46, 26, 22, 0.6);
+      }
+      .classic .palette .swatch:nth-child(1) { background: #fef7eb; }
+      .classic .palette .swatch:nth-child(2) { background: #d8c4ab; }
+      .classic .palette .swatch:nth-child(3) { background: #b27c50; }
+      .classic .palette .swatch:nth-child(4) { background: #5a3825; }
+      .classic .tagline {
+        font-style: italic;
+      }
+      .noir {
+        background: linear-gradient(135deg, #0c0f1b, #1a1d2f 48%, #272937);
+        color: #f6f7fb;
+      }
+      .noir .title {
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-weight: 600;
+      }
+      .noir .eyebrow {
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .noir .palette .swatch:nth-child(1) { background: #111223; }
+      .noir .palette .swatch:nth-child(2) { background: #262a40; }
+      .noir .palette .swatch:nth-child(3) { background: #d7b56d; }
+      .noir .palette .swatch:nth-child(4) { background: #ffffff; }
+      .noir .tagline {
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.4em;
+      }
+      .block {
+        background: #ffffff;
+        color: #1a1a1a;
+      }
+      .block .title {
+        font-family: 'Bebas Neue', 'Oswald', 'Noto Sans JP', sans-serif;
+        letter-spacing: 0.05em;
+      }
+      .block .eyebrow {
+        color: #c41435;
+        font-weight: 600;
+      }
+      .grid {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.25rem;
+      }
+      .grid-card {
+        border-radius: 18px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        padding: 1.5rem;
+        background: #fdfdfd;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.03);
+      }
+      .grid-card strong {
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+      @media (max-width: 720px) {
+        section {
+          padding: 2rem 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="panel classic">
+        <div>
+          <div class="eyebrow">Classic Program</div>
+          <h1 class="title">手触りのあるパンフレット</h1>
+          <p class="text">
+            生成りの紙面にセリフ体のタイトル。余白をたっぷり取り、キャプションを淡いブラウンで揃えることで、劇場で手渡される特典冊子のような落ち着いた佇まいになります。
+            各セクションは左右ページのように配置し、写真や引用を差し込むイメージです。
+          </p>
+          <p class="tagline">A. WARM PAPER × BRASS GOLD</p>
+          <div class="palette">
+            <div class="swatch"></div>
+            <div class="swatch"></div>
+            <div class="swatch"></div>
+            <div class="swatch"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel noir">
+        <div>
+          <div class="eyebrow">Cinema Noir</div>
+          <h1 class="title">光と影だけで語るサイト</h1>
+          <p class="text">
+            フルブリードの濃紺グラデーションに、白のタイポグラフィと黄金のラインだけを載せるモダンな公式サイト風デザイン。ヒーローセクションを画面いっぱいに使い、スクロールするとカード型でキャラクターやストーリーがフェード表示される構成を想定しています。
+          </p>
+          <p class="tagline">B. MIDNIGHT GRADIENT</p>
+          <div class="palette">
+            <div class="swatch"></div>
+            <div class="swatch"></div>
+            <div class="swatch"></div>
+            <div class="swatch"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel block">
+        <div>
+          <div class="eyebrow">Feature Spread</div>
+          <h1 class="title">誌面レイアウトのようなブロック構成</h1>
+          <p class="text">
+            真っ白なキャンバスにカラーバーと太めの見出しを組み合わせ、雑誌の特集記事のようにグリッドで情報を配置する案。各ブロックにキャッチ、引用、キャラクターの短評などを載せて、スクロールするだけでパンフレットをめくる感覚になるようなレイアウトです。
+          </p>
+          <div class="grid">
+            <div class="grid-card">
+              <strong>Story Digest</strong>
+              ログラインやテーマを短文で並べ、隣にスチールを配置。
+            </div>
+            <div class="grid-card">
+              <strong>Character Tags</strong>
+              キーワードをタイポで並べて、ビジュアルカードを作成。
+            </div>
+            <div class="grid-card">
+              <strong>Behind the Scene</strong>
+              制作ノートや引用を引用符付きで掲載。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
