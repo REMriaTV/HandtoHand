@@ -108,6 +108,62 @@ layout: null
         background: #ffffff;
         color: #1a1a1a;
       }
+      .dusk {
+        background: radial-gradient(circle at top, #fef4de, #f4c48f);
+        color: #1f120d;
+      }
+      .dusk .title {
+        font-family: 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+        letter-spacing: 0.04em;
+      }
+      .dusk .eyebrow {
+        color: rgba(31, 18, 13, 0.6);
+      }
+      .dusk-palette .swatch:nth-child(1) { background: #ffe7c4; }
+      .dusk-palette .swatch:nth-child(2) { background: #f5a867; }
+      .dusk-palette .swatch:nth-child(3) { background: #a25b3e; }
+      .dusk-palette .swatch:nth-child(4) { background: #2d1a23; }
+
+      .emo {
+        background: linear-gradient(135deg, #fdeff2, #f7d9d7, #c6d7f4);
+        color: #1d1418;
+      }
+      .emo .title {
+        font-family: 'Futura', 'Noto Sans JP', sans-serif;
+        text-transform: uppercase;
+      }
+      .emo-grid .grid-card {
+        background: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+      }
+      .emo-grid .grid-card::before {
+        content: '';
+        display: block;
+        width: 2.5rem;
+        height: 0.35rem;
+        border-radius: 999px;
+        background: rgba(59, 28, 47, 0.25);
+        margin-bottom: 0.7rem;
+      }
+
+      .paper {
+        background: #f8f6f1;
+        color: #111;
+        font-family: 'Noto Serif JP', serif;
+      }
+      .paper .title {
+        text-transform: none;
+        letter-spacing: 0.02em;
+      }
+      .newspaper-grid {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        padding-top: 1.5rem;
+      }
+      .newspaper-grid .grid-card {
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: none;
+      }
       .block .title {
         font-family: 'Bebas Neue', 'Oswald', 'Noto Sans JP', sans-serif;
         letter-spacing: 0.05em;
@@ -201,6 +257,77 @@ layout: null
             <div class="grid-card">
               <strong>Behind the Scene</strong>
               制作ノートや引用を引用符付きで掲載。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel dusk">
+        <div>
+          <div class="eyebrow">Golden Hour</div>
+          <h1 class="title">夕暮れの放課後シーン</h1>
+          <p class="text">
+            校舎に差し込む夕日をイメージした温かいグラデーション。淡いオレンジと深い藍色を重ね、光がゆっくり落ちていく時間帯の空気を演出します。キャラクター紹介や会話の抜粋を光と影のコントラストで強調し、エモーショナルなムードに振った構成です。
+          </p>
+          <p class="tagline">D. SUNSET GLOW</p>
+          <div class="palette dusk-palette">
+            <div class="swatch"></div>
+            <div class="swatch"></div>
+            <div class="swatch"></div>
+            <div class="swatch"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel emo">
+        <div>
+          <div class="eyebrow">After School Emotions</div>
+          <h1 class="title">エモーショナルなフィルムノイズ</h1>
+          <p class="text">
+            35mmフィルムのノイズと淡色グラデーションを重ね、手書きメモや貼り付けた写真のような演出を取り入れる案。手書き風フォントのアクセントと斜めのカットラインで青春感を押し出し、ビジュアルに感情の余韻を残します。
+          </p>
+          <div class="grid emo-grid">
+            <div class="grid-card">
+              <strong>Polaroid Blocks</strong>
+              余白たっぷりの写真枠にキャプションを手書き風で添える。
+            </div>
+            <div class="grid-card">
+              <strong>Highlight Notes</strong>
+              付箋を模したメモブロックでキーワードを強調。
+            </div>
+            <div class="grid-card">
+              <strong>Film Grain</strong>
+              背景に微細な粒子を入れてノスタルジックに。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel paper">
+        <div>
+          <div class="eyebrow">校内新聞スタイル</div>
+          <h1 class="title">タイポグラフィと紙面レイアウト</h1>
+          <p class="text">
+            新聞の組版を意識したモノクロベース。太い見出し、縦横のライン、番号付きの段落を使って情報を整理します。重要なセリフや引用は囲み記事のように配置し、写真を白黒処理して紙面の統一感を作ります。
+          </p>
+          <div class="grid newspaper-grid">
+            <div class="grid-card">
+              <strong>Headline Block</strong>
+              エピソードごとに新聞見出し風のタイトルを作成。
+            </div>
+            <div class="grid-card">
+              <strong>Column Layout</strong>
+              2〜3段組みで文章量の多い記事も読みやすく。
+            </div>
+            <div class="grid-card">
+              <strong>Photo Caption</strong>
+              写真の下に細いルール線とキャプションを追加。
             </div>
           </div>
         </div>
