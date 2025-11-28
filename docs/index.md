@@ -45,9 +45,10 @@ title: Hand to Hand
 <span id="characters"></span>
 
 ## 制作の裏側はコチラ
-- 詳細なプロットは [HandtoHand-work](https://remriatv.github.io/HandtoHand-work/) で管理中。
-- `handover.md` で引き継ぎログを管理し、Codex との作業履歴を保持。
-- TODO: スプレッドシート→Markdown の同期フローを自動化。
+ - 詳細なプロット・キャラクターの整理は [HandtoHand-work](https://remriatv.github.io/HandtoHand-work/) に
+  集約。
+  - `handover.md` では引き継ぎログと Codex との作業履歴を継続管理。
+  - ぶくとも。「書いてみた」に暫定原稿を公開中（最新の草稿はそちらを参照）。
 
 ---
 
