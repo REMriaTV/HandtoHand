@@ -48,7 +48,7 @@ title: Hand to Hand
  - 詳細なプロット・キャラクターの整理は [HandtoHand-work](https://remriatv.github.io/HandtoHand-work/) に
   集約。
   - `handover.md` では引き継ぎログと Codex との作業履歴を継続管理。
-  - ぶくとも。「書いてみた」に暫定原稿を公開中（最新の草稿はそちらを参照）。
+  - ぶくとも。「書いてみた」に暫定原稿を公開中。
 
 ---
 
