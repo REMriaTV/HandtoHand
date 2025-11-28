@@ -5,20 +5,45 @@ title: Hand to Hand
 
 # Hand to Hand
 
-<div class="hero-panel">
-  <div class="hero-panel__content">
-    <p class="hero-panel__eyebrow">Hand to Hand / Feature</p>
-    <h1 class="hero-panel__title">道程 – 初めて女子と手をつなぐその日まで</h1>
-    <p class="hero-panel__lede">「好きな子と一緒になったら何がしたい？」級友に聞かれて瀬田が答えたのは「ただ手がつなぎたい」だった。灯りの落ちた放課後、ふたつの影が重なる直前を切り取ったキービジュアルです。</p>
-    <div class="hero-panel__actions">
-      <a class="hero-panel__button" href="#story">ストーリーを読む</a>
-      <a class="hero-panel__button" href="#characters">キャラクターを探る</a>
+<section class="hero-section">
+  <div class="hero-copy">
+    <p class="hero-eyebrow">HAND TO HAND / FEATURED</p>
+    <h1 class="hero-title">女子と手をつなぎたい男子中学生の妄想と現実</h1>
+    <p class="hero-sub">
+      ひょんなことから意中の女子・川原さんをドン引きさせてしまう瀬田亮二。彼女を追って授業中の体育館へ忍び込むが、思わぬアクシデントに見舞われピンチに陥る。それを救ったのは思わぬ人物だった。思ったのとちがう“はじめて”を捧げる相手とは！？
+    </p>
+    <div class="hero-cta">
+      <a class="hero-button" href="#story">ストーリーを読む</a>
+      <a class="hero-button" href="#characters">人物相関へ</a>
     </div>
   </div>
-  <div class="hero-panel__visual" role="img" aria-label="夕暮れの校舎と手を差し出す人物のキービジュアル">
-    <span class="hero-panel__caption">still photo: 夕暮れの校舎（仮）</span>
+  <div class="hero-device" role="img" aria-label="夕暮れの校舎と手を差し出す人物のキービジュアル"></div>
+</section>
+
+<section class="news-section" id="news">
+  <p class="news-eyebrow">校内新聞レイアウト</p>
+  <h2 class="news-title">川原新聞部の紙面でストーリーを追う</h2>
+  <p class="news-lede">
+    見出しや引用、写真キャプションを新聞風に配置し、川原海美の視点で事件と感情の揺れを記録します。パンフレットのようにめくる感覚で、物語の温度や登場人物の距離感を追いかけてください。
+  </p>
+  <div class="news-grid">
+    <article class="news-card">
+      <div class="label">Headline</div>
+      <h3>体育館での停電騒ぎ、真相は？</h3>
+      <p>体育館で突然照明が落ち、川原海美さんが倒れていたとの通報が入った。目撃者は「誰かの手が重なっていた」と証言。現場にいた瀬田亮二さんは沈黙を貫いている。</p>
+    </article>
+    <article class="news-card">
+      <div class="label">Column</div>
+      <h3>コラム：川原海美が見た“手”</h3>
+      <p>新聞部の記者として書くのはただの噂では終わらない感情。誰かと手をつなぐことを避けてきた瀬田くんが、一瞬迷いながらも触れてきた、その温度を私は紙面に残す。</p>
+    </article>
+    <article class="news-card">
+      <div class="label">Photo Caption</div>
+      <h3>体育館地下の倉庫にて</h3>
+      <p>白いシルクのハンカチが見つかり、事件当夜も瀬田の手の中にあったとされる。新聞部はこのハンカチの行方を追っている。</p>
+    </article>
   </div>
-</div>
+</section>
 
 短編小説「道程」の制作ログを公開するサイトです。トップページでは全体のサマリを、詳細は各セクションページに分けて管理しています。
 
