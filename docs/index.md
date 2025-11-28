@@ -3,7 +3,6 @@ layout: default
 title: Hand to Hand
 ---
 
-# Hand to Hand
 
 <div class="hero-panel">
   <div class="hero-panel__content">
