@@ -7,7 +7,7 @@ title: Hand to Hand
 <div class="hero-panel">
   <div class="hero-panel__content">
     <p class="hero-panel__eyebrow">Hand to Hand / Feature</p>
-    <h1 class="hero-panel__title">道程 – 初めて女子と手をつなぐその日まで</h1>
+    <h1 class="hero-panel__title">道程 – はじめて女子と手をつなぐその日まで</h1>
     <p class="hero-panel__lede">「好きな子と一緒になったら何がしたい？」級友に聞かれて瀬田が答えたのは「ただ手がつなぎたい」だった。灯りの落ちた放課後、ふたつの影が重なる直前を切り取ったキービジュアルです。</p>
     <div class="hero-panel__actions">
       <a class="hero-panel__button" href="#story">ストーリーを読む</a>
