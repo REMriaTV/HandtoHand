@@ -97,7 +97,8 @@
 .hero-panel__caption {
   position: absolute;
   bottom: 1rem;
-  right: 1.25rem;
+  left: 1.25rem;    // ← ここを新しく追加（または right の代わりに）
+  right: auto;      // ← 右寄せを解除
   font-size: 0.75rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
