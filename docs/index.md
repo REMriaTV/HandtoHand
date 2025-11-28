@@ -5,6 +5,21 @@ title: Hand to Hand
 
 # Hand to Hand
 
+<div class="hero-panel">
+  <div class="hero-panel__content">
+    <p class="hero-panel__eyebrow">Hand to Hand / Feature</p>
+    <h1 class="hero-panel__title">道程 – 初めて女子と手をつなぐその日まで</h1>
+    <p class="hero-panel__lede">「好きな子と一緒になったら何がしたい？」級友に聞かれて瀬田が答えたのは「ただ手がつなぎたい」だった。灯りの落ちた放課後、ふたつの影が重なる直前を切り取ったキービジュアルです。</p>
+    <div class="hero-panel__actions">
+      <a class="hero-panel__button" href="#story">ストーリーを読む</a>
+      <a class="hero-panel__button" href="#characters">キャラクターを探る</a>
+    </div>
+  </div>
+  <div class="hero-panel__visual" role="img" aria-label="夕暮れの校舎と手を差し出す人物のキービジュアル">
+    <span class="hero-panel__caption">still photo: 夕暮れの校舎（仮）</span>
+  </div>
+</div>
+
 短編小説「道程」の制作ログを公開するサイトです。トップページでは全体のサマリを、詳細は各セクションページに分けて管理しています。
 
 ## クイックリンク
@@ -13,6 +28,8 @@ title: Hand to Hand
 - [執筆メモとお題](./memos.html) — 日付別メモとキーワード整理。
 - [原稿メモ](./manuscript.html) — 章ごとの進行状況と課題サマリ。
 - [GitHub リポジトリ](https://github.com/REMriaTV/HandtoHand) — Markdown ソースと `handover.md`。
+
+<span id="story"></span>
 
 ## ストーリースナップショット
 - **ログライン**: 女子と手を繋いだことのない男子中学生が、とある事件に巻き込まれるも、女子に手を差し伸べられて感動する話。
@@ -25,6 +42,8 @@ title: Hand to Hand
 3. **12時（体育館）** — 体育教師に見つかりそうになり、舞台床下のハッチへ逃げ込む。正午チャイムが状況を一変させる。
 4. **ちくわ（体育館地下倉庫）** — 「ちくわ」と呼ばれるマットに挟まり、横野たちに気付かれそうになる。
 5. **嘘（終章）** — 嘘を巡る仕掛けと、横野に差し伸べられた手をどう受け入れるかを検討中。
+
+<span id="characters"></span>
 
 ## 現状メモ
 - 詳細なプロット・キャラクター・原稿は `content/` 以下の Markdown とスプレッドシートに集約。

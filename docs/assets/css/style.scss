@@ -2,6 +2,117 @@
 ---
 @import "jekyll-theme-minimal";
 
+:root {
+  --hero-bg: #05050a;
+  --hero-highlight: #f5c99b;
+  --hero-accent: #7ea0ff;
+  --hero-text: #f5f5f7;
+  --hero-muted: rgba(245, 245, 247, 0.65);
+}
+
+.hero-panel {
+  position: relative;
+  margin: 0 auto 3rem;
+  padding: clamp(2rem, 6vw, 4rem);
+  border-radius: 36px;
+  background: radial-gradient(circle at 18% 20%, rgba(245, 201, 155, 0.4), transparent 45%),
+    radial-gradient(circle at 82% 15%, rgba(126, 160, 255, 0.28), transparent 40%),
+    var(--hero-bg);
+  color: var(--hero-text);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.hero-panel__content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-panel__eyebrow {
+  letter-spacing: 0.4em;
+  font-size: 0.85rem;
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--hero-muted);
+}
+
+.hero-panel__title {
+  font-size: clamp(2.1rem, 5vw, 3.8rem);
+  margin: 0.75rem 0 1.5rem;
+  letter-spacing: 0.08em;
+}
+
+.hero-panel__lede {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  margin: 0;
+  color: rgba(245, 245, 247, 0.86);
+}
+
+.hero-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.hero-panel__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(245, 245, 247, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--hero-text);
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-panel__button:hover,
+.hero-panel__button:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(245, 245, 247, 0.65);
+}
+
+.hero-panel__visual {
+  position: relative;
+  border-radius: 24px;
+  min-height: 320px;
+  background-image:
+    linear-gradient(135deg, rgba(5, 5, 10, 0.1), rgba(5, 5, 10, 0.65)),
+    url('{{ "/assets/images/hero-visual.png" | relative_url }}');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.45);
+}
+
+.hero-panel__caption {
+  position: absolute;
+  bottom: 1rem;
+  right: 1.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--hero-muted);
+}
+
+.hero-panel__caption::before {
+  content: '';
+  display: inline-block;
+  width: 1.75rem;
+  height: 1px;
+  background: var(--hero-muted);
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
 body.manuscript-page {
   margin: 0;
   background: #fff;
