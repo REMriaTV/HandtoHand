@@ -22,10 +22,10 @@ title: Hand to Hand
 短編小説「道程」の制作ログを公開するサイトです。トップページでは全体のサマリを、詳細は各セクションページに分けて管理しています。
 
 ## 制作セクション
-- [プロット詳細](./plot.html) — 幕ごとの展開と音楽リンク。
+- [プロット](./plot.html) — 幕ごとの展開と音楽リンク。
 - [キャラクター](./characters.html) — 主要人物の役割と関係性メモ。
-- [執筆メモとお題](./memos.html) — 日付別メモとキーワード整理。
-- [原稿メモ](./manuscript.html) — 章ごとの進行状況と課題サマリ。
+- [制作ノート](./memos.html) — 日付別メモとキーワード整理。
+- [本編](./manuscript.html) — 章ごとの進行状況と課題サマリ。
 - [GitHub リポジトリ](https://github.com/REMriaTV/HandtoHand) — Markdown ソースと `handover.md`。
 
 <span id="story"></span>
