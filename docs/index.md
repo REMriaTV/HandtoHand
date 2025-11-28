@@ -15,7 +15,7 @@ title: Hand to Hand
     </div>
   </div>
   <div class="hero-panel__visual" role="img" aria-label="夕暮れの校舎と手を差し出す人物のキービジュアル">
-    <span class="hero-panel__caption">瀬田の理想のワンシーン</span>
+    <span class="hero-panel__caption">瀬田の脳内ワンシーン</span>
   </div>
 </div>
 
