@@ -16,11 +16,11 @@ title: Manuscript | Hand to Hand
   ・・・誰の嘘か、何のためについたのか。まだ細かくは決まっていない。
 
 ## 公開中の章（テーマ別）
-- [手](./manuscript/hand.html)
-- [ハンカチ](./manuscript/handkerchief.html)
-- [12時](./manuscript/noon.html)
-- [ちくわ](./manuscript/chikuwa.html)
-- [嘘（準備中）](./manuscript/lie.html)
+1. [手](./manuscript/hand.html)
+2. [ハンカチ](./manuscript/handkerchief.html)
+3. [12時](./manuscript/noon.html)
+4. [ちくわ](./manuscript/chikuwa.html)
+終. [嘘（準備中）](./manuscript/lie.html)
 
 ※ 章ページは縦書き表示で、三角ボタンから前後の章へ移動できます（先頭ではトップに戻ります）。スマホでは単ページのみを表示し、横スクロールせずに本文だけを読む構成です。
 
