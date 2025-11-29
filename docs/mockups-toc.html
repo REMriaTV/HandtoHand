@@ -1,0 +1,120 @@
+---
+layout: null
+title: Chapter Cards Mock
+---
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chapter Cards Mock</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Inter', 'Noto Sans JP', system-ui;
+        background: #0d0d15;
+        color: #f4f4f7;
+        padding: clamp(2rem, 6vw, 4rem);
+      }
+      h1 {
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        margin-bottom: 2rem;
+      }
+      .toc-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+      }
+      .chapter-card {
+        border-radius: 24px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 220px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .chapter-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
+      }
+      .chapter-label {
+        font-size: 0.9rem;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        opacity: 0.75;
+      }
+      .chapter-title {
+        font-size: 1.6rem;
+        margin: 0.8rem 0 0;
+      }
+      .chapter-excerpt {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .status {
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .ft-note {
+        margin-top: 2.5rem;
+        font-size: 0.9rem;
+        color: rgba(244, 244, 247, 0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>章カード見本</h1>
+    <div class="toc-grid">
+      <article class="chapter-card" style="background: linear-gradient(135deg, #f6b99f, #ea8f6c);">
+        <div>
+          <p class="chapter-label">No.01</p>
+          <h2 class="chapter-title">手</h2>
+          <p class="chapter-excerpt">教室での失言から体育館へ逃げ込むまで。瀬田のこじらせたこだわりが川原さんを戸惑わせる。</p>
+        </div>
+        <p class="status">公開中</p>
+      </article>
+
+      <article class="chapter-card" style="background: linear-gradient(135deg, #f5e4cf, #efc898);">
+        <div>
+          <p class="chapter-label">No.02</p>
+          <h2 class="chapter-title">ハンカチ</h2>
+          <p class="chapter-excerpt">川原のハンカチを前に10分間立ち尽くす瀬田。間接手つなぎの背徳感と向き合う。</p>
+        </div>
+        <p class="status">公開中</p>
+      </article>
+
+      <article class="chapter-card" style="background: linear-gradient(135deg, #6c8dfc, #2f4ac6);">
+        <div>
+          <p class="chapter-label">No.03</p>
+          <h2 class="chapter-title">12時</h2>
+          <p class="chapter-excerpt">体育教師に見つかりそうになり、舞台床下のハッチへ逃げ込む。正午チャイムが事態を揺さぶる。</p>
+        </div>
+        <p class="status">公開中</p>
+      </article>
+
+      <article class="chapter-card" style="background: linear-gradient(135deg, #f4d37e, #f0b045);">
+        <div>
+          <p class="chapter-label">No.04</p>
+          <h2 class="chapter-title">ちくわ</h2>
+          <p class="chapter-excerpt">「ちくわ」と呼ばれるマットに挟まれ、横野たちに気付かれそうになる。クライマックス直前。</p>
+        </div>
+        <p class="status">執筆中</p>
+      </article>
+
+      <article class="chapter-card" style="background: linear-gradient(135deg, #b08cdb, #6e4da5);">
+        <div>
+          <p class="chapter-label">No.05</p>
+          <h2 class="chapter-title">嘘</h2>
+          <p class="chapter-excerpt">嘘を巡る仕掛けと横野に差し伸べられた手をどう受け入れるか。現在構想を詰めている段階。</p>
+        </div>
+        <p class="status">準備中</p>
+      </article>
+    </div>
+
+    <p class="ft-note">カードをクリックすると各章ページへ移動する想定。ステータス色で進捗を表示。</p>
+  </body>
+</html>
