@@ -79,6 +79,11 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 相談: 原稿ページは「文庫本のように読書へ集中できる」方向へ再設計する。余計な装飾を排し、章題・ページ番号など最低限の情報だけを紙面の外側に添える。
 - 方針: まずモックアップでレイアウト案（縦書き／余白幅／段数／メタ情報表示方法）を固め、了承後に実装へ進む。既存の `docs/_layouts/manuscript.html` と SCSS にはまだ手を入れない。
 
+### 2025-11-30
+- 状況: HandtoHand（https://remriatv.github.io/HandtoHand/）はヒーロー＋新聞セクション構成で公開中。詳細プロットやキャラクターは HandtoHand-work で管理、暫定原稿は「ぶくとも。書いたもの見せて」にも掲載。[Links to remind]
+- Git運用: 作業開始前に `git pull --rebase` 実施、コミット→push。mockups-manuscript.html は `.gitignore` に入れ、ローカルテストのみ。新規モックは `docs/mockups-*.html` を追加して push すれば公開可。
+- TODO: 原稿ページの文庫本風レイアウトをモックで詰める（縦書き本編の余白・章タイトル表示など）。章カードのパンフ風 UI をトップ本編セクションへ組み込む検討を継続。
+
 ### 2025-11-21
 - ハンドオフ理解を整理 (README.md に記載)。
 - 目的・ディレクトリ構成・Pages 運用フローを文章化。
