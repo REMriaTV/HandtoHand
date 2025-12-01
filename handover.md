@@ -84,6 +84,17 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - Git運用: 作業開始前に `git pull --rebase` 実施、コミット→push。mockups-manuscript.html は `.gitignore` に入れ、ローカルテストのみ。新規モックは `docs/mockups-*.html` を追加して push すれば公開可。
 - TODO: 原稿ページの文庫本風レイアウトをモックで詰める（縦書き本編の余白・章タイトル表示など）。章カードのパンフ風 UI をトップ本編セクションへ組み込む検討を継続。
 
+### 2025-12-01
+- 実装: モック案をベースに原稿ページのレイアウトを更新。`docs/_layouts/manuscript.html` にメタ情報バー・紙面セクション・ナビゲーションを追加し、`section_title`/`page_number`/`prev_page`/`next_page` を表示に利用。
+- スタイル: `docs/assets/css/style.scss` に文庫本風の配色と紙面 UI を追加。縦書き本文は 2 カラムで見開き表示、中央に罫線、prefers-color-scheme: dark にも対応。ナビゲーションは「前へ/目次/次へ」で均等配置。
+- メモ: 章タイトルを更新する場合は各 Markdown front matter の `section_title` を編集すれば即反映。`page_number` を空にすると紙面のページ番号も非表示になる。
+- 追加: `docs/manuscript.md` に章カードセクションを追加。`docs/assets/css/style.scss` へカード専用スタイルを実装し、`mockups-toc.html` の暗色パンフ風デザインを再現。新聞セクション案は不採用のため以後利用しない。
+
+### 2025-12-02
+- 要望: モックをそのまま本編（manuscript.html）へ組み込みたい。見た目が気に入れば本番適用でOK、不満があれば 1 コミット戻して対応予定。
+- 確認: 今回は本番ページを編集するため、ローカル preview には `bundle exec jekyll serve` → `http://localhost:4000/manuscript.html` が必要。サーバー起動が面倒なら push 後に GitHub Pages で直接確認でも可。
+- 注意: `docs/mockups-manuscript.html` はローカルテスト用。`.gitignore` に入れてあるので commit/push しない。
+
 ### 2025-11-21
 - ハンドオフ理解を整理 (README.md に記載)。
 - 目的・ディレクトリ構成・Pages 運用フローを文章化。
