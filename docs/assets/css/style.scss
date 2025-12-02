@@ -377,6 +377,59 @@ body.manuscript-page {
   }
 }
 
+@media (max-width: 640px) {
+  .chapter-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter-device {
+    width: 100%;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .chapter-device__header {
+    align-items: flex-start;
+    gap: 0.8rem;
+    color: #111;
+  }
+
+  .chapter-device__title {
+    color: #111;
+    text-align: left;
+  }
+
+  .chapter-story,
+  .chapter-script {
+    padding: 0;
+  }
+
+  .chapter-story h3,
+  .chapter-script h3 {
+    color: #111;
+    text-align: left;
+  }
+
+  .chapter-story p {
+    color: #374151;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+  }
+
+  .chapter-device__entries {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .script-entry {
+    padding: 14px 0;
+  }
+}
+
 .script-entry {
   display: flex;
   gap: 16px;
