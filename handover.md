@@ -84,11 +84,19 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - Git運用: 作業開始前に `git pull --rebase` 実施、コミット→push。mockups-manuscript.html は `.gitignore` に入れ、ローカルテストのみ。新規モックは `docs/mockups-*.html` を追加して push すれば公開可。
 - TODO: 原稿ページの文庫本風レイアウトをモックで詰める（縦書き本編の余白・章タイトル表示など）。章カードのパンフ風 UI をトップ本編セクションへ組み込む検討を継続。
 
+### 2025-12-02 12:05
+- レイアウトを STORY/SCRIPT セクションへ再構成。端末内に作品キャプションと章リストを直接並べる形式へ切り替えた。章リストは `<a class="script-entry" href="...">` で各章頁へ遷移する。
+- `docs/assets/css/style.scss` を更新。端末背景を濃いグラデーションにし、STORY/SCRIPT 見出しや章リストの幅・余白を調整。サムネイルは 80px スクエア、キャプションは 2 行表示。
+- `docs/manuscript.md` から目次や余計な注記ブロックを削除し、専用セクション（STORY/SCRIPT/進捗）だけを残した。
+
+
 ### 2025-12-01
 - 実装: モック案をベースに原稿ページのレイアウトを更新。`docs/_layouts/manuscript.html` にメタ情報バー・紙面セクション・ナビゲーションを追加し、`section_title`/`page_number`/`prev_page`/`next_page` を表示に利用。
 - スタイル: `docs/assets/css/style.scss` に文庫本風の配色と紙面 UI を追加。縦書き本文は 2 カラムで見開き表示、中央に罫線、prefers-color-scheme: dark にも対応。ナビゲーションは「前へ/目次/次へ」で均等配置。
 - メモ: 章タイトルを更新する場合は各 Markdown front matter の `section_title` を編集すれば即反映。`page_number` を空にすると紙面のページ番号も非表示になる。
 - 追加: `docs/manuscript.md` に章カードセクションを追加。`docs/assets/css/style.scss` へカード専用スタイルを実装し、`mockups-toc.html` の暗色パンフ風デザインを再現。新聞セクション案は不採用のため以後利用しない。
+- 調整: 章カードの UI をヒーローパネル右カラムと同じスマホ風レイアウトに変更。`docs/manuscript.md` のマークアップと `docs/assets/css/style.scss` を更新し、カードを縦に積んだ 1 カラム構成へ整理。
+- 追加: スマホ画面を模した章カードモジュールを `docs/manuscript.md` に実装。トップヒーローと同じ配色・陰影に揃え、背景画像は `docs/assets/images/chapter-*.png` へ差し替え済み（「嘘」は暫定画像）。
 
 ### 2025-12-02
 - 要望: モックをそのまま本編（manuscript.html）へ組み込みたい。見た目が気に入れば本番適用でOK、不満があれば 1 コミット戻して対応予定。
