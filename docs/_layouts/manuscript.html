@@ -9,10 +9,35 @@
   </head>
   <body class="manuscript-page">
     <main class="manuscript-main">
-      <div class="manuscript-meta" aria-label="作品情報">
-        <span class="manuscript-meta__site">{{ site.title }}</span>
-        <span class="manuscript-meta__story">{{ site.story_title }}</span>
-        <span class="manuscript-meta__section">{{ page.section_title | default: page.title }}</span>
+      {% assign prev_label = page.prev_label %}
+      {% assign next_label = page.next_label %}
+      {% if page.prev_page and prev_label == nil %}
+        {% assign prev_target = site.pages | where: 'url', page.prev_page | first %}
+        {% if prev_target %}
+          {% assign prev_label = prev_target.section_title | default: prev_target.title %}
+        {% endif %}
+      {% endif %}
+      {% if page.next_page and next_label == nil %}
+        {% assign next_target = site.pages | where: 'url', page.next_page | first %}
+        {% if next_target %}
+          {% assign next_label = next_target.section_title | default: next_target.title %}
+        {% endif %}
+      {% endif %}
+
+      <div class="manuscript-meta" aria-label="章ナビゲーション">
+        {% if page.prev_page and prev_label %}
+          <a class="manuscript-meta__link manuscript-meta__link--prev" href="{{ page.prev_page | relative_url }}">{{ prev_label }}</a>
+        {% else %}
+          <span class="manuscript-meta__placeholder" aria-hidden="true"></span>
+        {% endif %}
+
+        <a class="manuscript-meta__link manuscript-meta__link--home" href="{{ '/manuscript.html' | relative_url }}">{{ site.title }}</a>
+
+        {% if page.next_page and next_label %}
+          <a class="manuscript-meta__link manuscript-meta__link--next" href="{{ page.next_page | relative_url }}">{{ next_label }}</a>
+        {% else %}
+          <span class="manuscript-meta__placeholder" aria-hidden="true"></span>
+        {% endif %}
       </div>
 
       <section class="manuscript-flow" aria-label="原稿">
@@ -20,22 +45,6 @@
           {{ content }}
         </article>
       </section>
-
-      <nav class="manuscript-nav" aria-label="章ナビゲーション">
-        {% if page.prev_page %}
-          <a class="manuscript-nav__link" href="{{ page.prev_page | relative_url }}">← 前へ</a>
-        {% else %}
-          <span aria-hidden="true"></span>
-        {% endif %}
-
-        <a class="manuscript-nav__link" href="{{ '/manuscript.html' | relative_url }}">目次</a>
-
-        {% if page.next_page %}
-          <a class="manuscript-nav__link" href="{{ page.next_page | relative_url }}">次へ →</a>
-        {% else %}
-          <span aria-hidden="true"></span>
-        {% endif %}
-      </nav>
     </main>
   </body>
 </html>

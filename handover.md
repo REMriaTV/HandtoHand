@@ -128,6 +128,11 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 注意: `docs/mockups-manuscript.html` はローカルテスト用。`.gitignore` に入れてあるので commit/push しない。
 - 実験: スマホで端末フレームを全幅表示にする案を試すも、タップ時に拡大感が残るため却下。`docs/assets/css/style.scss` のモバイル用スタイルは `ac4c21d` コミット相当へ戻し、今後細部はユーザー側で微調整する方針。
 
+### 2025-12-02-18-40
+- 原稿ページのトップ見出しをナビゲーション化。`docs/_layouts/manuscript.html` の `manuscript-meta` に前後章／目次のリンクを配置し、`site.pages` から `section_title` を引いてラベル表示。章が存在しない側は空欄のプレースホルダーで均等配置。
+- 旧 `manuscript-nav` を削除し、本文中に「← 前へ／次へ →」が挿入されないようにした。
+- `docs/assets/css/style.scss` で `.manuscript-meta` を3カラムグリッドに変更。リンク用のクラス（prev/home/next）を追加し、中央の HAND TO HAND は目次リンクとして表示。ダークモードの配色は従来のまま継承。
+
 ### 2025-12-02（17:45）
 - manuscript レイアウトから文庫風シート (manuscript-sheet) を撤去。本文は背景上に直接表示する構造へ変
   更し、章題/ページ番号のオーバーレイも廃止。関連CSSは `.manuscript-flow` でセンタリングのみ担うよう簡素化。
