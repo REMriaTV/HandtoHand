@@ -291,7 +291,9 @@ body.manuscript-page {
 
 .chapter-device {
   justify-self: center;
-  width: min(500px, 96vw);
+  margin-left: auto;
+  margin-right: auto;
+  width: min(500px, 94vw);
   background:
     radial-gradient(circle at 15% 25%, rgba(245, 201, 155, 0.45), transparent 45%),
     radial-gradient(circle at 85% 5%, rgba(126, 160, 255, 0.35), transparent 50%),
@@ -301,19 +303,6 @@ body.manuscript-page {
   box-shadow: 0 55px 95px rgba(0, 0, 0, 0.4);
   color: #f4f4f7;
   position: relative;
-}
-
-.chapter-device::before {
-  content: '';
-  width: 80px;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.45);
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0.7;
 }
 
 .chapter-device__header {
@@ -375,6 +364,19 @@ body.manuscript-page {
   margin-right: auto;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .script-entry:hover,
+  .script-entry:focus-visible {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .chapter-card:hover,
+  .chapter-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  }
+}
+
 .script-entry {
   display: flex;
   gap: 16px;
@@ -382,6 +384,7 @@ body.manuscript-page {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   text-decoration: none;
   color: inherit;
+  transition: none;
 }
 
 .script-entry:last-child {
