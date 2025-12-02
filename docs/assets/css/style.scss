@@ -380,17 +380,20 @@ body.manuscript-page {
 @media (max-width: 640px) {
   .chapter-hero {
     grid-template-columns: 1fr;
-  }
-
-  .chapter-device {
-    width: 100%;
-    border-radius: 32px;
-    padding: clamp(1.6rem, 5vw, 2.4rem);
     background:
       radial-gradient(circle at 15% 25%, rgba(245, 201, 155, 0.45), transparent 45%),
       radial-gradient(circle at 85% 5%, rgba(126, 160, 255, 0.35), transparent 50%),
       linear-gradient(155deg, #010208 0%, #0b0c18 55%, #020307 100%);
-    box-shadow: 0 35px 65px rgba(0, 0, 0, 0.45);
+    border-radius: 32px;
+    padding: clamp(1.6rem, 5vw, 2.4rem);
+  }
+
+  .chapter-device {
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
   }
 
   .chapter-device__title {
