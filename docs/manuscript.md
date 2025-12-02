@@ -4,6 +4,32 @@ title: Manuscript | Hand to Hand
 ---
 
 <section class="chapter-hero">
+  <div class="chapter-hero__copy">
+    <p class="chapter-copy__eyebrow">HAND TO HAND / MANUSCRIPT</p>
+    <h1>短編「道程」 — 本編アーカイブ</h1>
+    <p class="chapter-hero__lede">
+      男子中学生・瀬田亮二が「好きな子としか手は繋ぎたくない」と言い張ったことで起こる一連の事件を、本編ページでまとめて読めます。
+      ハンカチや12時チャイムといったお題が、どのように瀬田と川原の距離を動かすのかを追いかけてください。
+    </p>
+    <ul class="chapter-copy__meta">
+      <li>
+        <span class="chapter-copy__meta-label">Logline</span>
+        <span class="chapter-copy__meta-value">瀬田が差し出された手に救われ、成長するまでの12時までの道程。</span>
+      </li>
+      <li>
+        <span class="chapter-copy__meta-label">Prompts</span>
+        <span class="chapter-copy__meta-value">手 / ハンカチ / 12時 / ちくわ / 嘘</span>
+      </li>
+      <li>
+        <span class="chapter-copy__meta-label">Status</span>
+        <span class="chapter-copy__meta-value">全5章中3章公開、4章執筆中、5章構想中。</span>
+      </li>
+    </ul>
+    <p class="chapter-copy__note">
+      プロット詳細や登場人物メモは <a href="{{ '/plot.html' | relative_url }}">Plot</a> / <a href="{{ '/characters.html' | relative_url }}">Characters</a> にまとめています。
+    </p>
+  </div>
+
   <div class="chapter-device story-layout" role="region" aria-label="作品情報">
     <div class="chapter-device__header">
       <p class="chapter-device__eyebrow">HAND TO HAND / FEATURE</p>
