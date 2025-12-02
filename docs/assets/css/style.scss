@@ -433,6 +433,19 @@ body.manuscript-page {
   }
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .script-entry,
+  .chapter-card {
+    transition: none;
+  }
+
+  .script-entry:active,
+  .chapter-card:active {
+    transform: none;
+    box-shadow: inherit;
+  }
+}
+
 .script-entry {
   display: flex;
   gap: 16px;
