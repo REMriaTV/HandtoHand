@@ -12,6 +12,7 @@ _Last updated: 2025-12-02_
 - Update **Project Snapshot** and **Key Creative Notes** when major changes occur (structure, characters, tools, goals)。
 - Keep **Sources of Truth** links/tips accurate so Codex can fetch the right docs quickly。
 - Reference related Markdown files instead of duplicating large prose blocks; note where the latest text lives.
+- ユーザー側で手動修正をした場合は、コンフリクトを解消するために次のコマンドを入れる:git pull --rebase origin main
 
 ## Next Actions / Open Questions
 1. 
