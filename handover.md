@@ -1,5 +1,9 @@
 # Hand to Hand – Handover Log
 
+## Rule
+- 共有してある文章素材は、許可なく絶対にアレンジしない。許可がない限りは一言一句、原型にしたがう。勝手改稿は製作者への冒涜とみなす。
+- GitHubおよびGoogleアカウントのサインアウトも許可なくしないこと。
+
 ## Purpose
 - Keep a persistent, repo-stored log that Codex/people can consult even if terminals or tabs close.
 - Track how Hand to Hand (short story "道程") evolves: requirements, decisions, outstanding questions.
