@@ -208,58 +208,17 @@ body.manuscript-page {
   }
 }
 
-.manuscript-sheet {
-  position: relative;
+.manuscript-flow {
   width: 100%;
-  background: #fdfaf4;
-  padding: clamp(1.75rem, 4vw, 3.5rem);
-  box-shadow: 0 24px 65px rgba(12, 6, 2, 0.18);
+  padding: clamp(1rem, 3vw, 2.5rem) 0;
   display: flex;
   justify-content: center;
-  min-height: clamp(420px, 70vh, 780px);
 }
 
-@media (prefers-color-scheme: dark) {
-  .manuscript-sheet {
-    background: #191715;
-    box-shadow: 0 30px 85px rgba(0, 0, 0, 0.75);
-  }
-}
-
-.manuscript-sheet::before {
+.manuscript-flow::before,
+.manuscript-flow::after {
   content: '';
-  position: absolute;
-  top: clamp(1.25rem, 3vw, 2.5rem);
-  bottom: clamp(1.25rem, 3vw, 2.5rem);
-  width: 1px;
-  background: rgba(99, 84, 67, 0.4);
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.manuscript-sheet__chapter,
-.manuscript-sheet__page-number {
-  position: absolute;
-  font-size: 0.85rem;
-  letter-spacing: 0.35em;
-  color: rgba(99, 84, 67, 0.8);
-}
-
-.manuscript-sheet__chapter {
-  top: clamp(1rem, 2vw, 1.75rem);
-  right: clamp(1.25rem, 3vw, 2.5rem);
-}
-
-.manuscript-sheet__page-number {
-  bottom: clamp(1rem, 2vw, 1.75rem);
-  left: clamp(1.25rem, 3vw, 2.5rem);
-}
-
-@media (prefers-color-scheme: dark) {
-  .manuscript-sheet__chapter,
-  .manuscript-sheet__page-number {
-    color: rgba(235, 226, 212, 0.75);
-  }
+  display: none;
 }
 
 .manuscript-entry {

@@ -15,13 +15,7 @@
         <span class="manuscript-meta__section">{{ page.section_title | default: page.title }}</span>
       </div>
 
-      <section class="manuscript-sheet" aria-label="原稿">
-        {% if page.section_title %}
-          <span class="manuscript-sheet__chapter">{{ page.section_title }}</span>
-        {% endif %}
-        {% if page.page_number %}
-          <span class="manuscript-sheet__page-number">{{ page.page_number }}</span>
-        {% endif %}
+      <section class="manuscript-flow" aria-label="原稿">
         <article class="manuscript-entry">
           {{ content }}
         </article>
