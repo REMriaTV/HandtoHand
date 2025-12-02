@@ -388,11 +388,6 @@ body.manuscript-page {
   border-bottom: none;
 }
 
-.script-entry:hover,
-.script-entry:focus-visible {
-  background: rgba(255, 255, 255, 0.04);
-}
-
 .script-entry__thumb {
   width: 80px;
   height: 80px;
@@ -471,10 +466,17 @@ body.manuscript-page {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.chapter-card:hover,
-.chapter-card:focus-visible {
-  transform: translateY(-4px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+@media (hover: hover) and (pointer: fine) {
+  .script-entry:hover,
+  .script-entry:focus-visible {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .chapter-card:hover,
+  .chapter-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  }
 }
 
 .chapter-card__media {
