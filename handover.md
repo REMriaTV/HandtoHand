@@ -1,9 +1,20 @@
 # Hand to Hand – Handover Log
 
+_Last updated: 2025-12-02_
+
 ## Rule
 - 共有してある文章素材は、許可なく絶対にアレンジしない。許可がない限りは一言一句、原型にしたがう。勝手改稿は製作者への冒涜とみなす。
 - GitHubおよびGoogleアカウントのサインアウトも許可なくしないこと。
 - 修正をした際は、handoverにその旨の記載を残すこと。変更した際の日時（時間も）を付随させること
+
+## How to Update This File
+- Append new dated entries under **Work Log** with bullet lists of decisions/questions。
+- Update **Project Snapshot** and **Key Creative Notes** when major changes occur (structure, characters, tools, goals)。
+- Keep **Sources of Truth** links/tips accurate so Codex can fetch the right docs quickly。
+- Reference related Markdown files instead of duplicating large prose blocks; note where the latest text lives.
+
+## Next Actions / Open Questions
+1. 
 
 ## Purpose
 - Keep a persistent, repo-stored log that Codex/people can consult even if terminals or tabs close.
@@ -20,6 +31,8 @@
   - `docs/index.md` – GitHub Pages prototype (currently placeholder).
 
 Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so Codex always reads the latest Markdown + this log.
+
+---
 
 ## Project Snapshot (2025-11-25)
 - **Site title**: Hand to Hand (to be hosted on REMriaTV GitHub, repo not yet created).
@@ -38,27 +51,13 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
   - 教員/部活: クボセン、ザキヤマ、盛岡、バレー部員など。
 - **Outstanding world-building items**: 体育館地下倉庫のレイアウト、倉庫に横野が来る目的、ハンカチの所有/意味付け、ちくわ比喩の活用、12時を契機にした緊張の段階付け、終章「嘘」の仕掛け。
 
+---
+
 ## Work Log
-### 2025-11-29
-- 原稿ページの改修に向けて（更新および変更）
-  - 原稿（本文）ページを **「文庫本をそのままウェブに移したような読み心地」** に整える
-  - 章タイトル：小さく表示。
-    - レイアウトについて：要相談・要調整
-  - ページ番号：小さく表示する
-    - レイアウトについて：要相談・要調整
-  - 余白：要相談・要調整
-  - 列数：要相談・要調整
-  - 1列あたりの文字数：要相談・要調整
-  - 行（列）間：要相談・要調整
-  - 字間：要相談・要調整
-  - ページ組：見開き or 単一：要相談・要調整
-  - 様式：縦書き（決定）
-  - ページ移動：矢印 or スクロール：要相談・要調整
-  - 章の移動：矢印 or スクロール：要相談・要調整
-  - 背景（紙色）：
-    - manuscript-entry を紙色（例: #fdfaf4）のシートで包み、余白と影を軽く付けて読書用の“紙面”に見せる案を検討中。決定ではない。
-    - prefers-color-scheme: dark に合わせた夜間配色も用意して、背景と紙色を反転させる案を検討中。決定ではない。
-      
+
+### 2025-11-21
+- ハンドオフ理解を整理 (README.md に記載)。
+- 目的・ディレクトリ構成・Pages 運用フローを文章化。
 
 ### 2025-11-25
 - 決定: リポジトリ直下に `handover.md` を新設し、Codex との共有ログとして使う。
@@ -84,16 +83,30 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 相談: 原稿ページは「文庫本のように読書へ集中できる」方向へ再設計する。余計な装飾を排し、章題・ページ番号など最低限の情報だけを紙面の外側に添える。
 - 方針: まずモックアップでレイアウト案（縦書き／余白幅／段数／メタ情報表示方法）を固め、了承後に実装へ進む。既存の `docs/_layouts/manuscript.html` と SCSS にはまだ手を入れない。
 
+### 2025-11-29
+- 原稿ページの改修に向けて（更新および変更）
+  - 原稿（本文）ページを **「文庫本をそのままウェブに移したような読み心地」** に整える
+  - 章タイトル：小さく表示。
+    - レイアウトについて：要相談・要調整
+  - ページ番号：小さく表示する
+    - レイアウトについて：要相談・要調整
+  - 余白：要相談・要調整
+  - 列数：要相談・要調整
+  - 1列あたりの文字数：要相談・要調整
+  - 行（列）間：要相談・要調整
+  - 字間：要相談・要調整
+  - ページ組：見開き or 単一：要相談・要調整
+  - 様式：縦書き（決定）
+  - ページ移動：矢印 or スクロール：要相談・要調整
+  - 章の移動：矢印 or スクロール：要相談・要調整
+  - 背景（紙色）：
+    - manuscript-entry を紙色（例: #fdfaf4）のシートで包み、余白と影を軽く付けて読書用の“紙面”に見せる案を検討中。決定ではない。
+    - prefers-color-scheme: dark に合わせた夜間配色も用意して、背景と紙色を反転させる案を検討中。決定ではない。
+
 ### 2025-11-30
 - 状況: HandtoHand（https://remriatv.github.io/HandtoHand/）はヒーロー＋新聞セクション構成で公開中。詳細プロットやキャラクターは HandtoHand-work で管理、暫定原稿は「ぶくとも。書いたもの見せて」にも掲載。[Links to remind]
 - Git運用: 作業開始前に `git pull --rebase` 実施、コミット→push。mockups-manuscript.html は `.gitignore` に入れ、ローカルテストのみ。新規モックは `docs/mockups-*.html` を追加して push すれば公開可。
 - TODO: 原稿ページの文庫本風レイアウトをモックで詰める（縦書き本編の余白・章タイトル表示など）。章カードのパンフ風 UI をトップ本編セクションへ組み込む検討を継続。
-
-### 2025-12-02 12:05
-- レイアウトを STORY/SCRIPT セクションへ再構成。端末内に作品キャプションと章リストを直接並べる形式へ切り替えた。章リストは `<a class="script-entry" href="...">` で各章頁へ遷移する。
-- `docs/assets/css/style.scss` を更新。端末背景を濃いグラデーションにし、STORY/SCRIPT 見出しや章リストの幅・余白を調整。サムネイルは 80px スクエア、キャプションは 2 行表示。
-- `docs/manuscript.md` から目次や余計な注記ブロックを削除し、専用セクション（STORY/SCRIPT/進捗）だけを残した。
-
 
 ### 2025-12-01
 - 実装: モック案をベースに原稿ページのレイアウトを更新。`docs/_layouts/manuscript.html` にメタ情報バー・紙面セクション・ナビゲーションを追加し、`section_title`/`page_number`/`prev_page`/`next_page` を表示に利用。
@@ -103,27 +116,17 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 調整: 章カードの UI をヒーローパネル右カラムと同じスマホ風レイアウトに変更。`docs/manuscript.md` のマークアップと `docs/assets/css/style.scss` を更新し、カードを縦に積んだ 1 カラム構成へ整理。
 - 追加: スマホ画面を模した章カードモジュールを `docs/manuscript.md` に実装。トップヒーローと同じ配色・陰影に揃え、背景画像は `docs/assets/images/chapter-*.png` へ差し替え済み（「嘘」は暫定画像）。
 
+### 2025-12-02 12:05
+- レイアウトを STORY/SCRIPT セクションへ再構成。端末内に作品キャプションと章リストを直接並べる形式へ切り替えた。章リストは `<a class="script-entry" href="...">` で各章頁へ遷移する。
+- `docs/assets/css/style.scss` を更新。端末背景を濃いグラデーションにし、STORY/SCRIPT 見出しや章リストの幅・余白を調整。サムネイルは 80px スクエア、キャプションは 2 行表示。
+- `docs/manuscript.md` から目次や余計な注記ブロックを削除し、専用セクション（STORY/SCRIPT/進捗）だけを残した。
+
 ### 2025-12-02
 - 要望: モックをそのまま本編（manuscript.html）へ組み込みたい。見た目が気に入れば本番適用でOK、不満があれば 1 コミット戻して対応予定。
 - 確認: 今回は本番ページを編集するため、ローカル preview には `bundle exec jekyll serve` → `http://localhost:4000/manuscript.html` が必要。サーバー起動が面倒なら push 後に GitHub Pages で直接確認でも可。
 - 注意: `docs/mockups-manuscript.html` はローカルテスト用。`.gitignore` に入れてあるので commit/push しない。
 - 実験: スマホで端末フレームを全幅表示にする案を試すも、タップ時に拡大感が残るため却下。`docs/assets/css/style.scss` のモバイル用スタイルは `ac4c21d` コミット相当へ戻し、今後細部はユーザー側で微調整する方針。
 
-### 2025-11-21
-- ハンドオフ理解を整理 (README.md に記載)。
-- 目的・ディレクトリ構成・Pages 運用フローを文章化。
-
-## Next Actions / Open Questions
-1. Decide final home for spreadsheet-sync workflow (manual copy vs. script) so repo stays current.
-2. Flesh out Act IV「ちくわ」と終章「嘘」（舞台: 体育館地下倉庫、音楽リンクあり）を `content/plot-outline.md` および `content/manuscript.md` に追記。
-3. 瀬田の内面設定（潔癖の有無、手に関するコンプレックス）を確定し、序盤の描写を整合。
-4. ハンカチの由来/所有者（川原 or 横野）を明文化し、プロット上の役割を統一。
-5. GitHub リポジトリ (REMriaTV) を作成し、このリポジトリを push。GitHub Pages を `docs/` で有効化。
-
-## How to Update This File
-- Append new dated entries under **Work Log** with bullet lists of decisions/questions。
-- Update **Project Snapshot** and **Key Creative Notes** when major changes occur (structure, characters, tools, goals)。
-- Keep **Sources of Truth** links/tips accurate so Codex can fetch the right docs quickly。
-- Reference related Markdown files instead of duplicating large prose blocks; note where the latest text lives.
-
-_Last updated: 2025-11-25_
+### 2025-12-02（17:45）
+- manuscript レイアウトから文庫風シート (manuscript-sheet) を撤去。本文は背景上に直接表示する構造へ変
+  更し、章題/ページ番号のオーバーレイも廃止。関連CSSは `.manuscript-flow` でセンタリングのみ担うよう簡素化。
