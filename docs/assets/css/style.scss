@@ -248,6 +248,11 @@ body.manuscript-page {
   display: none;
 }
 
+.manuscript-tail {
+  width: 100%;
+  height: clamp(3rem, 8vw, 6rem);
+}
+
 .manuscript-entry {
   width: 100%;
   max-width: 880px;
