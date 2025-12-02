@@ -133,6 +133,10 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 旧 `manuscript-nav` を削除し、本文中に「← 前へ／次へ →」が挿入されないようにした。
 - `docs/assets/css/style.scss` で `.manuscript-meta` を3カラムグリッドに変更。リンク用のクラス（prev/home/next）を追加し、中央の HAND TO HAND は目次リンクとして表示。ダークモードの配色は従来のまま継承。
 
+### 2025-12-02-19-15
+- 原稿本文周りの構造を再編。`docs/_layouts/manuscript.html` で `<article>` を `div.manuscript-pagebody` で包み、縦書き指定を本文内部だけに閉じ込めて外側は通常の書字方向に戻す構造へ変更。
+- `docs/assets/css/style.scss` に `.manuscript-pagebody` を追加し、padding-bottom を `clamp(10rem, 20vw, 28rem)` で確保。これに伴い `.manuscript-tail` は廃止。
+
 ### 2025-12-02（17:45）
 - manuscript レイアウトから文庫風シート (manuscript-sheet) を撤去。本文は背景上に直接表示する構造へ変
   更し、章題/ページ番号のオーバーレイも廃止。関連CSSは `.manuscript-flow` でセンタリングのみ担うよう簡素化。

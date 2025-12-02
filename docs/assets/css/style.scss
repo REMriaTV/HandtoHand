@@ -247,9 +247,12 @@ body.manuscript-page {
   display: none;
 }
 
-.manuscript-tail {
+.manuscript-pagebody {
   width: 100%;
-  height: clamp(8rem, 18vw, 20rem);
+  display: flex;
+  justify-content: center;
+  writing-mode: horizontal-tb;
+  padding-bottom: clamp(10rem, 20vw, 28rem);
 }
 
 .manuscript-entry {
