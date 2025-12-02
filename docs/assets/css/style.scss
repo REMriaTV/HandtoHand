@@ -170,9 +170,7 @@ body.manuscript-page {
   background: #f0ede8;
   color: #15100c;
   font-family: 'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif JP', serif;
-  display: flex;
-  justify-content: center;
-  padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem) clamp(5rem, 8vw, 6rem);
+  padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem) clamp(6rem, 9vw, 8rem);
   box-sizing: border-box;
 }
 
@@ -185,6 +183,7 @@ body.manuscript-page {
 
 .manuscript-main {
   width: min(960px, 94vw);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -250,7 +249,7 @@ body.manuscript-page {
 
 .manuscript-tail {
   width: 100%;
-  height: clamp(10rem, 22vw, 24rem);
+  height: clamp(8rem, 18vw, 20rem);
 }
 
 .manuscript-entry {
