@@ -3,6 +3,7 @@
 ## Rule
 - 共有してある文章素材は、許可なく絶対にアレンジしない。許可がない限りは一言一句、原型にしたがう。勝手改稿は製作者への冒涜とみなす。
 - GitHubおよびGoogleアカウントのサインアウトも許可なくしないこと。
+- 修正をした際は、handoverにその旨の記載を残すこと。変更した際の日時（時間も）を付随させること
 
 ## Purpose
 - Keep a persistent, repo-stored log that Codex/people can consult even if terminals or tabs close.
