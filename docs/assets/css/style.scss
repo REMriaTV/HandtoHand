@@ -258,6 +258,7 @@ body.manuscript-page {
   line-height: 1.8;
   letter-spacing: 0.08em;
   font-size: 1rem;
+  padding-bottom: clamp(2rem, 6vw, 4rem);
   color: #16130f;
 }
 
