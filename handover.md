@@ -136,6 +136,7 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 ### 2025-12-02-19-15
 - 原稿本文周りの構造を再編。`docs/_layouts/manuscript.html` で `<article>` を `div.manuscript-pagebody` で包み、縦書き指定を本文内部だけに閉じ込めて外側は通常の書字方向に戻す構造へ変更。
 - `docs/assets/css/style.scss` に `.manuscript-pagebody` を追加し、padding-bottom を `clamp(10rem, 20vw, 28rem)` で確保。これに伴い `.manuscript-tail` は廃止。
+- `docs/assets/css/style.scss` の `.manuscript-entry` に `column-fill: auto;` を指定し、マルチカラムが余白分まで均等配分しないよう調整。章の長さに関わらず下余白が安定して確保される。
 
 ### 2025-12-02（17:45）
 - manuscript レイアウトから文庫風シート (manuscript-sheet) を撤去。本文は背景上に直接表示する構造へ変

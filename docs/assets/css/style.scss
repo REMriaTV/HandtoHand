@@ -260,6 +260,7 @@ body.manuscript-page {
   max-width: 880px;
   column-count: 2;
   column-gap: clamp(1.5rem, 4vw, 3.25rem);
+  column-fill: auto;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   line-height: 1.8;
