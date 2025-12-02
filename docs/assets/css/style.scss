@@ -384,8 +384,8 @@ body.manuscript-page {
       radial-gradient(circle at 15% 25%, rgba(245, 201, 155, 0.45), transparent 45%),
       radial-gradient(circle at 85% 5%, rgba(126, 160, 255, 0.35), transparent 50%),
       linear-gradient(155deg, #010208 0%, #0b0c18 55%, #020307 100%);
-    border-radius: 32px;
-    padding: clamp(1.6rem, 5vw, 2.4rem);
+    border-radius: 0;
+    padding: clamp(1.6rem, 5vw, 2.4rem) clamp(1rem, 4vw, 2rem);
   }
 
   .chapter-device {
