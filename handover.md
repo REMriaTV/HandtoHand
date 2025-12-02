@@ -102,6 +102,7 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 要望: モックをそのまま本編（manuscript.html）へ組み込みたい。見た目が気に入れば本番適用でOK、不満があれば 1 コミット戻して対応予定。
 - 確認: 今回は本番ページを編集するため、ローカル preview には `bundle exec jekyll serve` → `http://localhost:4000/manuscript.html` が必要。サーバー起動が面倒なら push 後に GitHub Pages で直接確認でも可。
 - 注意: `docs/mockups-manuscript.html` はローカルテスト用。`.gitignore` に入れてあるので commit/push しない。
+- 実験: スマホで端末フレームを全幅表示にする案を試すも、タップ時に拡大感が残るため却下。`docs/assets/css/style.scss` のモバイル用スタイルは `ac4c21d` コミット相当へ戻し、今後細部はユーザー側で微調整する方針。
 
 ### 2025-11-21
 - ハンドオフ理解を整理 (README.md に記載)。
