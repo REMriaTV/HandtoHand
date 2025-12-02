@@ -522,7 +522,7 @@ body.manuscript-page {
   color: inherit;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -533,6 +533,7 @@ body.manuscript-page {
 
   .chapter-card:hover,
   .chapter-card:focus-visible {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     transform: translateY(-4px);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
   }
