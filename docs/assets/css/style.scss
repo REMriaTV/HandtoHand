@@ -289,66 +289,6 @@ body.manuscript-page {
   align-items: center;
 }
 
-.chapter-hero__copy {
-  max-width: 620px;
-}
-
-.chapter-copy__eyebrow {
-  margin: 0 0 0.5rem;
-  letter-spacing: 0.45em;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: #9ca3af;
-}
-
-.chapter-hero__copy h1 {
-  margin: 0 0 1.2rem;
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  letter-spacing: 0.05em;
-  color: #111827;
-}
-
-.chapter-copy__meta {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-}
-
-.chapter-copy__meta-item,
-.chapter-copy__meta li {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.chapter-copy__meta-label {
-  font-size: 0.75rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: #9ca3af;
-}
-
-.chapter-copy__meta-value {
-  font-size: 1rem;
-  color: #1f2937;
-  line-height: 1.7;
-}
-
-.chapter-hero__lede {
-  margin: 0;
-  color: #4b5563;
-  line-height: 1.8;
-}
-
-.chapter-hero__note {
-  margin-top: 1.2rem;
-  font-size: 0.9rem;
-  color: #6b7280;
-}
-
 .chapter-device {
   justify-self: center;
   width: min(500px, 96vw);
@@ -413,8 +353,6 @@ body.manuscript-page {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.65);
   text-align: center;
-  border: none;
-  padding: 0;
 }
 
 .chapter-story p {
@@ -517,53 +455,6 @@ body.manuscript-page {
   overflow: hidden;
 }
 
-@media (max-width: 640px) {
-  .chapter-hero {
-    grid-template-columns: 1fr;
-  }
-
-  .chapter-device {
-    width: 100%;
-    max-width: none;
-    justify-self: stretch;
-    margin: 0;
-    border-radius: clamp(22px, 8vw, 38px);
-    padding: clamp(1.2rem, 6vw, 2.1rem);
-  }
-
-  .chapter-device__entries {
-    width: 100%;
-  }
-
-  .script-entry {
-    flex-direction: column;
-    gap: 0.75rem;
-    padding: 12px 0;
-  }
-
-  .script-entry__thumb {
-    width: 100%;
-    height: 180px;
-    border-radius: 16px;
-    margin: 0;
-  }
-
-  .script-entry__body {
-    gap: 0.5rem;
-  }
-
-  .script-entry__meta {
-    flex-wrap: wrap;
-    gap: 0.35rem;
-  }
-}
-
-.chapter-copy__note {
-  margin-top: 1rem;
-  text-align: center;
-  color: #4b5563;
-  font-size: 0.85rem;
-}
 
 .chapter-card {
   display: flex;
@@ -650,23 +541,4 @@ body.manuscript-page {
   font-size: 1rem;
   color: #1f2937;
   line-height: 1.7;
-}
-
-@media (prefers-color-scheme: dark) {
-  .chapter-hero__copy h1 {
-    color: #f4f4f7;
-  }
-
-  .chapter-copy__eyebrow,
-  .chapter-copy__meta-label {
-    color: rgba(229, 231, 235, 0.8);
-  }
-
-  .chapter-copy__meta-value {
-    color: rgba(249, 250, 251, 0.92);
-  }
-
-  .chapter-copy__note {
-    color: rgba(229, 231, 235, 0.75);
-  }
 }

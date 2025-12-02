@@ -97,8 +97,6 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - 追加: `docs/manuscript.md` に章カードセクションを追加。`docs/assets/css/style.scss` へカード専用スタイルを実装し、`mockups-toc.html` の暗色パンフ風デザインを再現。新聞セクション案は不採用のため以後利用しない。
 - 調整: 章カードの UI をヒーローパネル右カラムと同じスマホ風レイアウトに変更。`docs/manuscript.md` のマークアップと `docs/assets/css/style.scss` を更新し、カードを縦に積んだ 1 カラム構成へ整理。
 - 追加: スマホ画面を模した章カードモジュールを `docs/manuscript.md` に実装。トップヒーローと同じ配色・陰影に揃え、背景画像は `docs/assets/images/chapter-*.png` へ差し替え済み（「嘘」は暫定画像）。
-- 更新: `docs/manuscript.md` のヒーローにコピーカラムを追加し、ログライン/お題/公開状況を表示。`docs/assets/css/style.scss` に `chapter-copy__*` 系クラスを定義し、prefers-color-scheme: dark でも色が崩れないよう調整。
-- モバイル調整: `docs/assets/css/style.scss` に 640px 以下ブレークポイントを追加し、端末フレームを全幅化 + 章カードを縦積みに変更。SCRIPT 見出しの上下線（ヘッダー既定スタイル）も無効化してスマホ表示の違和感を解消。
 
 ### 2025-12-02
 - 要望: モックをそのまま本編（manuscript.html）へ組み込みたい。見た目が気に入れば本番適用でOK、不満があれば 1 コミット戻して対応予定。
