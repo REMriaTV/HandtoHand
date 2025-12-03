@@ -307,9 +307,8 @@ body.manuscript-page {
   }
 
   .manuscript-pagebody {
-    padding-bottom: clamp(2rem, 8vw, 3rem);
+    padding-bottom: clamp(3rem, 10vw, 4rem);
     display: block;
-    writing-mode: horizontal-tb;
     padding-left: clamp(0.75rem, 3vw, 1rem);
     padding-right: clamp(0.75rem, 3vw, 1rem);
   }
@@ -318,18 +317,23 @@ body.manuscript-page {
     column-count: 1;
     column-width: auto;
     column-gap: 0;
-    font-size: 0.92rem;
-    line-height: 1.9;
+    font-size: 0.96rem;
+    line-height: 2;
     writing-mode: vertical-rl;
     text-orientation: mixed;
+    column-fill: auto;
+  }
+
+  .manuscript-entry p {
+    margin-bottom: 2.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .manuscript-entry {
     column-width: auto;
-    font-size: 0.88rem;
-    line-height: 1.65;
+    font-size: 0.92rem;
+    line-height: 1.9;
   }
 }
 
