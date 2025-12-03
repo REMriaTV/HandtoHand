@@ -303,39 +303,39 @@ body.manuscript-page {
   }
 
   .manuscript-flow {
-      display: block;                            /* ← ここが今回の追加 */
-      padding: clamp(0.5rem, 4vw, 1.5rem) 0;
-    }
-
+    display: block;
+    padding: clamp(0.75rem, 4vw, 1.5rem) 0;
+  }
 
   .manuscript-pagebody {
-    padding-bottom: clamp(3rem, 10vw, 4rem);
     display: block;
-    padding-left: clamp(0.75rem, 3vw, 1rem);
-    padding-right: clamp(0.75rem, 3vw, 1rem);
+    padding: 0;
+    margin-bottom: clamp(3rem, 12vw, 5rem);
   }
 
   .manuscript-entry {
+    width: 100%;
+    max-width: none;
     column-count: 1;
-    column-width: auto;
     column-gap: 0;
-    font-size: 0.96rem;
+    column-fill: auto;
+    font-size: 0.95rem;
     line-height: 2;
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    column-fill: auto;
+    color: inherit;
   }
 
   .manuscript-entry p {
-    margin-bottom: 2.5rem;
+    margin: 0 0 2.2rem;
+    text-indent: 1em;
   }
 }
 
 @media (max-width: 480px) {
   .manuscript-entry {
-    column-width: auto;
-    font-size: 0.92rem;
-    line-height: 1.9;
+    font-size: 0.9rem;
+    line-height: 1.85;
   }
 }
 
