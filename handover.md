@@ -142,3 +142,18 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 ### 2025-12-02（17:45）
 - manuscript レイアウトから文庫風シート (manuscript-sheet) を撤去。本文は背景上に直接表示する構造へ変
   更し、章題/ページ番号のオーバーレイも廃止。関連CSSは `.manuscript-flow` でセンタリングのみ担うよう簡素化。
+
+### 2025-12-03（22:04）
+- 現状について
+  - 原稿レイアウトは docs/_layouts/manuscript.html で div.manuscript-pagebody → article.manuscript-entry の階層
+  構造。縦書き指定は manuscript-entry 内部だけに閉じ込め、外側の manuscript-pagebody で下余白（padding-bottom）を
+  clamp(10rem, 20vw, 28rem) 確保。
+  - docs/assets/css/style.scss の .manuscript-entry は column-count: 2 かつ column-fill: auto。章末に必ず一定の余白
+  が残るよう調整済み。
+  - スマホ幅（640px 以下）は専用メディアクエリで body.manuscript-page のパディングを縮め、manuscript-meta を縦積みに
+  変更。本文は1カラム（column-count: 1）で表示し、ナビゲーションは上下に揃えている。
+  - ページ上部の見出し（前章／目次／次章）はトップの manuscript-meta だけで制御し、本文中の旧ナビは削除済み。
+  - 
+
+
+
