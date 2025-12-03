@@ -307,30 +307,44 @@ body.manuscript-page {
   }
 
   .manuscript-pagebody {
-    padding-bottom: clamp(7rem, 24vw, 12rem);
-    min-height: var(--manuscript-auto-height, auto);
+    padding-bottom: clamp(2rem, 8vw, 3rem);
+    height: calc(100vh - 11rem);
     overflow-x: auto;
+    overflow-y: hidden;
     writing-mode: vertical-rl;
     text-orientation: mixed;
+    scroll-snap-type: x proximity;
+    padding-left: clamp(0.75rem, 3vw, 1rem);
+    padding-right: clamp(0.75rem, 3vw, 1rem);
   }
 
   .manuscript-entry {
-    column-count: 2;
-    column-gap: clamp(1.2rem, 6vw, 2rem);
+    column-count: auto;
+    column-width: clamp(220px, 65vw, 280px);
+    column-gap: clamp(1rem, 5vw, 1.5rem);
     font-size: 0.92rem;
     line-height: 1.75;
     column-fill: auto;
     writing-mode: vertical-rl;
     text-orientation: mixed;
+    height: 100%;
+  }
+
+  .manuscript-entry::after {
+    content: '';
+    display: inline-block;
+    width: clamp(0.5rem, 4vw, 1rem);
   }
 }
 
 @media (max-width: 480px) {
   .manuscript-pagebody {
-    column-gap: clamp(0.8rem, 4vw, 1rem);
+    height: calc(100vh - 9.5rem);
   }
 
   .manuscript-entry {
+    column-width: clamp(180px, 70vw, 220px);
+    column-gap: clamp(0.75rem, 4vw, 1rem);
     font-size: 0.88rem;
     line-height: 1.65;
   }
