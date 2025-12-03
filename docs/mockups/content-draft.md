@@ -1,6 +1,7 @@
 ---
 title: Concept Copy Draft
 layout: null
+permalink: /mockups/content-draft.md
 ---
 ## ヒーローセクション案
 
