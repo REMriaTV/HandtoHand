@@ -14,24 +14,19 @@ _Last updated: 2025-12-02_
 - Reference related Markdown files instead of duplicating large prose blocks; note where the latest text lives.
 - ユーザー側で手動修正をした場合は、コンフリクトを解消するために次のコマンドを入れる:git pull --rebase origin main
 
-## Next Actions / Open Questions
-1. 
+## Next Actions
+-
+
+## リポジトリ内で参照すべき一次情報源
+- Primary ideation: Spreadsheet ("Hand to Hand" tab) – <[https://docs.google.com/spreadsheets/d/1Nh1yDXMdR6Z-Hoyua6T76hdtmO5g5x7Prt1-SpRGoKc/edit?gid=302707251#gid=302707251](https://remriatv.github.io/HandtoHand-work/)>
+- ベース案はスプレッドシートで管理しているが、リポジトリ側で先に更新される項目もある。
 
 ## Purpose
 - Keep a persistent, repo-stored log that Codex/people can consult even if terminals or tabs close.
 - Track how Hand to Hand (short story "道程") evolves: requirements, decisions, outstanding questions.
 - Point to the authoritative content sources (spreadsheet, Obsidian, Markdown) so the latest material can be synced quickly.
 
-## Sources of Truth / Where to Look
-- Primary ideation: Spreadsheet ("Hand to Hand" tab) – <https://docs.google.com/spreadsheets/d/1Nh1yDXMdR6Z-Hoyua6T76hdtmO5g5x7Prt1-SpRGoKc/edit?gid=302707251#gid=302707251>
-- Obsidian note: 「★Hand to Hand サイト設計」 (still used for brainstorming but may lag behind).
-- Repository Markdown:
-  - `content/plot-outline.md` – scene-by-scene outline synced from spreadsheet notes.
-  - `content/characters.md` – cast descriptions and traits.
-  - `content/manuscript.md` – prose draft (sections 一〜七まで反映済み。八は書きかけ)。
-  - `docs/index.md` – GitHub Pages prototype (currently placeholder).
 
-Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so Codex always reads the latest Markdown + this log.
 
 ---
 
