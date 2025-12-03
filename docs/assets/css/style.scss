@@ -315,6 +315,9 @@ body.manuscript-page {
     column-gap: 0;
     font-size: 0.95rem;
     line-height: 1.75;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    line-break: strict;
   }
 }
 
