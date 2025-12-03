@@ -303,8 +303,10 @@ body.manuscript-page {
   }
 
   .manuscript-flow {
-    padding: clamp(0.5rem, 4vw, 1.5rem) 0;
-  }
+      display: block;                            /* ← ここが今回の追加 */
+      padding: clamp(0.5rem, 4vw, 1.5rem) 0;
+    }
+
 
   .manuscript-pagebody {
     padding-bottom: clamp(3rem, 10vw, 4rem);
