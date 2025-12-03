@@ -138,7 +138,7 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
 - `docs/assets/css/style.scss` に `.manuscript-pagebody` を追加し、padding-bottom を `clamp(10rem, 20vw, 28rem)` で確保。これに伴い `.manuscript-tail` は廃止。
 - `docs/assets/css/style.scss` の `.manuscript-entry` に `column-fill: auto;` を指定し、マルチカラムが余白分まで均等配分しないよう調整。章の長さに関わらず下余白が安定して確保される。
 - スマホ幅（640px 以下）向けに `body.manuscript-page` / `.manuscript-meta` / `.manuscript-entry` のレイアウトを個別指定。原稿は1カラム表示・余白確保し、ナビは上下に積むよう CSS を追加。
-- スマホ向け `.manuscript-pagebody` をビューポート高さ内に収め、`overflow-x:auto` で横スクロール読書に変更。`.manuscript-entry` は縦書き2カラム (`column-width` 指定) のまま横方向に展開し、縦スクロールが極端に長くならないようにした。
+- スマホ向け `.manuscript-pagebody` をビューポート高さ内に収め、`overflow-x:auto` で横スクロール読書に変更。`.manuscript-entry` は縦書き2カラム (`column-width` 指定) のまま横方向に展開し、縦スクロールが極端に長くならないようにした。JS (`docs/assets/js/manuscript-mobile.js`) で本文を20文字単位の `span.manuscript-segment` に分割し、各セグメント高さを20行相当に揃えて段落分けを表現。
 
 ### 2025-12-02（17:45）
 - manuscript レイアウトから文庫風シート (manuscript-sheet) を撤去。本文は背景上に直接表示する構造へ変
@@ -155,5 +155,4 @@ Whenever spreadsheet/Obsidian get updates, mirror the canonical pieces here so C
   変更。本文は1カラム（column-count: 1）で表示し、ナビゲーションは上下に揃えている。
   - ページ上部の見出し（前章／目次／次章）はトップの manuscript-meta だけで制御し、本文中の旧ナビは削除済み。
   - 
-
 

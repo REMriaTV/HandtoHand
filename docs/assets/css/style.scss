@@ -330,6 +330,13 @@ body.manuscript-page {
     height: 100%;
   }
 
+  .manuscript-segment {
+    display: inline-block;
+    writing-mode: inherit;
+    text-orientation: inherit;
+    height: 20em;
+  }
+
   .manuscript-entry::after {
     content: '';
     display: inline-block;
@@ -347,6 +354,10 @@ body.manuscript-page {
     column-gap: clamp(0.75rem, 4vw, 1rem);
     font-size: 0.88rem;
     line-height: 1.65;
+  }
+
+  .manuscript-segment {
+    height: 18em;
   }
 }
 
