@@ -308,10 +308,8 @@ body.manuscript-page {
 
   .manuscript-pagebody {
     padding-bottom: clamp(2rem, 8vw, 3rem);
-    min-height: auto;
-    overflow: visible;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
+    display: block;
+    writing-mode: horizontal-tb;
     padding-left: clamp(0.75rem, 3vw, 1rem);
     padding-right: clamp(0.75rem, 3vw, 1rem);
   }
@@ -321,14 +319,9 @@ body.manuscript-page {
     column-width: auto;
     column-gap: 0;
     font-size: 0.92rem;
-    line-height: 1.85;
+    line-height: 1.9;
     writing-mode: vertical-rl;
     text-orientation: mixed;
-  }
-
-  .manuscript-segment {
-    display: inline;
-    height: auto;
   }
 }
 
