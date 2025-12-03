@@ -308,16 +308,31 @@ body.manuscript-page {
 
   .manuscript-pagebody {
     padding-bottom: clamp(7rem, 24vw, 12rem);
+    min-height: var(--manuscript-auto-height, auto);
+    overflow-x: auto;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
   }
 
   .manuscript-entry {
-    column-count: 1;
-    column-gap: 0;
-    font-size: 0.95rem;
+    column-count: 2;
+    column-gap: clamp(1.2rem, 6vw, 2rem);
+    font-size: 0.92rem;
     line-height: 1.75;
-    writing-mode: horizontal-tb;
+    column-fill: auto;
+    writing-mode: vertical-rl;
     text-orientation: mixed;
-    line-break: strict;
+  }
+}
+
+@media (max-width: 480px) {
+  .manuscript-pagebody {
+    column-gap: clamp(0.8rem, 4vw, 1rem);
+  }
+
+  .manuscript-entry {
+    font-size: 0.88rem;
+    line-height: 1.65;
   }
 }
 
