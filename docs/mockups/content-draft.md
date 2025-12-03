@@ -1,7 +1,7 @@
 ---
 title: Concept Copy Draft
-layout: null
-permalink: /mockups/content-draft.md
+layout: default   # 既存のレイアウト名に合わせて
+permalink: /mockups/content-draft.html
 ---
 ## ヒーローセクション案
 
