@@ -1,11 +1,18 @@
 # Hand to Hand – Handover Log
 
-_Last updated: 2025-12-02_
+_Last updated: 2025-12-03_
 
 ## Rule
 - 共有してある文章素材は、許可なく絶対にアレンジしない。許可がない限りは一言一句、原型にしたがう。勝手改稿は製作者への冒涜とみなす。
 - GitHubおよびGoogleアカウントのサインアウトも許可なくしないこと。
 - 修正をした際は、handoverにその旨の記載を残すこと。変更した際の日時（時間も）を付随させること
+
+
+## 注意事項
+- REMriaTV アカウント内には紛らわしいリポジトリ名が存在し、それぞれURLも分けている。
+    - [Hand to Hand](https://remriatv.github.io/HandtoHand/)（本リポジトリ／公開サイト）：スプレッドシート内容を詳細に反映した制作ノート
+    - [HandtoHand-work](https://remriatv.github.io/HandtoHand-work/)（制作ノート・素材の保管用）。 
+- GitHub 上で編集する際は**対象リポジトリを必ず確認し、ブランチやファイルを混同しない**こと。
 
 ## How to Update This File
 - Append new dated entries under **Work Log** with bullet lists of decisions/questions。
