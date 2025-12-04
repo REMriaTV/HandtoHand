@@ -2,33 +2,71 @@
 ---
 
 body.manuscript-page {
-  padding: clamp(1.25rem, 6vw, 2rem) clamp(0.75rem, 5vw, 1.5rem) clamp(3rem, 12vw, 5rem);
+  padding: clamp(1.25rem, 5vw, 2.25rem) clamp(0.75rem, 4vw, 1.5rem) clamp(5rem, 14vw, 7rem);
 }
 
-.manuscript-shell {
+.manuscript-main {
   width: 100%;
+  padding: 0 0.5rem;
+  gap: 1.5rem;
 }
 
-.manuscript-nav {
-  flex-direction: column;
-  gap: 0.35rem;
+.manuscript-meta {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 0.4rem;
   font-size: 0.82rem;
-  letter-spacing: 0.2em;
 }
 
-.manuscript-nav__link--home {
-  letter-spacing: 0.3em;
+.manuscript-meta__link--prev,
+.manuscript-meta__link--next,
+.manuscript-meta__link--home {
+  justify-self: center;
+  text-align: center;
+  letter-spacing: 0.25em;
+}
+
+.manuscript-flow {
+  display: block;
+  padding: clamp(0.75rem, 4vw, 1.5rem) 0;
+}
+
+.manuscript-pagebody {
+  width: 100%;
+  display: block;
+  padding: 0;
+  margin-bottom: clamp(3rem, 12vw, 6rem);
 }
 
 .manuscript-entry {
-  font-size: 0.95rem;
-  line-height: 1.85;
+  width: 100%;
+  max-width: none;
+  column-count: 1;
+  column-gap: 0;
+  font-size: 0.96rem;
+  line-height: 1.95;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.08em;
+  color: inherit;
 }
 
 .manuscript-entry p {
-  margin: 0 0 2rem;
+  margin: 0 0 2.2rem;
+  text-indent: 1em;
 }
 
 .manuscript-entry p:last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+  body.manuscript-page {
+    padding: clamp(1rem, 8vw, 1.75rem) clamp(0.6rem, 5vw, 1.2rem) clamp(4rem, 16vw, 6rem);
+  }
+
+  .manuscript-entry {
+    font-size: 0.9rem;
+    line-height: 1.85;
+  }
 }
