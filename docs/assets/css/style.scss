@@ -655,3 +655,16 @@ body.manuscript-page {
     margin-bottom: 0.75rem;
   }
 }
+
+/* =========================================
+   全ページ共通：スクロール殺しを上書き
+   （テーマ側の height:100% / overflow:hidden 対策）
+   ========================================= */
+html,
+body {
+  height: auto !important;
+  min-height: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  box-sizing: border-box;
+}
