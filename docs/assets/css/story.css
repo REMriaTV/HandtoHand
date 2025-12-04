@@ -92,8 +92,18 @@ body {
     
     height: auto; 
     width: var(--reading-column-width); /* ① 1行の幅を変数化 */
-    
-    margin: 0 1.5em 0 0; 
-    text-indent: 1em; 
+
+    /* ★★★ ここを修正 ★★★ */
+    /* デフォルトの上下マージンを全てリセット */
+    margin: 0;
+
+    /* 縦書きの列（段落）の間隔を制御 */
+    margin-inline-start: 1.5em; /* 段落間の適切なスペースを確保 */
+    margin-block-start: 1em;    /* 1字下げ（縦書きではこのプロパティを使用） */
+
     line-height: 2.0; 
+}
+/* pタグが連続する場合の最初の字下げを解除 */
+.scene-card p:first-of-type {
+    margin-block-start: 0;
 }
