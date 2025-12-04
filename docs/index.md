@@ -11,6 +11,7 @@ title: Hand to Hand
     <p class="hero-panel__lede">「好きな子と一緒になったら何がしたい？」級友に聞かれて瀬田が答えたのは「ただ手がつなぎたい」だった。ふくらむ妄想と現実の落とし穴に挟まれた瀬田は、"手つなぎ童貞"を卒業できるのか。</p>
     <div class="hero-panel__actions">
       <a class="hero-panel__button" href="#story">ストーリーを読む</a>
+      <a class="hero-panel__button" href="{{ '/manuscript.html' | relative_url }}">本編</a>
       <a class="hero-panel__button" href="{{ '/characters.html' | relative_url }}">キャラクターを探る</a>
     </div>
   </div>
@@ -24,18 +25,17 @@ title: Hand to Hand
 <span id="sections"></span>
 
 ## 制作セクション
-- [プロット](./plot.html) — 幕ごとの展開と音楽リンク。
-- [キャラクター](./characters.html) — 主要人物の役割と関係性メモ。
-- [制作日記](./memos.html) — 日付別メモとキーワード整理。
-- [本編](./manuscript.html) — 章ごとの進行状況と課題サマリ。
-- [GitHub リポジトリ](https://github.com/REMriaTV/HandtoHand) — Markdown ソースと `handover.md`。
+- [プロット](./plot.html) — 章ごとの展開と音楽リンク。
+- [キャラクター](./characters.html) — 主要人物の役割と関係性。
+- [制作日記](./memos.html) — 時系列メモとキーワード整理。
+- [本編](./manuscript.html) — 目次と本編。
 
 <span id="story"></span>
 
 ## 作品コンセプト
 - **ログライン**: 女子と手をつなぎたい男子中学生が、思わぬアクシデントに巻き込まれつつ、葛藤の末に"はじめて"を経験して一皮むける話。
 - **テーマ**: 妄想にこだわりを持つ主人公が、想定外の試練を通じて「思ってたのとちがうけど悪くない」世界に気づき、成長する。
-- **構想**: 「好きな子と一緒になったら何がしたい？」に「ただ手がつなぎたい」と答えた瀬田亮二の、通過儀礼の一日。。
+- **構想**: 「好きな子と一緒になったら何がしたい？」に「ただ手がつなぎたい」と答えた瀬田亮二の、通過儀礼の一日。
 
 ## あらすじ
 1. **手** — 男子中学生の瀬田は幼馴染の横野に煽られたことで、皆の前で変態発言をして意中の女子・川原海美をドン引きさせてしまう。
