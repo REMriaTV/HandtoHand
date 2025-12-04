@@ -54,6 +54,18 @@ _Last updated: 2025-12-03_
     	- 原稿ページのテスト（旧バージョン：見開きページ）（採用後に、現在は廃止）
     		- https://remriatv.github.io/HandtoHand/mockups/manuscript.html
 
+## 原稿ページ（2025-12-04-09-30時点）
+  - docs/_layouts/
+    manuscript.html（1-46）…原稿ページ用 HTML レイアウト。{% seo %} で head を組み込み、共通CSSとモバイルCSSを読み込
+  み、manuscript-meta / manuscript-flow で前後章ナビと本文を配置。
+
+  - docs/assets/css/
+    style.scss（166-280）…デスクトップ向け原稿スタイル。背景・2カラム本文・ナビグリッド・余白・ダークモードを定義。
+    manuscript-mobile.scss（1-72）…640px以下のオーバーライド。ナビ縦積み・1カラム縦書きなどモバイル用調整を出力。
+
+  - docs/manuscript/
+    hand.md（1-6 + 本文）…front matter で `layout: manuscript`、章タイトル、ページ番号、次章リンクを設定し、本文を
+  `<article>` に展開。
 
 ---
 
