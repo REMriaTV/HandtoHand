@@ -13,7 +13,10 @@
     --section-gap: 3rem;          /* シーン（カード）間の垂直方向の間隔 */
     --card-vertical-padding: 1.5rem; /* カードの上下の余白 */
     --card-horizontal-padding: 1rem; /* カードの左右の余白 */
-    --reading-column-width: 45ch; /* 1行の文字数（45文字程度を推奨） */
+    
+    /* ★修正: 読み物エリアの全体幅を制御する変数に変更 */
+    --reading-area-width-pc: 50vw; /* PCでの読み物エリアの幅 */
+    
     --page-max-width: 900px;
 }
 
@@ -51,7 +54,7 @@ body {
    ========================================= */
 .story-header {
     background: var(--color-header-bg);
-    border-bottom: 1px solid var(--color-shadow); 
+    border-bottom: 1px solid var(--color-shadow);
     /* ... 既存スタイルを維持 ... */
 }
 
@@ -67,7 +70,12 @@ body {
 .story-content-flow {
     display: flex;
     flex-direction: column;
-    gap: var(--section-gap); /* ① 間隔を変数化 */
+    gap: var(--section-gap); 
+    
+    /* ★修正: PCでの幅を制限し、右寄せを維持 */
+    width: var(--reading-area-width-pc);
+    margin-left: auto; /* 右寄せの実現 */
+    max-width: 100%; /* モバイルでは100%を維持 */
 }
 
 /* =========================================
@@ -77,13 +85,14 @@ body {
     display: flex;
     justify-content: flex-end; 
     
-    /* ① 余白を変数化 */
     padding: var(--card-vertical-padding) var(--card-horizontal-padding); 
     
-    /* ② 色を適用 */
     background: var(--color-card-bg);
     box-shadow: 0 4px 10px var(--color-shadow);
     border-radius: 8px;
+    
+    /* ★修正: 親要素 (story-content-flow) の幅に収まるようにする */
+    width: 100%;
 }
 
 .scene-card p {
@@ -91,19 +100,37 @@ body {
     text-orientation: upright;
     
     height: auto; 
-    width: var(--reading-column-width); /* ① 1行の幅を変数化 */
+    
+    /* ★★★ 根本修正: ④はみ出しの問題を解決するため、width を削除 ★★★ */
+    /* width: var(--reading-column-width); を削除 */
+    width: auto; 
 
-    /* ★★★ ここを修正 ★★★ */
-    /* デフォルトの上下マージンを全てリセット */
-    margin: 0;
+    /* ★★★ 根本修正: ⑤ 行間が長すぎる問題を解決 ★★★ */
+    margin: 0; /* デフォルトマージンのリセット */
 
     /* 縦書きの列（段落）の間隔を制御 */
-    margin-inline-start: 1.5em; /* 段落間の適切なスペースを確保 */
-    margin-block-start: 1em;    /* 1字下げ（縦書きではこのプロパティを使用） */
+    margin-inline-start: 2em; /* 1.5em から 2em に調整 */
+    margin-block-start: 1em; /* 1字下げ */
 
-    line-height: 2.0; 
+    /* ★修正: 行の間の縦のスペースを詰める */
+    line-height: 1.8; 
+    
+    /* ★追加: テキストがカード内で確実に折り返すようにする */
+    white-space: normal;
 }
+
 /* pタグが連続する場合の最初の字下げを解除 */
 .scene-card p:first-of-type {
     margin-block-start: 0;
+}
+
+/* =========================================
+   スマホ用調整 (max-width: 640px)
+   ========================================= */
+@media (max-width: 640px) {
+    /* 縦長でも画面幅いっぱいに読み物エリアを使う */
+    .story-content-flow {
+        width: 100%;
+        margin: 0 auto;
+    }
 }
