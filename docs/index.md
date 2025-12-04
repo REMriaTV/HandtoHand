@@ -11,7 +11,7 @@ title: Hand to Hand
     <p class="hero-panel__lede">「好きな子と一緒になったら何がしたい？」級友に聞かれて瀬田が答えたのは「ただ手がつなぎたい」だった。ふくらむ妄想と現実の落とし穴に挟まれた瀬田は、"手つなぎ童貞"を卒業できるのか。</p>
     <div class="hero-panel__actions">
       <a class="hero-panel__button" href="#story">ストーリーを読む</a>
-      <a class="hero-panel__button" href="{{ '/manuscript.html' | relative_url }}">本編</a>
+      <a class="hero-panel__button" href="{{ '/manuscript.html' | relative_url }}">本編へ</a>
       <a class="hero-panel__button" href="{{ '/characters.html' | relative_url }}">キャラクターを探る</a>
     </div>
   </div>
