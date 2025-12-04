@@ -1,59 +1,32 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'ja' }}">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {% seo %}
-
-    <!-- 共通スタイル -->
-    <link rel="stylesheet"
-          href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | Hand to Hand</title>
   </head>
+<body>
+  
+  <header>
+    <a href="{{ '/manuscript.html' | relative_url }}">Hand to Hand</a>
+    <span>{{ page.section_title }}</span>
+  </header>
 
-  <body class="manuscript-page">
-    <main class="manuscript-main">
-      {% assign prev_label = page.prev_label %}
-      {% assign next_label = page.next_label %}
-      {% if page.prev_page and prev_label == nil %}
-        {% assign prev_target = site.pages | where: 'url', page.prev_page | first %}
-        {% if prev_target %}
-          {% assign prev_label = prev_target.section_title | default: prev_target.title %}
-        {% endif %}
-      {% endif %}
-      {% if page.next_page and next_label == nil %}
-        {% assign next_target = site.pages | where: 'url', page.next_page | first %}
-        {% if next_target %}
-          {% assign next_label = next_target.section_title | default: next_target.title %}
-        {% endif %}
-      {% endif %}
+  <main>
+    <h1>{{ page.title }}</h1>
+    <div class="content">
+      {{ content }}
+    </div>
+  </main>
 
-      <div class="manuscript-meta" aria-label="章ナビゲーション">
-        {% if page.prev_page and prev_label %}
-          <a class="manuscript-meta__link manuscript-meta__link--prev"
-             href="{{ page.prev_page | relative_url }}">{{ prev_label }}</a>
-        {% else %}
-          <span class="manuscript-meta__placeholder" aria-hidden="true"></span>
-        {% endif %}
+  <footer>
+    {% if page.previous %}
+      <a href="{{ page.previous.url }}">前の話</a>
+    {% endif %}
+    {% if page.next %}
+      <a href="{{ page.next.url }}">次の話</a>
+    {% endif %}
+  </footer>
 
-        <a class="manuscript-meta__link manuscript-meta__link--home"
-           href="{{ '/manuscript.html' | relative_url }}">{{ site.title }}</a>
-
-        {% if page.next_page and next_label %}
-          <a class="manuscript-meta__link manuscript-meta__link--next"
-             href="{{ page.next_page | relative_url }}">{{ next_label }}</a>
-        {% else %}
-          <span class="manuscript-meta__placeholder" aria-hidden="true"></span>
-        {% endif %}
-      </div>
-
-      <section class="manuscript-flow" aria-label="原稿">
-        <div class="manuscript-pagebody">
-          <article class="manuscript-entry">
-            {{ content }}
-          </article>
-        </div>
-      </section>
-    </main>
-  </body>
+</body>
 </html>
