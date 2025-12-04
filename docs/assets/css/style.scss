@@ -115,53 +115,6 @@
   vertical-align: middle;
 }
 
-body.manuscript-page {
-  margin: 0;
-  background: #fff;
-  color: #1a1a1a;
-}
-
-.manuscript-plain {
-  min-height: 100vh;
-  padding: 3rem 1rem 4rem;
-  display: flex;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
-.manuscript-entry {
-  width: 100%;
-  max-width: 540px;
-  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif;
-  font-size: 1rem;
-  line-height: 2;
-  letter-spacing: 0.08em;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  direction: ltr;
-  margin: 0 auto;
-  min-height: 60vh;
-}
-
-.manuscript-entry p {
-  margin: 0;
-  text-indent: 1em;
-}
-
-.manuscript-entry p + p {
-  margin-block-start: 2rem;
-}
-
-@media (max-width: 640px) {
-  .manuscript-plain {
-    padding: 2rem 1.25rem 3rem;
-  }
-
-  .manuscript-entry {
-    font-size: 0.95rem;
-    line-height: 1.9;
-  }
-}
 
 /* --- Hand to Hand manuscript overrides --- */
 body.manuscript-page {
@@ -595,8 +548,15 @@ body.manuscript-page {
   line-height: 1.7;
 }
 
+.chapter-copy__meta-value {
+  font-size: 1rem;
+  color: #1f2937;
+  line-height: 1.7;
+}
+
 /* =========================================
    Hand to Hand 原稿ページ：スマホ専用レイアウト
+   （640px 以下のときだけ適用）
    ========================================= */
 @media (max-width: 640px) {
 
@@ -618,7 +578,6 @@ body.manuscript-page {
     padding: 0;
     margin: 0;
     display: block;
-    justify-content: flex-start;
   }
 
   .manuscript-pagebody {
@@ -632,17 +591,17 @@ body.manuscript-page {
   .manuscript-entry {
     width: auto;
     max-width: 100%;
-    column-count: 1;     /* スマホは1列固定 */
+    column-count: 1;     /* スマホは 1 列に固定 */
     column-gap: 0;
 
     writing-mode: vertical-rl;
     text-orientation: mixed;
 
-    font-size: 0.9rem;   /* ← 1行あたりの文字数を増やしたいならここを調整 */
-    line-height: 1.7;    /* ← 行間。詰めたり広げたりはここ */
+    font-size: 0.9rem;   /* ← 1行あたりの文字数はここで調整 */
+    line-height: 1.7;    /* ← 行間はここで調整 */
     letter-spacing: 0.08em;
 
-    white-space: normal; /* 折り返しOK */
+    white-space: normal; /* 折り返しOK（これが超重要） */
   }
 
   .manuscript-entry p {
