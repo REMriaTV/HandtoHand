@@ -1,4 +1,4 @@
-# Hand to Hand – Handover Log
+う# Hand to Hand – Handover Log
 
 _Last updated: 2025-12-03_
 
@@ -34,26 +34,6 @@ _Last updated: 2025-12-03_
 - Track how Hand to Hand (short story "道程") evolves: requirements, decisions, outstanding questions.
 - Point to the authoritative content sources (spreadsheet, Obsidian, Markdown) so the latest material can be synced quickly.
 
-## モックアップページについて
-- デザインが不透明な場合にモックページを作って、実際の表示を見て判断する
-- モックページはmockupsフォルダに包括して、整理する
-    ### モック一覧
-    - #### 部分的に採用
-    	- 基本デザイン（カラートーンなど）のテスト（部分的に採用）
-    		- https://remriatv.github.io/HandtoHand/mockups/base.html
-    	- トップページのレイアウトテスト（ヒーローセクションは埋め込みとして使用）
-    		- https://remriatv.github.io/HandtoHand/mockups/hero-wireframe.html
-    	- 基本レイアウトのテスト（部分的に採用）
-    		- https://remriatv.github.io/HandtoHand/mockups/content-draft.html
-    	- 章カードのラフ案（部分的に採用）
-    		- https://remriatv.github.io/HandtoHand/mockups/toc.html
-    - #### 不採用または廃止
-    	- カードのテスト（不採用）
-    		- https://remriatv.github.io/HandtoHand/mockups/card.html
-    	- カードのバリエーションテスト（不採用）
-    		- https://remriatv.github.io/HandtoHand/mockups/chapter-cards.html
-    	- 原稿ページのテスト（旧バージョン：見開きページ）（採用後に、現在は廃止）
-    		- https://remriatv.github.io/HandtoHand/mockups/manuscript.html
 
 ## 原稿ページ（2025-12-04-09-30時点）
   - docs/_layouts/
@@ -68,44 +48,22 @@ _Last updated: 2025-12-03_
     hand.md（1-6 + 本文）…front matter で `layout: manuscript`、章タイトル、ページ番号、次章リンクを設定し、本文を
   `<article>` に展開。
 
+## 新Ver.原稿ページへの以降
+- パターン B：【カード型・縦積み（モバイル・縦書き・縦スクロール）】
+モバイルでは、各段落やシーンを独立した「カード」として定義し、それを縦に積み上げていきます。これにより、横スクロールを発生させずに縦書きを維持します。
+構造: 本文を <section class="scene-card"> のように複数のブロックに分けます。
+CSS:
+親要素（.manuscript-flow）に flex-direction: column; を適用し、ブロックを縦に並べます。
+各カード（pタグや scene-card）内部で writing-mode: vertical-rl; を適用し、テキストを縦書きにします。
+**各カードは「高さ制限なし（height: auto）」**なので、文章が長ければそのカード自体が下に伸び、ページ全体が縦にスクロールします。
 
-### 原稿ページの改修について（2025-12-04-09-45）
-再構成の考え方
+### 1. 新しいレイアウト HTML (_layouts/manuscript_v2.html)
+- 以前の複雑なクラス名を整理し、シンプルにしました。ナビゲーションは「固定」ではなく「ページと一緒にスクロール」する標準的な形式に戻します。
 
-  - コンテンツ層
-      - docs/manuscript/*.md を純粋に本文だけに専念させる。front matter も最低限（title/section_title/page_number/
-  prev_page/next_page）に整理し、レイアウト固有の設定値は極力持たせない。
-  - テンプレート層 (_layouts/)
-      - manuscript.html を「骨組みテンプレート」と割り切り、HTML 構造とナビゲーション生成だけを担わせる。もしヒー
-  ローや脚注など複数の UI ブロックがあるなら _includes/manuscript/ のような部分テンプレートに分割して、レイアウトか
-  ら呼び出す形にすると拡張しやすい。
-  - スタイル層 (assets/css/)
-      - デスクトップ／モバイルのレイアウト差分を1つの SCSS で管理するか、今のように style.scss と manuscript-
-  mobile.scss を分けるかを再検討。まっさらにするなら manuscript.scss（全幅）＋manuscript-mobile.scss（640px以下上書
-  き）の2本構成に整理し、サイト全体の style.scss とは切り離すのが管理しやすい。
-      - 細かなモジュール単位（ナビ、本文、サイドバー等）で SCSS を分割したいなら assets/css/manuscript/_meta.scss な
-  どパーシャルを作り、ビルド時にまとめてコンパイルする方法もあり。
+### 2. モックアップ用 CSS (assets/css/story.css)
+- 「縦書きのブロックを、普通のウェブサイトのように下に積み重ねていく」ためのCSSです。writing-modeは scene-card の内部でのみ適用します。
 
-  作り直す際の進め方（打ち合わせ用）
-
-  1. 要素洗い出し：原稿ページに必要な機能（章ナビ、目次リンク、ヒーロー画像、脚注など）を決め、どこまでを共通テンプ
-  レートに含めるかを整理。→章ナビ（目次リンク含む）、と本文だけでシンプルに構成する
-  2. テンプレート設計：manuscript.html をゼロから書き、構造ブロック（ヘッダー・本文・フッター）を決定。共通化したい
-  部分が多ければ _includes で部品化。
-  3. スタイル設計：新しい SCSS ファイル構成を決め、変数やカラーパレットを定義。縦書き特有の挙動を優先して、PC/スマホ
-  両方のワイヤーフレームを先に固める。
-  4. 段階的置き換え：まず 1 章だけ新テンプレートでレンダリングし、問題なければ他章へ展開。旧 CSS/レイアウトはバック
-  アップを残しつつ段階的に削除。
-
-  この区分で進めれば、「本文は docs/manuscript/hand.md」「構造は _layouts/manuscript.html」「見た目は assets/css/…」
-  と役割が明確になり、デザイン差し替えも部分的に行いやすくなります。
-
-## 原稿ページのリセット（2025-12-04-17-41）
-- ここにきて、英断します。全て一回消します。原稿ページは。手、ハンカチ、１２時、ちくわ、嘘という区切りは残しつつ、スタイルcssとレイアウトhtmlは全削除。その上で、全く違うパターン、つまり今の原稿表示じゃない方法を一から議論したい。
-### やったこと
-- _layouts/manuscript.html を初期化。最低限の枠組みだけ残す。
-- assets/css/style.css を全消去
-- manuscript-mobile.css も消去
+### 3. 新しいモックアップページ(https://remriatv.github.io/HandtoHand/manuscript/test-manuscript.html)
 
 ---
 
