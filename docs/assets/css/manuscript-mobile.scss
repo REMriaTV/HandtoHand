@@ -1,18 +1,31 @@
 ---
 ---
 
+/* ===== 基本レイアウト ===== */
+
 body.manuscript-page {
+  /* ヘッダー固定分の余白はそのまま活かす */
   padding: clamp(0.75rem, 4vw, 1.5rem);
   padding-top: clamp(3.25rem, 12vw, 4.25rem);
-  height: 100vh;
-  overflow: hidden;
+
+  /* ↓ ここが大きく変更ポイント ↓ */
+
+  /* 高さを固定しない：ページが長くなっても素直に伸びる */
+  min-height: 100vh;      /* 必要なら入れる。なければ削ってもOK */
+
+  /* スクロールを殺さない。body では overflow: hidden を使わない */
+  overflow: visible;      /* もしくはプロパティ自体を削除でもOK */
+
+  box-sizing: border-box;
 }
 
 .manuscript-main {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  /* モバイルではシンプルに block でOK */
+  display: block;
+  /* height: 100%; は不要。コンテンツに合わせて伸びてくれれば良い */
 }
+
+/* ===== 固定ヘッダー（メタ情報） ===== */
 
 .manuscript-meta {
   position: fixed;
@@ -36,43 +49,73 @@ body.manuscript-page {
   text-align: center;
 }
 
+/* ===== 本文まわり ===== */
+
 .manuscript-flow {
-  flex: 1;
-  overflow-x: auto;
-  overflow-y: hidden;
+  /* ここが“スクロールする器”になる */
+
+  /* flex: 1; は .manuscript-main を flex にしないなら不要 */
+  /* flex: 1; */
+
+  /* ↓ スクロール方向を「縦」にする */
+  overflow-y: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+
+  /* ヘッダーとかとぶつからないよう、上部に少し余白を足してもOK */
+  /* padding-top: 0.5rem; など、お好みで */
 }
 
 .manuscript-pagebody {
-  height: 100%;
-  display: inline-flex;
-  align-items: stretch;
+  /* 高さ固定＋inline-flex をやめて、普通のブロック要素に */
+  /* height: 100%; */      /* ← 削除 */
+  display: block;
   padding: 0;
+  margin: 0 auto;
 }
 
+/* 本文コンテナ（縦書きにする場所） */
 .manuscript-entry {
-  height: 100%;
+  /* height: 100%; は不要 */
+  /* height: 100%; */
   width: auto;
-  max-width: none;
+  max-width: 100%;         /* 画面幅からはみ出さない程度に */
+
+  /* マルチカラムはスマホでは特に不要なので1列固定でOK */
   column-count: 1;
   column-gap: 0;
+
   font-size: 1.05rem;
   line-height: 2.05;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   letter-spacing: 0.08em;
-  white-space: nowrap;
+
+  /* ↓ ここが重要。折り返しを許可する */
+  white-space: normal;
+
+  /* 読みやすいよう左右（物理的には上下）に少し余白をつけてもよい */
+  /* padding-inline: 0.5rem; など */
 }
 
+/* 段落ごとの扱い */
 .manuscript-entry p {
-  display: inline-block;
-  margin: 0 1.5rem 0 0;
-  text-indent: 0;
+  /* inline-block だと横一列に並びやすいので block にする */
+  display: block;
+
+  /* 段落間の余白（縦書きでも block 方向になる） */
+  margin: 0 0 1.5rem 0;
+
+  /* 1字下げしたいなら */
+  text-indent: 1em;
 }
 
+/* 最後の段落だけ余白を少し詰めたい場合 */
 .manuscript-entry p:last-child {
-  margin: 0;
+  margin-bottom: 0.5rem;
 }
+
+/* ===== モバイルの微調整 ===== */
 
 @media (max-width: 480px) {
   .manuscript-meta {
@@ -82,5 +125,8 @@ body.manuscript-page {
 
   .manuscript-entry {
     font-size: 1rem;
+
+    /* スマホでは文字サイズを落とした分、行間を少し詰めてもOK */
+    line-height: 1.9;
   }
 }
