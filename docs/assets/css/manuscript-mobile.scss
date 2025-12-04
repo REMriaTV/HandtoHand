@@ -20,8 +20,7 @@ body {
 body.manuscript-page {
   margin: 0;
   padding: clamp(0.75rem, 4vw, 1.5rem);
-  padding-top: clamp(3.25rem, 12vw, 4.25rem); /* 固定ヘッダー分の余白 */
-
+  padding-top: clamp(4rem, 13vw, 5rem); /* 固定ヘッダー分の余白 */
   /* 高さは固定しない。ページが長くなれば素直に伸びる */
   min-height: 100vh;
 
