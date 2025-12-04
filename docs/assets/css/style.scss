@@ -594,3 +594,64 @@ body.manuscript-page {
   color: #1f2937;
   line-height: 1.7;
 }
+
+/* =========================================
+   Hand to Hand 原稿ページ：スマホ専用レイアウト
+   ========================================= */
+@media (max-width: 640px) {
+
+  body.manuscript-page {
+    /* 全体の余白（ヘッダー分＋画面マージン） */
+    padding: clamp(0.75rem, 4vw, 1.5rem);
+    padding-top: clamp(3.5rem, 14vw, 5rem); /* ヘッダーと本文の距離 */
+    min-height: 100vh;
+  }
+
+  .manuscript-main {
+    width: 100%;
+    margin: 0;
+    display: block;
+  }
+
+  .manuscript-flow {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: block;
+    justify-content: flex-start;
+  }
+
+  .manuscript-pagebody {
+    width: 100%;
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ★スマホでの読み心地を決める本体 ★ */
+  .manuscript-entry {
+    width: auto;
+    max-width: 100%;
+    column-count: 1;     /* スマホは1列固定 */
+    column-gap: 0;
+
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+
+    font-size: 0.9rem;   /* ← 1行あたりの文字数を増やしたいならここを調整 */
+    line-height: 1.7;    /* ← 行間。詰めたり広げたりはここ */
+    letter-spacing: 0.08em;
+
+    white-space: normal; /* 折り返しOK */
+  }
+
+  .manuscript-entry p {
+    display: block;
+    margin: 0 0 0.9rem 0;  /* 段落間の余白 */
+    text-indent: 1em;      /* 1字下げ */
+  }
+
+  .manuscript-entry p:last-child {
+    margin-bottom: 0.75rem;
+  }
+}
