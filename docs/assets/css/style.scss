@@ -2,9 +2,6 @@
 ---
 @import "jekyll-theme-minimal";
 
-/* =========================================
-   基本変数定義
-   ========================================= */
 :root {
   --hero-bg: #05050a;
   --hero-highlight: #f5c99b;
@@ -13,27 +10,6 @@
   --hero-muted: rgba(245, 245, 247, 0.65);
 }
 
-/* =========================================
-   グローバル設定: テーマ側のスクロール制限を解除
-   ========================================= */
-html {
-  height: auto;
-  min-height: 100%;
-}
-
-body {
-  /* ここで overflow: hidden を書かないことが最重要 */
-  overflow-y: auto; /* 縦スクロールを許可 */
-  overflow-x: hidden; /* 横スクロールを禁止 */
-  height: auto;
-  min-height: 100vh;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-/* =========================================
-   トップページ用: ヒーローパネル (Hero Panel)
-   ========================================= */
 .hero-panel {
   position: relative;
   margin: 0 auto 3rem;
@@ -121,7 +97,8 @@ body {
 .hero-panel__caption {
   position: absolute;
   bottom: 1rem;
-  left: 1.25rem;
+  left: 1.25rem;    // ← ここを新しく追加（または right の代わりに）
+  right: auto;      // ← 右寄せを解除
   font-size: 0.75rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -138,16 +115,63 @@ body {
   vertical-align: middle;
 }
 
-
-/* =========================================
-   原稿ページ (Manuscript Page) 共通スタイル
-   ========================================= */
 body.manuscript-page {
   margin: 0;
-  padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem) clamp(6rem, 9vw, 8rem);
+  background: #fff;
+  color: #1a1a1a;
+}
+
+.manuscript-plain {
+  min-height: 100vh;
+  padding: 3rem 1rem 4rem;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.manuscript-entry {
+  width: 100%;
+  max-width: 540px;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif;
+  font-size: 1rem;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  direction: ltr;
+  margin: 0 auto;
+  min-height: 60vh;
+}
+
+.manuscript-entry p {
+  margin: 0;
+  text-indent: 1em;
+}
+
+.manuscript-entry p + p {
+  margin-block-start: 2rem;
+}
+
+@media (max-width: 640px) {
+  .manuscript-plain {
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  .manuscript-entry {
+    font-size: 0.95rem;
+    line-height: 1.9;
+  }
+}
+
+/* --- Hand to Hand manuscript overrides --- */
+body.manuscript-page {
+  margin: 0;
+  min-height: 100vh;
   background: #f0ede8;
   color: #15100c;
   font-family: 'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif JP', serif;
+  padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem) clamp(6rem, 9vw, 8rem);
+  box-sizing: border-box;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -166,7 +190,7 @@ body.manuscript-page {
   gap: clamp(1.25rem, 3vw, 2rem);
 }
 
-/* ナビゲーション */
+
 .manuscript-meta {
   width: 100%;
   display: grid;
@@ -210,7 +234,6 @@ body.manuscript-page {
   }
 }
 
-/* 原稿エリアのラッパー (PC用) */
 .manuscript-flow {
   width: 100%;
   padding: clamp(1rem, 3vw, 2.5rem) 0;
@@ -218,25 +241,28 @@ body.manuscript-page {
   justify-content: center;
 }
 
+.manuscript-flow::before,
+.manuscript-flow::after {
+  content: '';
+  display: none;
+}
+
 .manuscript-pagebody {
   width: 100%;
   display: flex;
   justify-content: center;
+  writing-mode: horizontal-tb;
   padding-bottom: clamp(10rem, 20vw, 28rem);
 }
 
-/* PC用 原稿本文：2段組レイアウト */
 .manuscript-entry {
   width: 100%;
   max-width: 880px;
   column-count: 2;
   column-gap: clamp(1.5rem, 4vw, 3.25rem);
   column-fill: auto;
-  
   writing-mode: vertical-rl;
-  text-orientation: upright;
-  white-space: normal;
-  
+  text-orientation: mixed;
   line-height: 1.8;
   letter-spacing: 0.08em;
   font-size: 1rem;
@@ -249,21 +275,6 @@ body.manuscript-page {
   }
 }
 
-/* PC用 段落設定 */
-.manuscript-entry p {
-  text-indent: 1em;
-  margin-block-start: 1em;
-  margin-block-end: 0;
-}
-.manuscript-entry p:first-child {
-  text-indent: 0;
-  margin-block-start: 0;
-}
-
-
-/* =========================================
-   章リスト・カードデザイン (Chapter List & Devices)
-   ========================================= */
 .chapter-hero {
   margin: clamp(2rem, 5vw, 4rem) auto clamp(2rem, 6vw, 4.5rem);
   display: grid;
@@ -347,6 +358,72 @@ body.manuscript-page {
   margin-right: auto;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .script-entry:hover,
+  .script-entry:focus-visible {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .chapter-card:hover,
+  .chapter-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  }
+}
+
+@media (max-width: 640px) {
+  .chapter-hero {
+    grid-template-columns: 1fr;
+    background:
+      radial-gradient(circle at 15% 25%, rgba(245, 201, 155, 0.45), transparent 45%),
+      radial-gradient(circle at 85% 5%, rgba(126, 160, 255, 0.35), transparent 50%),
+      linear-gradient(155deg, #010208 0%, #0b0c18 55%, #020307 100%);
+    border-radius: 32px;
+    padding: clamp(1.6rem, 5vw, 2.4rem);
+  }
+
+  .chapter-device {
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .chapter-device__title {
+    text-align: center;
+    color: #f7f1e0;
+  }
+
+  .chapter-story,
+  .chapter-script {
+    padding: 8px 0;
+  }
+
+  .chapter-story h3,
+  .chapter-script h3 {
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+  }
+
+  .chapter-story p {
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+  }
+
+  .chapter-device__entries {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .script-entry {
+    padding: 14px 0;
+  }
+}
+
 .script-entry {
   display: flex;
   gap: 16px;
@@ -356,6 +433,7 @@ body.manuscript-page {
   color: inherit;
   transition: none;
 }
+
 .script-entry:last-child {
   border-bottom: none;
 }
@@ -392,9 +470,18 @@ body.manuscript-page {
   letter-spacing: 0.15em;
   border: 1px solid currentColor;
 }
-.script-entry__status--published { color: #ffe8c7; }
-.script-entry__status--wip { color: #c2d8ff; }
-.script-entry__status--plan { color: #c7b4ff; }
+
+.script-entry__status--published {
+  color: #ffe8c7;
+}
+
+.script-entry__status--wip {
+  color: #c2d8ff;
+}
+
+.script-entry__status--plan {
+  color: #c7b4ff;
+}
 
 .script-entry__body h4 {
   margin: 4px 0 2px;
@@ -413,6 +500,7 @@ body.manuscript-page {
   overflow: hidden;
 }
 
+
 .chapter-card {
   display: flex;
   align-items: center;
@@ -426,6 +514,19 @@ body.manuscript-page {
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .script-entry:hover,
+  .script-entry:focus-visible {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .chapter-card:hover,
+  .chapter-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  }
 }
 
 .chapter-card__media {
@@ -488,120 +589,8 @@ body.manuscript-page {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 .chapter-copy__meta-value {
   font-size: 1rem;
   color: #1f2937;
   line-height: 1.7;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .script-entry:hover,
-  .script-entry:focus-visible {
-    background: rgba(255, 255, 255, 0.04);
-  }
-  .chapter-card:hover,
-  .chapter-card:focus-visible {
-    transform: translateY(-4px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
-  }
-}
-
-/* スマホ用トップページ調整 */
-@media (max-width: 640px) {
-  .chapter-hero {
-    grid-template-columns: 1fr;
-    border-radius: 32px;
-    padding: clamp(1.6rem, 5vw, 2.4rem);
-  }
-  .chapter-device {
-    width: 100%;
-    background: transparent;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 0;
-  }
-  .chapter-device__title { text-align: center; color: #f7f1e0; }
-  .chapter-story, .chapter-script { padding: 8px 0; }
-  .chapter-story h3, .chapter-script h3 { color: rgba(255, 255, 255, 0.85); text-align: center; }
-  .chapter-story p { color: rgba(255, 255, 255, 0.9); text-align: center; margin-left: auto; margin-right: auto; max-width: 90%; }
-  .chapter-device__entries { width: 100%; margin-top: 1.5rem; }
-  .script-entry { padding: 14px 0; }
-}
-
-
-/* =========================================
-   【重要】スマホ用 原稿レイアウト (max-width: 640px)
-   トップページには影響させず、原稿ページだけ縦スクロール化
-   ========================================= */
-@media (max-width: 640px) {
-
-  /* 1. bodyの高さ固定を解除 */
-  body.manuscript-page {
-    padding: clamp(0.75rem, 4vw, 1.5rem);
-    padding-top: clamp(3.5rem, 14vw, 5rem);
-    height: auto; 
-    min-height: 100vh;
-    overflow-y: auto; /* スクロール許可 */
-  }
-
-  /* 2. コンテナ配置: Flex解除 */
-  .manuscript-main {
-    width: 100%;
-    margin: 0;
-    display: block; 
-  }
-
-  /* 3. ナビゲーション固定 */
-  .manuscript-meta {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(248, 246, 241, 0.98);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    font-size: 0.75rem;
-    padding: 0.75rem 1rem;
-    margin: 0;
-    display: flex; /* gridからflexに変更 */
-    justify-content: space-between;
-  }
-
-  /* 4. 本文フロー: 右寄せ */
-  .manuscript-flow {
-    width: 100%;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end; /* 右寄せ */
-  }
-
-  .manuscript-pagebody {
-    width: auto;
-    padding: 0;
-  }
-
-  /* 5. 本文設定: 縦スクロール */
-  .manuscript-entry {
-    height: auto; 
-    width: auto;
-    max-width: none;
-    
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    white-space: normal; /* 折り返し許可 */
-    
-    column-count: 1;
-    
-    font-size: 1.05rem;
-    line-height: 2.1;
-    letter-spacing: 0.05em;
-  }
-
-  /* 6. 段落調整 */
-  .manuscript-entry p {
-    margin: 0 0 1.5rem 0; /* 段落間余白 */
-    text-indent: 0;
-    margin-top: 1em; /* 字下げ */
-  }
 }
