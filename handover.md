@@ -26,6 +26,26 @@ _Last updated: 2025-12-02_
 - Track how Hand to Hand (short story "道程") evolves: requirements, decisions, outstanding questions.
 - Point to the authoritative content sources (spreadsheet, Obsidian, Markdown) so the latest material can be synced quickly.
 
+## モックアップページについて
+- デザインが不透明な場合にモックページを作って、実際の表示を見て判断する
+- モックページはmockupsフォルダに包括して、整理する
+    ### モック一覧
+    - #### 部分的に採用
+    	- 基本デザイン（カラートーンなど）のテスト（部分的に採用）
+    		- https://remriatv.github.io/HandtoHand/mockups/base.html
+    	- トップページのレイアウトテスト（ヒーローセクションは埋め込みとして使用）
+    		- https://remriatv.github.io/HandtoHand/mockups/hero-wireframe.html
+    	- 基本レイアウトのテスト（部分的に採用）
+    		- https://remriatv.github.io/HandtoHand/mockups/content-draft.html
+    	- 章カードのラフ案（部分的に採用）
+    		- https://remriatv.github.io/HandtoHand/mockups/toc.html
+    - #### 不採用または廃止
+    	- カードのテスト（不採用）
+    		- https://remriatv.github.io/HandtoHand/mockups/card.html
+    	- カードのバリエーションテスト（不採用）
+    		- https://remriatv.github.io/HandtoHand/mockups/chapter-cards.html
+    	- 原稿ページのテスト（旧バージョン：見開きページ）（採用後に、現在は廃止）
+    		- https://remriatv.github.io/HandtoHand/mockups/manuscript.html
 
 
 ---
