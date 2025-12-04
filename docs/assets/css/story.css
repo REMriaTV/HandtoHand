@@ -1,0 +1,94 @@
+/* =========================================
+   基本リセット
+   ========================================= */
+body {
+    background-color: #f8f8f8;
+    color: #333;
+    font-family: 'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif JP', serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* 横スクロール禁止 */
+}
+
+/* =========================================
+   ヘッダー（ナビゲーション）
+   ========================================= */
+.story-header {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =========================================
+   本文メインエリア
+   ========================================= */
+.story-main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.story-content-flow {
+    /* 縦にコンテンツを積み重ねる (標準のウェブフロー) */
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* シーンごとの間隔 */
+}
+
+/* =========================================
+   【核心】縦書きブロック (.scene-card)
+   ========================================= */
+.scene-card {
+    /* デスクトップで中央寄せにするための Flex */
+    display: flex;
+    justify-content: flex-end; /* 右寄せ開始 */
+    
+    /* 内部の余白 */
+    padding: 1rem;
+    
+    /* 背景を付けてブロック感を出す (任意) */
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+.scene-card p {
+    /* 各段落は縦書きに */
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    
+    /* 横スクロールを防ぐため、高さを制限しない */
+    height: auto; 
+    width: auto;
+    
+    /* 段落間の調整 */
+    margin: 0 1.5em 0 0; /* 左側（次の列）との間隔 */
+    text-indent: 1em; /* 字下げ */
+    line-height: 2.0; /* 行間調整 */
+}
+
+.scene-card p:last-child {
+    margin-right: 0;
+}
+
+/* =========================================
+   モバイル調整
+   ========================================= */
+@media (max-width: 640px) {
+    .story-main {
+        padding: 1rem 0.5rem;
+    }
+    
+    .scene-card {
+        padding: 1rem 0.5rem;
+    }
+    
+    .scene-card p {
+        font-size: 1.05rem; /* スマホで読みやすいサイズ */
+    }
+}
