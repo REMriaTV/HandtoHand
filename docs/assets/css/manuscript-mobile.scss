@@ -20,11 +20,15 @@ body {
 body.manuscript-page {
   margin: 0;
   padding: clamp(0.75rem, 4vw, 1.5rem);
-  padding-top: clamp(1rem, 23vw, 15rem); /* 固定ヘッダー分の余白 */
+
+  /* ★テスト用：ヘッダーと本文の間をかなり広げる */
+  padding-top: 8rem;  /* ここはあとで clamp に戻してOK */
+
   /* 高さは固定しない。ページが長くなれば素直に伸びる */
   min-height: 100vh;
 
-  /* ここで overflow は制御しない（html/body 側でやる） */
+  /* テスト用：背景色をわずかに変えて「このCSSが効いている」ことを確認 */
+  background-color: #050505;
 }
 
 /* メインコンテナ：普通の block でOK */
@@ -58,7 +62,6 @@ body.manuscript-page {
 
 /* ===== 本文まわり ===== */
 
-/* ここは「器」だが、スクロールはさせない（ただのラッパー） */
 .manuscript-flow {
   overflow: visible;
   -webkit-overflow-scrolling: touch;
@@ -70,7 +73,7 @@ body.manuscript-page {
   margin: 0 auto;
 }
 
-/* 縦書き本文コンテナ */
+/* 縦書き本文コンテナ（ベース値） */
 .manuscript-entry {
   width: auto;
   max-width: 100%;
@@ -78,8 +81,8 @@ body.manuscript-page {
   column-count: 1;
   column-gap: 0;
 
-  font-size: 1.05rem;
-  line-height: 2.05;
+  font-size: 1rem;
+  line-height: 2.0;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   letter-spacing: 0.08em;
@@ -87,10 +90,7 @@ body.manuscript-page {
   /* 折り返しを許可しないと、1列が途切れてしまうので重要 */
   white-space: normal;
 
-  /* 少しだけ内側に余白が欲しければここで */
-  /* padding-inline: 0.5rem; */
-
-  /* 追加 or 調整 */
+  /* 1列の縦の長さの上限（効き具合を見たいなら 20rem など極端な値で試す） */
   max-inline-size: 40rem;
 }
 
@@ -105,7 +105,7 @@ body.manuscript-page {
   margin-bottom: 0.75rem;
 }
 
-/* ===== モバイルの微調整 ===== */
+/* ===== モバイルの微調整（ここがスマホでは本命） ===== */
 
 @media (max-width: 480px) {
   .manuscript-meta {
@@ -113,8 +113,14 @@ body.manuscript-page {
     letter-spacing: 0.16em;
   }
 
+  /* ★ここで行の高さと文字サイズをはっきり変える */
   .manuscript-entry {
-    font-size: 1rem;
-    line-height: 1.9;
+    font-size: 0.9rem;   /* 文字を少し小さくして1列の文字数UP */
+    line-height: 1.6;    /* 行間もかなり詰めるテスト値 */
+  }
+
+  /* ★段落間の余白も詰める */
+  .manuscript-entry p {
+    margin: 0 0 0.8rem 0;
   }
 }
