@@ -20,7 +20,7 @@ body {
 body.manuscript-page {
   margin: 0;
   padding: clamp(0.75rem, 4vw, 1.5rem);
-  padding-top: clamp(4rem, 13vw, 5rem); /* 固定ヘッダー分の余白 */
+  padding-top: clamp(1rem, 23vw, 15rem); /* 固定ヘッダー分の余白 */
   /* 高さは固定しない。ページが長くなれば素直に伸びる */
   min-height: 100vh;
 
@@ -89,6 +89,9 @@ body.manuscript-page {
 
   /* 少しだけ内側に余白が欲しければここで */
   /* padding-inline: 0.5rem; */
+
+  /* 追加 or 調整 */
+  max-inline-size: 40rem;
 }
 
 /* 段落ごとに余白をつける（縦書きでも block 方向になる） */
