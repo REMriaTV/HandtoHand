@@ -16,12 +16,18 @@
 /* =========================================
    グローバル設定: テーマ側のスクロール制限を解除
    ========================================= */
-html,
+html {
+  height: auto;
+  min-height: 100%;
+}
+
 body {
-  height: auto !important;
-  min-height: 100% !important;
-  overflow-x: hidden !important; /* 横スクロール禁止 */
-  overflow-y: auto !important;  /* 縦スクロール許可 */
+  /* ここで overflow: hidden を書かないことが最重要 */
+  overflow-y: auto; /* 縦スクロールを許可 */
+  overflow-x: hidden; /* 横スクロールを禁止 */
+  height: auto;
+  min-height: 100vh;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -138,12 +144,10 @@ body {
    ========================================= */
 body.manuscript-page {
   margin: 0;
-  /* PC用のパディング */
   padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem) clamp(6rem, 9vw, 8rem);
   background: #f0ede8;
   color: #15100c;
   font-family: 'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif JP', serif;
-  box-sizing: border-box;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -153,7 +157,6 @@ body.manuscript-page {
   }
 }
 
-/* メインコンテナ */
 .manuscript-main {
   width: min(960px, 94vw);
   margin: 0 auto;
@@ -207,7 +210,7 @@ body.manuscript-page {
   }
 }
 
-/* 原稿エリアのラッパー */
+/* 原稿エリアのラッパー (PC用) */
 .manuscript-flow {
   width: 100%;
   padding: clamp(1rem, 3vw, 2.5rem) 0;
@@ -231,8 +234,8 @@ body.manuscript-page {
   column-fill: auto;
   
   writing-mode: vertical-rl;
-  text-orientation: upright; /* 修正: 縦書き文字向き */
-  white-space: normal; /* 折り返し許可 */
+  text-orientation: upright;
+  white-space: normal;
   
   line-height: 1.8;
   letter-spacing: 0.08em;
@@ -504,17 +507,13 @@ body.manuscript-page {
   }
 }
 
+/* スマホ用トップページ調整 */
 @media (max-width: 640px) {
   .chapter-hero {
     grid-template-columns: 1fr;
-    background:
-      radial-gradient(circle at 15% 25%, rgba(245, 201, 155, 0.45), transparent 45%),
-      radial-gradient(circle at 85% 5%, rgba(126, 160, 255, 0.35), transparent 50%),
-      linear-gradient(155deg, #010208 0%, #0b0c18 55%, #020307 100%);
     border-radius: 32px;
     padding: clamp(1.6rem, 5vw, 2.4rem);
   }
-
   .chapter-device {
     width: 100%;
     background: transparent;
@@ -522,12 +521,7 @@ body.manuscript-page {
     border-radius: 0;
     padding: 0;
   }
-
-  .chapter-device__title {
-    text-align: center;
-    color: #f7f1e0;
-  }
-
+  .chapter-device__title { text-align: center; color: #f7f1e0; }
   .chapter-story, .chapter-script { padding: 8px 0; }
   .chapter-story h3, .chapter-script h3 { color: rgba(255, 255, 255, 0.85); text-align: center; }
   .chapter-story p { color: rgba(255, 255, 255, 0.9); text-align: center; margin-left: auto; margin-right: auto; max-width: 90%; }
@@ -537,32 +531,28 @@ body.manuscript-page {
 
 
 /* =========================================
-   【重要】モバイル専用 原稿レイアウト (max-width: 640px)
-   ここが縦書き・縦スクロールを実現する核心部分です
+   【重要】スマホ用 原稿レイアウト (max-width: 640px)
+   トップページには影響させず、原稿ページだけ縦スクロール化
    ========================================= */
 @media (max-width: 640px) {
 
-  /* 1. body: PC用の広いパディングをリセットし、高さを固定 */
+  /* 1. bodyの高さ固定を解除 */
   body.manuscript-page {
     padding: clamp(0.75rem, 4vw, 1.5rem);
-    /* ナビゲーションの高さ分だけ上部にパディングを入れる */
     padding-top: clamp(3.5rem, 14vw, 5rem);
-    
-    /* 縦スクロールのために高さを固定し、body自体のスクロールは禁止 */
-    height: 100vh;
-    overflow: hidden; 
+    height: auto; 
+    min-height: 100vh;
+    overflow-y: auto; /* スクロール許可 */
   }
 
-  /* 2. メインコンテナ: 高さを親(body)から継承する */
+  /* 2. コンテナ配置: Flex解除 */
   .manuscript-main {
     width: 100%;
-    height: 100%; /* 高さ継承 */
     margin: 0;
-    /* Flex設定は維持しつつ、位置合わせをリセット */
-    align-items: stretch;
+    display: block; 
   }
 
-  /* 3. ナビゲーション: 画面上部に固定 */
+  /* 3. ナビゲーション固定 */
   .manuscript-meta {
     position: fixed;
     top: 0;
@@ -573,70 +563,45 @@ body.manuscript-page {
     z-index: 100;
     font-size: 0.75rem;
     padding: 0.75rem 1rem;
+    margin: 0;
+    display: flex; /* gridからflexに変更 */
+    justify-content: space-between;
   }
 
-  /* 4. 本文フロー: ここで縦スクロールを有効化する */
+  /* 4. 本文フロー: 右寄せ */
   .manuscript-flow {
     width: 100%;
-    /* 高さ継承 */
-    height: 100%; 
     padding: 0;
-
-    /* ★Flexboxで本文を右寄せにする */
     display: flex;
-    justify-content: flex-end;
-
-    /* ★縦スクロール許可 */
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
+    justify-content: flex-end; /* 右寄せ */
   }
 
-  /* 5. 本文ラッパー */
   .manuscript-pagebody {
-    /* 中身に合わせて幅が決まるように auto */
     width: auto;
-    height: 100%;
     padding: 0;
   }
 
-  /* 6. 本文コンテナ: 縦書き・自動折り返し */
+  /* 5. 本文設定: 縦スクロール */
   .manuscript-entry {
-    /* 高さを画面いっぱい(100%)にする */
-    height: 100%; 
+    height: auto; 
     width: auto;
     max-width: none;
     
     writing-mode: vertical-rl;
-    text-orientation: upright; /* 文字向き修正 */
+    text-orientation: upright;
     white-space: normal; /* 折り返し許可 */
     
-    /* PCの段組をリセット */
-    column-count: initial;
-    column-fill: auto;
+    column-count: 1;
     
-    /* 文字サイズ・行間調整 */
     font-size: 1.05rem;
     line-height: 2.1;
     letter-spacing: 0.05em;
   }
 
-  /* 7. 段落調整 */
+  /* 6. 段落調整 */
   .manuscript-entry p {
-    display: block;
+    margin: 0 0 1.5rem 0; /* 段落間余白 */
     text-indent: 0;
-    margin-top: 1em; /* 1字下げ */
-    margin-right: 1.5rem; /* 行間 */
-    margin-bottom: 0;
-    margin-left: 0;
-  }
-  
-  /* 最初の段落の字下げリセット等は行わず、全ての段落で字下げを有効にする */
-  .manuscript-entry p + p {
-    margin-top: 1em;
-  }
-  /* ただし、最初の段落の前（上部）の余白は不要なら削除 */
-  .manuscript-entry p:first-child {
-      margin-top: 1em; /* 必要に応じて 0 に */
+    margin-top: 1em; /* 字下げ */
   }
 }
