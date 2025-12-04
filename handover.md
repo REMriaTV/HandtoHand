@@ -1,6 +1,6 @@
-う# Hand to Hand – Handover Log
+# Hand to Hand – Handover Log
 
-_Last updated: 2025-12-03_
+_Last updated: 2025-12-04_
 
 ## Rule
 - 共有してある文章素材は、許可なく絶対にアレンジしない。許可がない限りは一言一句、原型にしたがう。勝手改稿は製作者への冒涜とみなす。
@@ -64,6 +64,12 @@ CSS:
 - 「縦書きのブロックを、普通のウェブサイトのように下に積み重ねていく」ためのCSSです。writing-modeは scene-card の内部でのみ適用します。
 
 ### 3. 新しいモックアップページ(https://remriatv.github.io/HandtoHand/manuscript/test-manuscript.html)
+
+## 修正イメージ
+### デスクトップレイアウト
+- 
+### モバイルレイアウト
+- カードの高さを
 
 ---
 
