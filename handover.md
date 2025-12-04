@@ -6,6 +6,7 @@ _Last updated: 2025-12-03_
 - 共有してある文章素材は、許可なく絶対にアレンジしない。許可がない限りは一言一句、原型にしたがう。勝手改稿は製作者への冒涜とみなす。
 - GitHubおよびGoogleアカウントのサインアウトも許可なくしないこと。
 - 修正をした際は、handoverにその旨の記載を残すこと。変更した際の日時（時間も）を付随させること
+- 作業開始時はローカルの handover.md（技術メモを含む）を参照し、そのうえで `git fetch origin main` → `git show origin/main:handover.md` などで GitHub 上の最新版も確認して両方の情報を前提に対応すること（ローカルのメモは消さない）。
 
 
 ## 注意事項
@@ -172,14 +173,14 @@ _Last updated: 2025-12-03_
 
 ### 2025-11-30
 - 状況: HandtoHand（https://remriatv.github.io/HandtoHand/）はヒーロー＋新聞セクション構成で公開中。詳細プロットやキャラクターは HandtoHand-work で管理、暫定原稿は「ぶくとも。書いたもの見せて」にも掲載。[Links to remind]
-- Git運用: 作業開始前に `git pull --rebase` 実施、コミット→push。mockups-manuscript.html は `.gitignore` に入れ、ローカルテストのみ。新規モックは `docs/mockups-*.html` を追加して push すれば公開可。
+- Git運用: 作業開始前に `git pull --rebase` 実施、コミット→push。`docs/mockups/mockups-manuscript.html` は `.gitignore` に入れ、ローカルテストのみ。新規モックは `docs/mockups/*.html` を追加して push すれば公開可。
 - TODO: 原稿ページの文庫本風レイアウトをモックで詰める（縦書き本編の余白・章タイトル表示など）。章カードのパンフ風 UI をトップ本編セクションへ組み込む検討を継続。
 
 ### 2025-12-01
 - 実装: モック案をベースに原稿ページのレイアウトを更新。`docs/_layouts/manuscript.html` にメタ情報バー・紙面セクション・ナビゲーションを追加し、`section_title`/`page_number`/`prev_page`/`next_page` を表示に利用。
 - スタイル: `docs/assets/css/style.scss` に文庫本風の配色と紙面 UI を追加。縦書き本文は 2 カラムで見開き表示、中央に罫線、prefers-color-scheme: dark にも対応。ナビゲーションは「前へ/目次/次へ」で均等配置。
 - メモ: 章タイトルを更新する場合は各 Markdown front matter の `section_title` を編集すれば即反映。`page_number` を空にすると紙面のページ番号も非表示になる。
-- 追加: `docs/manuscript.md` に章カードセクションを追加。`docs/assets/css/style.scss` へカード専用スタイルを実装し、`mockups-toc.html` の暗色パンフ風デザインを再現。新聞セクション案は不採用のため以後利用しない。
+- 追加: `docs/manuscript.md` に章カードセクションを追加。`docs/assets/css/style.scss` へカード専用スタイルを実装し、`docs/mockups/mockups-toc.html` の暗色パンフ風デザインを再現。新聞セクション案は不採用のため以後利用しない。
 - 調整: 章カードの UI をヒーローパネル右カラムと同じスマホ風レイアウトに変更。`docs/manuscript.md` のマークアップと `docs/assets/css/style.scss` を更新し、カードを縦に積んだ 1 カラム構成へ整理。
 - 追加: スマホ画面を模した章カードモジュールを `docs/manuscript.md` に実装。トップヒーローと同じ配色・陰影に揃え、背景画像は `docs/assets/images/chapter-*.png` へ差し替え済み（「嘘」は暫定画像）。
 
@@ -191,7 +192,7 @@ _Last updated: 2025-12-03_
 ### 2025-12-02
 - 要望: モックをそのまま本編（manuscript.html）へ組み込みたい。見た目が気に入れば本番適用でOK、不満があれば 1 コミット戻して対応予定。
 - 確認: 今回は本番ページを編集するため、ローカル preview には `bundle exec jekyll serve` → `http://localhost:4000/manuscript.html` が必要。サーバー起動が面倒なら push 後に GitHub Pages で直接確認でも可。
-- 注意: `docs/mockups-manuscript.html` はローカルテスト用。`.gitignore` に入れてあるので commit/push しない。
+- 注意: `docs/mockups/mockups-manuscript.html` はローカルテスト用。`.gitignore` に入れてあるので commit/push しない。
 - 実験: スマホで端末フレームを全幅表示にする案を試すも、タップ時に拡大感が残るため却下。`docs/assets/css/style.scss` のモバイル用スタイルは `ac4c21d` コミット相当へ戻し、今後細部はユーザー側で微調整する方針。
 
 ### 2025-12-02-18-40
@@ -221,3 +222,8 @@ _Last updated: 2025-12-03_
   変更。本文は1カラム（column-count: 1）で表示し、ナビゲーションは上下に揃えている。
   - ページ上部の見出し（前章／目次／次章）はトップの manuscript-meta だけで制御し、本文中の旧ナビは削除済み。
   - 
+
+### 2025-12-04-08-07
+- docs/mockups/ ディレクトリを新設し、`mockups*.html` / `mockups-content-draft.md` をすべて移動。Docs 直下が整理され、モック関連は一箇所で管理できる。
+- 既存URL互換を保つため各モックに `permalink: /mockups-*.html` を付与。`mockups.html` も `/mockups.html` でこれまで通り公開される。
+- `handover.md` 内の参照パスを `docs/mockups/...` に更新。今後追加するモックも同ディレクトリ以下に配置する。

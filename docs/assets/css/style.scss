@@ -180,6 +180,7 @@ body.manuscript-page {
   letter-spacing: 0.08em;
   color: currentColor;
   background: transparent;
+  inline-size: clamp(32rem, 80vh, 46rem);
 }
 
 .manuscript-entry p {
