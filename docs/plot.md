@@ -43,4 +43,4 @@ title: Plot | Hand to Hand
 
 ---
 
-更なる詳細や日々の修正は `content/plot-outline.md` およびスプレッドシートを参照してください。
+より詳しい内容は[制作ノート](https://remriatv.github.io/HandtoHand-work/)を参照してください
