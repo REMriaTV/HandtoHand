@@ -1,29 +1,17 @@
 /* =========================================
-   変数定義（新聞風デザイン）
+   変数定義（常時ダークトーン・新聞風デザイン）
    ========================================= */
 :root {
-    /* デフォルト（ダークトーン・共通カラー） */
+    /* ★デバイス設定に関係なく、常にこの色を使います */
     --bg-color: #121212;       /* 背景：深いチャコールグレー */
-    --paper-bg: #242424;       /* カード：落ち着いたダークグレー（少し温かみを持たせる） */
-    --text-color: #e0e0e0;     /* 文字：オフホワイト（真っ白すぎず読みやすい） */
-    --border-color: rgba(255,255,255,0.1); /* ボーダー：薄い白 */
+    --paper-bg: #242424;       /* カード：落ち着いたダークグレー */
+    --text-color: #e0e0e0;     /* 文字：オフホワイト */
+    --border-color: rgba(255,255,255,0.15); /* ボーダー：薄い白 */
     
     /* カードの高さ設定（PC用 / スマホ用） */
     --card-height-pc: 55vh;    
     --card-height-mobile: 50vh;
 }
-
-/* 明るいモードを好む環境用（オプション） */
-/* デバイス設定がライトモードの場合のみ、明るい配色に切り替わります */
-@media (prefers-color-scheme: light) {
-    :root {
-        --bg-color: #f0f2f5;       /* 背景：明るいグレー */
-        --paper-bg: #fdfbf7;       /* カード：生成り（以前の新聞風） */
-        --text-color: #333333;     /* 文字：濃いグレー */
-        --border-color: rgba(0,0,0,0.1); /* ボーダー：薄い黒 */
-    }
-}
-
 
 /* =========================================
    基本リセット
@@ -49,7 +37,7 @@ html, body {
     z-index: 100;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* 影を少し濃く調整 */
 }
 
 .story-title {
@@ -78,16 +66,16 @@ html, body {
    HTMLの <p> タグをそのまま「カード」として扱います
    ========================================= */
 .story-main p {
-    /* 1. カードとしての見た目（これが消えていた原因の修正） */
+    /* 1. カードとしての見た目 */
     display: block; 
     background-color: var(--paper-bg);
     padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* 影を少し濃く */
     border-radius: 2px;
     box-sizing: border-box;
     width: 100%; /* 横幅いっぱい */
 
-    /* 2. 縦書きの維持（これが横書きになった原因の修正） */
+    /* 2. 縦書きの維持 */
     writing-mode: vertical-rl;
     text-orientation: upright;
     
@@ -109,6 +97,8 @@ html, body {
     
     /* 新聞風の区切り線 */
     border-left: 1px dashed var(--border-color);
+    padding-left: 1.5rem;
+    margin-left: 1.5rem;
 }
 
 /* 最初の段落の線は消す */
