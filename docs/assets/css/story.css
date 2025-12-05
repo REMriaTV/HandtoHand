@@ -1,16 +1,26 @@
 /* =========================================
-   変数定義（常時ダークトーン・新聞風デザイン）
+   変数定義（タバコの箱風・レトロポップ）
    ========================================= */
 :root {
-    /* ★デバイス設定に関係なく、常にこの色を使います */
-    --bg-color: #121212;       /* 背景：深いチャコールグレー */
-    --paper-bg: #242424;       /* カード：落ち着いたダークグレー */
-    --text-color: #e0e0e0;     /* 文字：オフホワイト */
-    --border-color: rgba(255,255,255,0.15); /* ボーダー：薄い白 */
+    /* ハイライトのような濃いブルーとクリーム色のコントラスト */
+    --bg-color: #003f5c;       /* 背景：濃いネイビーブルー */
+    --paper-bg: #f7f4e9;       /* カード：クリーム色 */
+    --text-color: #00203f;     /* 文字：インクのような濃紺 */
+    --border-color: #00203f;   /* 枠線：濃紺 */
     
-    /* カードの高さ設定（PC用 / スマホ用） */
+    /* カードの高さ設定（変更なし） */
     --card-height-pc: 55vh;    
     --card-height-mobile: 50vh;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* ダークモード時は反転（ネオンサイン風） */
+        --bg-color: #101010;
+        --paper-bg: #222;
+        --text-color: #00d4ff;     /* 文字：シアン */
+        --border-color: #00d4ff;
+    }
 }
 
 /* =========================================
@@ -20,7 +30,6 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    /* ページ全体の横スクロールは禁止 */
     overflow-x: hidden; 
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -31,13 +40,13 @@ html, body {
 .story-header {
     background: var(--paper-bg);
     padding: 1rem;
-    border-bottom: 2px solid var(--text-color);
+    border-bottom: 3px double var(--border-color); /* ヘッダーも二重線に */
     position: sticky;
     top: 0;
     z-index: 100;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* 影を少し濃く調整 */
+    box-shadow: 0 4px 0 rgba(0,0,0,0.2); /* ヘッダーも硬い影に */
 }
 
 .story-title {
@@ -54,32 +63,31 @@ html, body {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    
-    /* カードを縦に並べる（Flexbox） */
+}
+
+.story-content-flow {
     display: flex;
     flex-direction: column;
-    gap: 3rem; /* カード間の間隔 */
+    gap: 3rem; 
 }
 
 /* =========================================
    【修正版】カード兼テキストブロック
-   HTMLの <p> タグをそのまま「カード」として扱います
+   タバコのパッケージ風デザイン
    ========================================= */
 .story-main p {
     /* 1. カードとしての見た目 */
     display: block; 
     background-color: var(--paper-bg);
     padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* 影を少し濃く */
-    border-radius: 2px;
     box-sizing: border-box;
-    width: 100%; /* 横幅いっぱい */
+    width: 100%;
 
     /* 2. 縦書きの維持 */
     writing-mode: vertical-rl;
     text-orientation: upright;
     
-    /* ★重要：高さを固定して、横に伸びるようにする */
+    /* 高さを固定して横に伸ばす */
     height: var(--card-height-pc);
     
     /* 3. はみ出し対策：カード内スクロール */
@@ -95,15 +103,14 @@ html, body {
     white-space: normal;
     line-break: strict;
     
-    /* 新聞風の区切り線 */
-    border-left: 1px dashed var(--border-color);
-    padding-left: 1.5rem;
-    margin-left: 1.5rem;
-}
-
-/* 最初の段落の線は消す */
-.story-main p:first-of-type {
-    border-left: none;
+    /* ★デザインのキモ：タバコ箱風装飾 */
+    /* 不要な新聞風コード（点線など）は削除しました */
+    
+    border: 3px double var(--border-color); /* 二重線 */
+    border-radius: 4px; /* 少しだけ角を丸める */
+    
+    /* パキッとした硬い影（ハードシャドウ） */
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.25); 
 }
 
 /* =========================================
@@ -116,10 +123,12 @@ html, body {
     }
     
     .story-main p {
-        /* スマホ用の高さ */
         height: var(--card-height-mobile);
         font-size: 1rem;
         line-height: 1.8;
         padding: 1rem;
+        
+        /* スマホでは影を少し控えめに */
+        box-shadow: 5px 5px 0px rgba(0,0,0,0.25); 
     }
 }
