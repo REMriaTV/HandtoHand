@@ -1,130 +1,104 @@
 /* =========================================
-   変数定義（色・レイアウト調整用）
+   変数定義（色・レイアウト）
    ========================================= */
 :root {
-    /* --- ② 色の提案（ライトテーマ） --- */
-    --color-bg: #f8f8f8;          /* 背景色: 薄いオフホワイト */
-    --color-card-bg: #f0f0f0;     /* ★修正: カードの背景色をグレーに変更 */
-    --color-text: #333;           /* 本文色: 濃いグレー */
-    --color-header-bg: #fff;      /* ヘッダー背景 */
-    --color-shadow: rgba(0, 0, 0, 0.08); /* 影の色 */
-    
-    /* --- ① レイアウト調整変数 --- */
-    --section-gap: 3rem;          /* シーン（カード）間の垂直方向の間隔 */
-    --card-vertical-padding: 1.5rem; /* カードの上下の余白 */
-    --card-horizontal-padding: 1rem; /* カードの左右の余白 */
-    
-    /* ★修正: PCでの読み物エリアの幅を試験的に40vwに変更 (高さの調整) */
-    --reading-area-width-pc: 40vw; 
-    
-    --page-max-width: 900px;
+    --bg-color: #f8f8f8;
+    --card-bg: #f0f0f0;   /* グレーのカード */
+    --text-color: #333;
+    --card-height: 24rem; /* ★重要: カードの「高さ」はここで決める */
 }
 
-/* --- ② 色の提案（ダークテーマ：自動適用） --- */
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-bg: #0d0d0c;        /* 背景色: 墨黒 */
-        --color-card-bg: #1c1c1a;   /* ★修正: カードの背景色を濃いグレーに変更 */
-        --color-text: #f0f0f0;      /* 本文色: 白 */
-        --color-header-bg: #1c1c1a;
-        --color-shadow: rgba(255, 255, 255, 0.05);
+        --bg-color: #0d0d0c;
+        --card-bg: #1c1c1a;
+        --text-color: #ccc;
     }
 }
 
 /* =========================================
-   基本リセット (変更なし)
+   基本リセット
    ========================================= */
 html, body {
-    overflow-x: hidden; 
-}
-
-body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    font-family: 'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif JP', serif;
-    line-height: 1.8;
     margin: 0;
     padding: 0;
-    overflow-y: auto;
+    overflow-x: hidden; /* 横スクロール完全禁止 */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Yu Mincho', serif;
 }
 
-/* =========================================
-   ヘッダー（ナビゲーション）(変更なし)
-   ========================================= */
+/* ヘッダー */
 .story-header {
-    background: var(--color-header-bg);
-    border-bottom: 1px solid var(--color-shadow);
-    /* ... 既存スタイルを維持 ... */
+    background: var(--bg-color);
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    /* ヘッダーは横書き・左書きのままにする */
+    direction: ltr; 
+    display: flex;
+    justify-content: space-between;
 }
 
 /* =========================================
-   本文メインエリア
+   【底力】RTL・タイルレイアウト
    ========================================= */
+
 .story-main {
-    max-width: var(--page-max-width);
-    margin: 0 auto;
+    /* メインエリア全体の設定 */
+    box-sizing: border-box;
     padding: 2rem 1rem;
-}
-
-.story-content-flow {
-    display: flex;
-    flex-direction: column;
-    gap: var(--section-gap); 
-    
-    /* ★修正: PCでの幅を制限し、右寄せを維持 */
-    width: var(--reading-area-width-pc);
-    margin-left: auto; /* 右寄せの実現 */
-    max-width: 100%; /* モバイルでは100%を維持 */
-}
-
-/* =========================================
-   【核心】縦書きブロック (.scene-card)
-   ========================================= */
-.scene-card {
-    display: flex;
-    justify-content: flex-end; 
-    
-    padding: var(--card-vertical-padding) var(--card-horizontal-padding); 
-    
-    background: var(--color-card-bg);
-    box-shadow: 0 4px 10px var(--color-shadow);
-    border-radius: 8px;
-    
-    /* 親要素 (story-content-flow) の幅に収まるようにする */
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    /* 文字配置の方向：右から左へ（Flex不要） */
+    text-align: right; 
 }
 
-.scene-card p {
+/* 各段落（カード）の設定 */
+.story-main p {
+    /* 1. ブロックの挙動 */
+    display: inline-block; /* タイルのように並べる */
+    vertical-align: top;   /* 上揃え */
+    
+    /* 2. 縦書き設定 */
     writing-mode: vertical-rl;
     text-orientation: upright;
     
-    height: auto; 
-    width: auto; /* 幅を削除 */
+    /* 3. サイズと見た目 */
+    height: var(--card-height); /* 高さを固定し、横に伸ばす */
+    width: auto;                /* 幅（＝文章量）は自動 */
+    max-width: 100%;            /* 画面幅を超えたら、文章内で改行させる */
     
-    margin: 0; 
-    margin-inline-start: 2em; 
-    margin-block-start: 1em; 
+    background: var(--card-bg);
+    padding: 1.5rem 1rem;
+    margin: 0 0 1.5rem 1.5rem; /* 左と下に余白 */
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 
-    line-height: 1.8; 
+    /* 4. テキスト設定 */
+    line-height: 1.8;
+    text-align: left; /* 縦書き内では「上揃え」になる */
     
-    /* ★★★ 最終修正：長文はみ出し解消のための決定打 ★★★ */
-    /* 縦書きの列がカード内で自動で折り返して、横に流れないようにします。 */
+    /* 英語などが混ざっても安全に折り返す */
+    word-break: break-all;
     white-space: normal;
-    text-wrap: wrap; 
 }
 
-/* pタグが連続する場合の最初の字下げを解除 */
-.scene-card p:first-of-type {
-    margin-block-start: 0;
-}
-
-/* =========================================
-   スマホ用調整 (max-width: 640px)
-   ========================================= */
+/* スマホ用調整 */
 @media (max-width: 640px) {
-    /* 縦長でも画面幅いっぱいに読み物エリアを使う */
-    .story-content-flow {
-        width: 100%;
-        margin: 0 auto;
+    :root {
+        /* スマホではカードを少し高くして、幅（行数）を減らす */
+        --card-height: 30rem; 
+    }
+    .story-main {
+        padding: 1rem 0.5rem;
+    }
+    .story-main p {
+        margin: 0 0 1rem 0.5rem;
+        padding: 1rem 0.8rem;
     }
 }
