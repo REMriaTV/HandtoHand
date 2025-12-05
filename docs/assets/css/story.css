@@ -25,7 +25,7 @@ html, body {
     overflow-x: hidden; /* 横スクロール完全禁止 */
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Yu Mincho', serif;
+    font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HiraMinProN-W3", "Noto Serif JP", serif;
 }
 
 /* ヘッダー */
@@ -36,7 +36,6 @@ html, body {
     position: sticky;
     top: 0;
     z-index: 10;
-    /* ヘッダーは横書き・左書きのままにする */
     direction: ltr; 
     display: flex;
     justify-content: space-between;
@@ -47,53 +46,53 @@ html, body {
    ========================================= */
 
 .story-main {
-    /* メインエリア全体の設定 */
     box-sizing: border-box;
     padding: 2rem 1rem;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     
-    /* 文字配置の方向：右から左へ（Flex不要） */
+    /* ブロックの並び順は「右から左」 */
     text-align: right; 
 }
 
 /* 各段落（カード）の設定 */
 .story-main p {
-    /* 1. ブロックの挙動 */
-    display: inline-block; /* タイルのように並べる */
-    vertical-align: top;   /* 上揃え */
+    /* ★重要修正: ブロック内の文字の並び順を「左から右（日本語の正順）」に戻す */
+    direction: ltr;
+
+    display: inline-block; 
+    vertical-align: top;   
     
-    /* 2. 縦書き設定 */
+    /* 縦書き設定 */
     writing-mode: vertical-rl;
-    text-orientation: upright;
+    text-orientation: mixed;
     
-    /* 3. サイズと見た目 */
-    height: var(--card-height); /* 高さを固定し、横に伸ばす */
-    width: auto;                /* 幅（＝文章量）は自動 */
-    max-width: 100%;            /* 画面幅を超えたら、文章内で改行させる */
+    /* サイズと見た目 */
+    height: var(--card-height); 
+    width: auto;                
+    max-width: 100%;            
     
     background: var(--card-bg);
     padding: 1.5rem 1rem;
-    margin: 0 0 1.5rem 1.5rem; /* 左と下に余白 */
+    margin: 0 0 1.5rem 1.5rem; 
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 
-    /* 4. テキスト設定 */
+    /* テキスト設定 */
     line-height: 1.8;
-    text-align: left; /* 縦書き内では「上揃え」になる */
+    text-align: left; 
     
-    /* ★修正: 禁則処理を最強にする設定一式 */
-    white-space: normal;       /* 通常の折り返し */
-    line-break: strict;        /* 【重要】句読点の禁則処理を厳格に行う */
-    word-break: normal;        /* 単語の途中での改行を防ぐ */
-    overflow-wrap: break-word; /* 長い単語は折り返す */
+    /* 禁則処理 */
+    white-space: normal;       
+    line-break: strict;        
+    word-break: normal;        
+    overflow-wrap: normal;
 }
 
 /* スマホ用調整 */
 @media (max-width: 640px) {
     :root {
-        /* スマホではカードを少し高くして、幅（行数）を減らす */
         --card-height: 30rem; 
     }
     .story-main {
