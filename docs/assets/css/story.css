@@ -1,16 +1,16 @@
 /* =========================================
-   変数定義（新聞風カラー & レイアウト調整）
+   変数定義（新聞風デザイン復活）
    ========================================= */
 :root {
-    /* 色設定 */
     --bg-color: #e0e0e0;       /* デスクマットのようなグレー */
-    --paper-bg: #fdfbf7;       /* 生成りの紙色 */
-    --text-color: #222;        /* インク色 */
-    --border-color: rgba(0,0,0,0.1); /* 薄い区切り線 */
+    --paper-bg: #fdfbf7;       /* 紙の色（生成り） */
+    --text-color: #111;        /* インクの色 */
+    --border-color: rgba(0,0,0,0.15); /* 区切り線 */
     
-    /* ★重要：カードの高さ（画面の何％にするか） */
-    --card-height-pc: 55vh;    /* PCでは少し高めに */
-    --card-height-mobile: 45vh; /* スマホでは少し控えめに */
+    /* ★カードの高さ設定 */
+    /* ここで決めた高さ以上には縦に伸びず、横（行数）が増えます */
+    --card-height-pc: 55vh; 
+    --card-height-mobile: 50vh;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,7 +18,7 @@
         --bg-color: #1a1a1a;
         --paper-bg: #2a2a2a;
         --text-color: #e0e0e0;
-        --border-color: rgba(255,255,255,0.1);
+        --border-color: rgba(255,255,255,0.15);
     }
 }
 
@@ -29,7 +29,7 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    /* ページ全体の横スクロールは完全に禁止 */
+    /* 画面全体の横スクロールは禁止（カード内のみ許可） */
     overflow-x: hidden; 
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -55,7 +55,7 @@ html, body {
 }
 
 /* =========================================
-   メインエリア
+   メインエリア（カード置き場）
    ========================================= */
 .story-main {
     box-sizing: border-box;
@@ -66,69 +66,67 @@ html, body {
 }
 
 .story-content-flow {
-    /* カードを縦に並べる */
     display: flex;
     flex-direction: column;
     gap: 3rem; /* カード間の隙間 */
 }
 
 /* =========================================
-   【核心】新聞クリップ・カード (.scene-card)
+   【重要】新聞カード (.scene-card)
    ========================================= */
 .scene-card {
     /* デザイン：新聞の切り抜き風 */
     background-color: var(--paper-bg);
     padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border-radius: 2px; /* 紙っぽく角はあまり丸めない */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 2px;
     
-    /* 幅の設定 */
+    /* 枠の設定 */
     width: 100%;
     box-sizing: border-box;
 
-    /* ★ここがポイント：はみ出し対策 */
-    /* 中身がカード幅を超えたら、カード内部でスクロールさせる */
+    /* ★ここがスクロールの肝 */
+    /* 中身（文章）がカード幅より広くなったら、ここだけでスクロール */
     overflow-x: auto; 
     overflow-y: hidden;
     
-    /* スクロール時の慣性（スマホ用） */
+    /* 慣性スクロール（スマホ用） */
     -webkit-overflow-scrolling: touch;
     
-    /* スクロールバーの起点を右側にする（縦書き用） */
+    /* 縦書きの開始位置（右側）を初期位置にする */
     direction: rtl; 
 }
 
-/* 中身のテキスト (<p>) */
+/* カードの中身（文章） */
 .scene-card p {
-    /* 縦書き設定 */
-    writing-mode: vertical-rl;
+    /* ★縦書きの絶対指定 */
+    writing-mode: vertical-rl !important;
+    -webkit-writing-mode: vertical-rl !important;
     text-orientation: upright;
     
-    /* ★重要：高さを固定して、横（行数）に伸ばす */
-    height: var(--card-height-pc); 
-    width: auto;
+    /* ★高さを固定（これで横に伸びるようになる） */
+    height: var(--card-height-pc);
+    width: max-content; /* 中身に合わせて幅を確保 */
     
-    /* テキストの方向を日本語の正順（左→右）に戻す */
-    /* ※親の .scene-card で rtl にしているため必須 */
+    /* 親の rtl を打ち消して、日本語の順序を正常にする */
     direction: ltr;
     
     /* テキスト設定 */
     margin: 0;
     line-height: 1.9;
+    font-size: 1.1rem;
     text-align: justify;
-    font-size: 1.05rem;
     
-    /* 禁則処理 */
-    white-space: normal;
-    line-break: strict;
+    /* ブロック挙動の安定化 */
+    display: block; 
     
-    /* 段落ごとの区切り線（新聞演出） */
+    /* 新聞風の区切り線 */
     border-left: 1px dashed var(--border-color);
     padding-left: 1.5rem;
     margin-left: 1.5rem;
 }
 
-/* 最初の段落は線を消す */
+/* 最初の段落の線は消す */
 .scene-card p:first-of-type {
     border-left: none;
     padding-left: 0;
@@ -152,8 +150,8 @@ html, body {
     }
     
     .scene-card p {
-        /* スマホ用の高さ（少し低くして圧迫感を減らす） */
-        height: var(--card-height-mobile); 
+        /* スマホ用の高さ（少し低く） */
+        height: var(--card-height-mobile);
         font-size: 1rem;
         line-height: 1.8;
         
