@@ -83,8 +83,7 @@ html, body {
     line-height: 1.8;
     text-align: left; /* 縦書き内では「上揃え」になる */
     
-    /* 英語などが混ざっても安全に折り返す */
-    word-break: break-all;
+    /* ★修正: break-all を削除し、自然な日本語の折り返し（禁則処理有効）にする */
     white-space: normal;
 }
 
