@@ -1,18 +1,23 @@
 /* =========================================
-   変数定義（色・レイアウト）
+   変数定義（新聞風デザイン）
    ========================================= */
 :root {
-    --bg-color: #f8f8f8;
-    --card-bg: #f0f0f0;   /* グレーのカード */
-    --text-color: #333;
-    --card-height: 24rem; /* ★重要: カードの「高さ」はここで決める */
+    --bg-color: #e0e0e0;       /* デスクマットのようなグレー */
+    --paper-bg: #fdfbf7;       /* 紙の色（生成り） */
+    --text-color: #111;        /* インクの色 */
+    --border-color: rgba(0,0,0,0.15);
+    
+    /* カードの高さ設定（PC用 / スマホ用） */
+    --card-height-pc: 55vh;    
+    --card-height-mobile: 50vh;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg-color: #0d0d0c;
-        --card-bg: #1c1c1a;
-        --text-color: #ccc;
+        --bg-color: #1a1a1a;
+        --paper-bg: #2a2a2a;
+        --text-color: #e0e0e0;
+        --border-color: rgba(255,255,255,0.15);
     }
 }
 
@@ -22,84 +27,105 @@
 html, body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* 横スクロール完全禁止 */
+    width: 100%;
+    /* ページ全体の横スクロールは禁止 */
+    overflow-x: hidden; 
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HiraMinProN-W3", "Noto Serif JP", serif;
+    font-family: "Yu Mincho", "YuMincho", serif;
 }
 
 /* ヘッダー */
 .story-header {
-    background: var(--bg-color);
+    background: var(--paper-bg);
     padding: 1rem;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 2px solid var(--text-color);
     position: sticky;
     top: 0;
-    z-index: 10;
-    direction: ltr; 
+    z-index: 100;
     display: flex;
     justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.story-title {
+    font-weight: bold;
+    letter-spacing: 0.1em;
 }
 
 /* =========================================
-   【底力】RTL・タイルレイアウト
+   メインエリア設定
    ========================================= */
-
 .story-main {
     box-sizing: border-box;
     padding: 2rem 1rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     
-    /* ブロックの並び順は「右から左」 */
-    text-align: right; 
+    /* カードを縦に並べる（Flexbox） */
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* カード間の間隔 */
 }
 
-/* 各段落（カード）の設定 */
+/* =========================================
+   【修正版】カード兼テキストブロック
+   HTMLの <p> タグをそのまま「カード」として扱います
+   ========================================= */
 .story-main p {
-    /* ★重要修正: ブロック内の文字の並び順を「左から右（日本語の正順）」に戻す */
-    direction: ltr;
+    /* 1. カードとしての見た目（これが消えていた原因の修正） */
+    display: block; 
+    background-color: var(--paper-bg);
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 2px;
+    box-sizing: border-box;
+    width: 100%; /* 横幅いっぱい */
 
-    display: inline-block; 
-    vertical-align: top;   
-    
-    /* 縦書き設定 */
+    /* 2. 縦書きの維持（これが横書きになった原因の修正） */
     writing-mode: vertical-rl;
-    text-orientation: mixed;
+    text-orientation: upright;
     
-    /* サイズと見た目 */
-    height: var(--card-height); 
-    width: auto;                
-    max-width: 100%;            
+    /* ★重要：高さを固定して、横に伸びるようにする */
+    height: var(--card-height-pc);
     
-    background: var(--card-bg);
-    padding: 1.5rem 1rem;
-    margin: 0 0 1.5rem 1.5rem; 
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-
-    /* テキスト設定 */
-    line-height: 1.8;
-    text-align: left; 
+    /* 3. はみ出し対策：カード内スクロール */
+    overflow-x: auto; 
+    overflow-y: hidden;
     
-    /* 禁則処理 */
-    white-space: normal;       
-    line-break: strict;        
-    word-break: normal;        
-    overflow-wrap: normal;
+    /* 4. テキスト設定 */
+    line-height: 1.9;
+    font-size: 1.1rem;
+    text-align: justify;
+    
+    /* 日本語の禁則処理 */
+    white-space: normal;
+    line-break: strict;
+    
+    /* 新聞風の区切り線 */
+    border-left: 1px dashed var(--border-color);
 }
 
-/* スマホ用調整 */
+/* 最初の段落の線は消す */
+.story-main p:first-of-type {
+    border-left: none;
+}
+
+/* =========================================
+   スマホ用調整
+   ========================================= */
 @media (max-width: 640px) {
-    :root {
-        --card-height: 30rem; 
-    }
     .story-main {
         padding: 1rem 0.5rem;
+        gap: 2rem;
     }
+    
     .story-main p {
-        margin: 0 0 1rem 0.5rem;
-        padding: 1rem 0.8rem;
+        /* スマホ用の高さ */
+        height: var(--card-height-mobile);
+        font-size: 1rem;
+        line-height: 1.8;
+        padding: 1rem;
     }
 }
