@@ -121,6 +121,12 @@ html, body {
     }
     
     .story-main p {
+　　　　　/* カードの幅を画面の90%に固定 */
+　　　　　width: 90%;
+
+       /* 余白を左右均等にして、カードが画面の左右中央に配置 */
+        margin: 0 auto;
+       
         /* スマホ用の高さ適用 */
         height: var(--card-height-mobile);
         
@@ -134,3 +140,7 @@ html, body {
         box-shadow: 5px 5px 0px rgba(0,0,0,0.25); 
     }
 }
+
+
+
+        
