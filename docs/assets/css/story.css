@@ -113,8 +113,8 @@ html, body {
     }
     
     .story-main p {
-        /* ★テスト変更: 幅を極端に狭くして反映を確認 */
-        width: 50% !important;
+        /* ★50%だと効果あり。60%ではどうか */
+        width: 60% !important;
 
         /* 中央寄せ */
         margin: 0 auto;
