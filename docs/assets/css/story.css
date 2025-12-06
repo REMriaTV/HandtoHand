@@ -45,7 +45,7 @@ html, body {
 }
 
 /* =========================================
-   メインエリア設定（ここに隙間設定を統合）
+   メインエリア設定
    ========================================= */
 .story-main {
     box-sizing: border-box;
@@ -54,58 +54,51 @@ html, body {
     max-width: 1000px;
     margin: 0 auto;
     
-    /* ★修正: .story-content-flow を廃止し、親要素に直接 Flexbox を適用 */
+    /* カードを縦に並べる設定 */
     display: flex;
     flex-direction: column;
     
-    /* ★ここに gap を設定すると反映されます */
+    /* カード間の隙間 */
     gap: 25rem; 
 }
 
-/* 不要になった .story-content-flow は削除しました */
-
 /* =========================================
-   カード兼テキストブロック
+   カード兼テキストブロック (PC設定)
    ========================================= */
 .story-main p {
-    /* ★追加: pタグのデフォルト余白（縦書きだと左右の余白になる）を消す */
+    /* デフォルト余白の削除 */
     margin: 0;
-   
-    /* 1. カードとしての見た目 */
+    
+    /* カードとしての見た目 */
     display: block; 
     background-color: var(--paper-bg);
     padding: 1.5rem;
     box-sizing: border-box;
-    width: 100%;
+    width: 100%; /* PCでは幅いっぱい */
 
-    /* 2. 縦書きの維持 */
+    /* 縦書き設定 */
     writing-mode: vertical-rl;
     text-orientation: upright;
     
-    /* 高さを固定して横に伸ばす */
+    /* 高さ固定 */
     height: var(--card-height-pc);
     
-    /* 3. はみ出し対策：カード内スクロール */
+    /* カード内スクロール */
     overflow-x: auto; 
     overflow-y: hidden;
     
-    /* 4. テキスト設定 */
+    /* テキスト設定 */
     line-height: 1.9;
-    
-    /* ★文字サイズ変更はこちら（PC） */
     font-size: 1.1rem; 
-    
     text-align: justify;
     
-    /* 日本語の禁則処理 */
+    /* 禁則処理 */
     white-space: normal;
     line-break: strict;
     
     /* デザイン装飾 */
     border: 3px double var(--border-color);
     border-radius: 4px;
-    
-    /* 硬い影（ハードシャドウ） */
     box-shadow: 8px 8px 0px rgba(0,0,0,0.25); 
 }
 
@@ -115,32 +108,27 @@ html, body {
 @media (max-width: 640px) {
     .story-main {
         padding: 3rem 0.5rem;
-        
-        /* スマホの隙間も変えたい場合はここで gap を上書き */
-        /* gap: 10rem; */
+        /* スマホの隙間調整：PCの25remは広すぎるため調整 */
+        gap: 10rem; 
     }
     
     .story-main p {
-　　　　　/* カードの幅を画面の90%に固定 */
-　　　　　width: 70% !important;
+        /* ★テスト変更: 幅を極端に狭くして反映を確認 */
+        width: 50% !important;
 
-       /* 余白を左右均等にして、カードが画面の左右中央に配置 */
+        /* 中央寄せ */
         margin: 0 auto;
-       
+        
         /* スマホ用の高さ適用 */
         height: var(--card-height-mobile);
         
-        /* ★文字サイズ変更はこちら（スマホ） */
+        /* 文字サイズ */
         font-size: 1rem; 
         
         line-height: 1.8;
         padding: 1rem;
         
-        /* スマホでは影を少し控えめに */
+        /* 影を控えめに */
         box-shadow: 5px 5px 0px rgba(0,0,0,0.25); 
     }
 }
-
-
-
-        
