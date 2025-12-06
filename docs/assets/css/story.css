@@ -80,6 +80,9 @@ html, body {
     writing-mode: vertical-rl;
     text-orientation: upright;
     
+    /* ★追加：段落の字下げ設定 */
+    text-indent: 1em;
+    
     /* 高さ固定 */
     height: var(--card-height-pc);
     
