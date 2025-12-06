@@ -110,7 +110,7 @@ html, body {
    ========================================= */
 @media (max-width: 640px) {
     .story-main {
-        padding: 4rem 0.5rem;
+        padding: 6rem 0.5rem;
         /* スマホの隙間調整：PCの25remは広すぎるため調整 */
         gap: 10rem; 
     }
