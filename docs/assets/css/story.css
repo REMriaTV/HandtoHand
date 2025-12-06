@@ -10,10 +10,8 @@
     
     /* カードの高さ設定 */
     --card-height-pc: 55vh;    
-    --card-height-mobile: 80vh; /* ★スマホは画面の80%まで広げる */
+    --card-height-mobile: 80vh; /* スマホは画面の80%まで広げる */
 }
-
-/* ★ダークモード設定を削除しました（これで勝手に色が反転しません） */
 
 /* =========================================
    基本リセット
@@ -47,7 +45,7 @@ html, body {
 }
 
 /* =========================================
-   メインエリア設定
+   メインエリア設定（ここに隙間設定を統合）
    ========================================= */
 .story-main {
     box-sizing: border-box;
@@ -55,13 +53,16 @@ html, body {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-}
-
-.story-content-flow {
+    
+    /* ★修正: .story-content-flow を廃止し、親要素に直接 Flexbox を適用 */
     display: flex;
     flex-direction: column;
+    
+    /* ★ここに gap を設定すると反映されます */
     gap: 25rem; 
 }
+
+/* 不要になった .story-content-flow は削除しました */
 
 /* =========================================
    カード兼テキストブロック
@@ -87,7 +88,10 @@ html, body {
     
     /* 4. テキスト設定 */
     line-height: 1.9;
-    font-size: 1.1rem;
+    
+    /* ★文字サイズ変更はこちら（PC） */
+    font-size: 1.1rem; 
+    
     text-align: justify;
     
     /* 日本語の禁則処理 */
@@ -108,13 +112,18 @@ html, body {
 @media (max-width: 640px) {
     .story-main {
         padding: 1rem 0.5rem;
-        gap: 2rem;
+        
+        /* スマホの隙間も変えたい場合はここで gap を上書き */
+        /* gap: 10rem; */
     }
     
     .story-main p {
         /* スマホ用の高さ適用 */
         height: var(--card-height-mobile);
-        font-size: 1rem;
+        
+        /* ★文字サイズ変更はこちら（スマホ） */
+        font-size: 1rem; 
+        
         line-height: 1.8;
         padding: 1rem;
         
