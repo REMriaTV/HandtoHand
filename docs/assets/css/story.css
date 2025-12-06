@@ -114,7 +114,7 @@ html, body {
     
     .story-main p {
         /* ★50%だと効果あり。60%ではどうか */
-        width: 70% !important;
+        width: 80% !important;
 
         /* 中央寄せ */
         margin: 0 auto;
