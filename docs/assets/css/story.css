@@ -10,7 +10,7 @@
     
     /* カードの高さ設定 */
     --card-height-pc: 55vh;    
-    --card-height-mobile: 70vh; /* スマホは画面の70%まで広げる */
+    --card-height-mobile: 68vh; /* スマホは画面の70%まで広げる */
 }
 
 /* =========================================
@@ -110,7 +110,7 @@ html, body {
    ========================================= */
 @media (max-width: 640px) {
     .story-main {
-        padding: 3rem 0.5rem;
+        padding: 4rem 0.5rem;
         /* スマホの隙間調整：PCの25remは広すぎるため調整 */
         gap: 10rem; 
     }
