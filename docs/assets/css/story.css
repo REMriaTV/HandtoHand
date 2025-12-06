@@ -68,6 +68,9 @@ html, body {
    カード兼テキストブロック
    ========================================= */
 .story-main p {
+    /* ★追加: pタグのデフォルト余白（縦書きだと左右の余白になる）を消す */
+    margin: 0;
+   
     /* 1. カードとしての見た目 */
     display: block; 
     background-color: var(--paper-bg);
