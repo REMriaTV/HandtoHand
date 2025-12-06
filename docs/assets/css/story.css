@@ -60,7 +60,7 @@ html, body {
 .story-content-flow {
     display: flex;
     flex-direction: column;
-    gap: 3rem; 
+    gap: 25rem; 
 }
 
 /* =========================================
