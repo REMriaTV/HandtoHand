@@ -19,6 +19,25 @@
 
   </main>
 
+ <!-- ★ここが重要：カード間にアイコン用スペースを自動挿入するスクリプト -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // メインエリア内のすべての段落(pタグ)を取得
+        const paragraphs = document.querySelectorAll('.story-main p');
+        
+        paragraphs.forEach((p, index) => {
+            // 最後の段落以外の下にスペースを挿入
+            if (index < paragraphs.length - 1) {
+                // 新しいdivを作成
+                const iconSpacer = document.createElement('div');
+                iconSpacer.className = 'story-icon-spacer';
+                
+                // pタグの直後に挿入
+                p.parentNode.insertBefore(iconSpacer, p.nextSibling);
+            }
+        });
+    });
+  </script>
   
 </body>
 </html>
