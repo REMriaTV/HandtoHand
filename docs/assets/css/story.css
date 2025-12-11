@@ -1,18 +1,20 @@
 /* =========================================
-   変数定義（夜汽車・アンティーク風）
+   変数定義（80's シティポップ風）
    ========================================= */
 :root {
-    /* 色パレット：夜汽車アレンジ */
-    --bg-dark: #001f3f;        /* 非常に深い紺 */
-    --bg-light: #004e72;       /* 少し明るい紺（グラデーション中心用） */
+    /* 色パレット：ネオン＆パステル */
+    --bg-main: #2b1055;      /* 深いナイトパープル */
+    --bg-grid: #7597de;      /* グリッド線の色（エレクトリックブルー） */
     
-    --paper-bg: #fdfbf7;       /* カード：より明るく白に近いクリーム色（清潔感） */
-    --text-color: #0d1b2a;     /* 文字：ほぼ黒に近いミッドナイトブルー */
+    --card-bg: #fffce0;      /* 明るいクリームイエロー */
+    --text-color: #2b1055;   /* 文字色（背景と同じ深い紫） */
     
-    --accent-gold: #c5a059;    /* アクセント：アンティークゴールド */
-    --border-color: #0d1b2a;   
+    /* アクセントカラー */
+    --neon-pink: #ff00cc;    /* ホットピンク */
+    --neon-blue: #00ffff;    /* シアンブルー */
+    --neon-yellow: #ffff00;  /* ネオンイエロー */
     
-    /* カードの高さ設定 */
+    /* カードの高さ設定（変更なし） */
     --card-height-pc: 65vh;    
     --card-height-mobile: 66vh; 
 }
@@ -27,62 +29,98 @@ html, body {
     min-height: 100vh; 
     overflow-x: hidden; 
     
-    background: radial-gradient(circle at center, var(--bg-light), var(--bg-dark));
-    background-attachment: fixed;
+    /* ★背景：レトロなグリッド模様に変更 */
+    background-color: var(--bg-main);
+    background-image: 
+        linear-gradient(var(--bg-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+    background-size: 40px 40px; /* グリッドのサイズ */
+    background-position: center center;
     
     color: var(--text-color);
-    font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HiraMinProN-W3", "Noto Serif JP", serif;
+    /* 本文は読みやすい明朝体を維持しつつ、少しポップなゴシックも予備に追加 */
+    font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HiraMinProN-W3", "Noto Serif JP", "游ゴシック体", YuGothic, "Yu Gothic", sans-serif;
 }
 
-/* ヘッダー */
+/* =========================================
+   ヘッダー（ネオンサイン風）
+   ========================================= */
 .story-header {
-    background: rgba(253, 251, 247, 0.95);
-    padding: 1rem;
-    border-bottom: 3px double var(--accent-gold);
     position: sticky;
-    top: 0;
+    top: 1rem;
     z-index: 100;
+    
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    
+    /* カセットテープのラベルのようなデザイン */
+    background: rgba(255, 255, 255, 0.9); /* 少し透ける白 */
+    padding: 0.8rem 2rem;
+    
+    /* 枠線をネオン風に */
+    border: 3px solid var(--neon-pink);
+    border-radius: 4px;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    
+    /* 発光するような影 */
+    box-shadow: 
+        0 0 10px var(--neon-pink),
+        0 0 20px var(--neon-pink) inset;
 }
 
 .story-title {
     font-weight: bold;
     letter-spacing: 0.1em;
     font-size: 1.2rem;
+    /* タイトル文字をネオン風に光らせる */
+    color: var(--neon-blue);
+    text-shadow: 
+        2px 2px 0 var(--neon-pink),
+        0 0 10px var(--neon-blue);
+        
+    /* タイトルだけ少しポップなゴシック体で強調しても面白いかも */
+    font-family: "游ゴシック体", YuGothic, "Yu Gothic", sans-serif;
 }
 
 .story-meta {
-    font-size: 0.8rem;
-    color: var(--accent-gold); 
+    font-size: 0.9rem;
     font-weight: bold;
+    /* メタ情報もポップに */
+    background: var(--neon-yellow);
+    color: var(--bg-main);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    transform: rotate(-5deg); /* 少し傾けて遊び心を */
+    box-shadow: 3px 3px 0 var(--neon-pink);
 }
 
 /* =========================================
-   メインエリア設定
+   メインエリア設定（基本レイアウトは維持）
    ========================================= */
 .story-main {
     box-sizing: border-box;
-    padding: 7rem 1rem;
+    padding: 5rem 1rem;
     width: 100%;
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
     
     display: flex;
     flex-direction: column;
-    gap: 25rem; 
+    gap: 20rem; 
 }
 
 /* =========================================
-   カード兼テキストブロック
+   カード兼テキストブロック（ポップな装飾）
    ========================================= */
 .story-main p {
     margin: 0;
     display: block; 
-    background-color: var(--paper-bg);
-    padding: 2.5rem;
+    background-color: var(--card-bg);
+    padding: 3rem 2rem;
     box-sizing: border-box;
     width: 100%; 
 
@@ -96,41 +134,78 @@ html, body {
     overflow-x: auto; 
     overflow-y: hidden;
     
-    line-height: 1.9;
-    font-size: 1.1rem; 
+    line-height: 2.0;
+    font-size: 1.15rem; 
     text-align: justify;
     
     white-space: normal;
     line-break: strict;
     
-    border: 1px solid var(--border-color);
-    outline: 4px double var(--accent-gold);
-    outline-offset: -10px;
+    /* ★変更：ポップな枠と影 */
+    border: 4px solid var(--neon-blue);
+    border-radius: 12px; /* 少し丸く */
     
-    border-radius: 6px; 
-    
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 
-                0 0 0 1px rgba(197, 160, 89, 0.3);
+    /* 色をずらした影で版ズレ感を表現 */
+    box-shadow: 
+        6px 6px 0 var(--neon-pink),
+        12px 12px 0 var(--neon-yellow);
     
     position: relative;
+    
+    /* カードの背景にうっすらパターンを入れる（オプション） */
+    background-image: radial-gradient(var(--neon-blue) 10%, transparent 10%);
+    background-size: 20px 20px;
+    background-blend-mode: soft-light;
+}
+
+/* 以前の四隅の装飾は削除しました */
+
+/* スクロールバーのデザインをネオンカラーに */
+.story-main p::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+.story-main p::-webkit-scrollbar-track {
+    background: var(--card-bg);
+    border: 2px solid var(--neon-blue);
+}
+.story-main p::-webkit-scrollbar-thumb {
+    background: var(--neon-pink);
+    border-radius: 0;
+    box-shadow: 2px 2px 0 var(--neon-yellow);
 }
 
 /* =========================================
    スマホ用調整
    ========================================= */
 @media (max-width: 640px) {
+    .story-header {
+        width: 95%;
+        padding: 0.6rem 1rem;
+    }
+    .story-title {
+        font-size: 1rem;
+    }
+
     .story-main {
-        padding: 6rem 0.5rem;
-        gap: 10rem; 
+        padding: 4rem 0.5rem;
+        gap: 8rem; 
     }
     
     .story-main p {
-        width: 85% !important;
+        width: 90% !important;
         margin: 0 auto;
         height: var(--card-height-mobile);
+        
         font-size: 1rem; 
         line-height: 1.8;
-        padding: 2rem;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+        padding: 2.5rem 1.5rem;
+        
+        /* スマホでの影調整（少し小さく） */
+        box-shadow: 
+            4px 4px 0 var(--neon-pink),
+            8px 8px 0 var(--neon-yellow);
+        
+        background-size: 15px 15px; /* パターンも小さく */
     }
 }
