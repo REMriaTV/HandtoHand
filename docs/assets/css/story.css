@@ -74,7 +74,8 @@ body {
     animation: scrollGrid 4s linear infinite;
     
     color: var(--text-color);
-    font-family: var(--text-font);
+    /* ★修正点③: フォントをZen Maru Gothicに戻しました */
+    font-family: 'Zen Maru Gothic', sans-serif;
     font-weight: 500;
     
     position: relative;
@@ -114,7 +115,8 @@ body::after {
    ヘッダー
    ========================================= */
 .story-header {
-    position: sticky;
+    /* ★修正点①: 固定表示をやめる (sticky -> relative) */
+    position: relative; 
     top: 1rem;
     z-index: 100;
     
@@ -211,7 +213,8 @@ body::after {
     transform: rotate(-1deg);
     animation: floatCard 6s ease-in-out infinite;
     
-    background-image: radial-gradient(#ddd 15%, transparent 15%);
+     /* ★修正点②: 背景のドットを薄くする (0.05で極薄に) */
+    background-image: radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 15%);
     background-size: 16px 16px;
 }
 
