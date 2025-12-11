@@ -1,130 +1,18 @@
 /* =========================================
-   変数定義 & テーマ管理
+   Google Fonts Import
    ========================================= */
-:root {
-    /* --- 1. Pop Mode (Default) --- */
-    --bg-main: #2b1055;
-    --bg-pattern: 
-        linear-gradient(rgba(117, 151, 222, 0.3) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(117, 151, 222, 0.3) 1px, transparent 1px);
-    --bg-size: 40px 40px;
-    
-    --card-bg: #fffce0;
-    --text-color: #2b1055;
-    --text-font: 'Zen Maru Gothic', sans-serif;
-    --title-font: 'DotGothic16', sans-serif;
-    
-    /* 枠線・形状 */
-    --border-color: #000;
-    --border-width: 4px;
-    --border-style: solid;
-    --card-radius: 8px;
-    
-    /* 影 */
-    --accent-shadow: 10px 10px 0 var(--neon-blue);
-    
-    /* ヘッダー */
-    --header-bg: #ffff00;
-    --header-text: #2b1055;
-    --header-border: 3px solid #000;
-    --header-shadow: 5px 5px 0 var(--neon-pink);
-    
-    /* 余白・サイズ設定 */
-    --card-padding-pc: 3rem 2.5rem;
-    --card-padding-mobile: 2.5rem 1.5rem;
-    --card-width-mobile: 90%;
-    
-    /* アニメーション */
-    --anim-grid: scrollGrid 4s linear infinite;
-    --anim-card: floatCard 6s ease-in-out infinite;
-    --card-transform: rotate(-1deg);
-    
-    /* Popモード専用色 */
-    --neon-pink: #ff00cc;    
-    --neon-blue: #00ffff;    
-    --neon-yellow: #ffff00;
-    
-    /* 共通高さ設定 */
-    --card-height-pc: 65vh;    
-    --card-height-mobile: 66vh; 
-}
-
-/* --- 2. Midnight Mode --- */
-[data-theme="midnight"] {
-    --bg-main: #0f0f10;
-    --bg-pattern: none;
-    --bg-size: 0 0;
-    
-    --card-bg: #1a1a1c;
-    --text-color: #c0c0c0;
-    --text-font: 'Noto Serif JP', serif;
-    --title-font: 'Noto Serif JP', serif;
-    
-    --border-color: transparent;
-    --border-width: 0px;
-    --border-style: solid;
-    --card-radius: 2px;
-    
-    --accent-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-    
-    --header-bg: rgba(26, 26, 28, 0.8);
-    --header-text: #888;
-    --header-border: none;
-    --header-shadow: none;
-    
-    --card-padding-pc: 3rem 2.5rem;
-    --card-padding-mobile: 2.5rem 1.5rem;
-    --card-width-mobile: 90%;
-    
-    --anim-grid: none;
-    --anim-card: none;
-    --card-transform: none;
-    
-    --neon-pink: #333; 
-    --neon-blue: #444;
-    --neon-yellow: #555;
-}
-
-/* --- 3. Retro Mode --- */
-[data-theme="retro"] {
-    --bg-main: #003f5c;      
-    --bg-pattern: none;
-    --bg-size: 0 0;
-    
-    --card-bg: #f7f4e9;      
-    --text-color: #00203f;   
-    --text-font: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HiraMinProN-W3", "Noto Serif JP", serif;
-    --title-font: inherit;   
-    
-    --border-color: #00203f;
-    --border-width: 3px;
-    --border-style: double;  
-    --card-radius: 4px;
-    
-    --accent-shadow: 8px 8px 0px rgba(0,0,0,0.25);
-    
-    --header-bg: #f7f4e9;
-    --header-text: #00203f;
-    --header-border: none; 
-    --header-shadow: 0 4px 0 rgba(0,0,0,0.2);
-    
-    --card-padding-pc: 1.5rem;
-    --card-padding-mobile: 2rem;
-    --card-width-mobile: 85%; 
-    
-    --anim-grid: none;
-    --anim-card: none;
-    --card-transform: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Serif+JP:wght@400;700&family=Zen+Maru+Gothic:wght@500;700&display=swap');
 
 /* =========================================
-   アニメーション定義
+   アニメーション定義 (Pop Mode用)
    ========================================= */
+/* 背景グリッドの無限スクロール */
 @keyframes scrollGrid {
     0% { background-position: 0 0; }
     100% { background-position: 40px 40px; }
 }
 
+/* ネオンのチカチカ点滅 */
 @keyframes neonFlicker {
     0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
         opacity: 1;
@@ -136,9 +24,148 @@
     }
 }
 
+/* カードのふわふわ浮遊 */
 @keyframes floatCard {
     0%, 100% { transform: rotate(-1deg) translateY(0); }
     50% { transform: rotate(-1deg) translateY(-5px); }
+}
+
+/* =========================================
+   変数定義 & テーマ管理
+   ========================================= */
+:root {
+    /* --- 1. Pop Mode (Default / Pro Mode) 仕様 --- */
+    /* 色パレット：ネオン＆パステル */
+    --bg-main: #2b1055;
+    --card-bg: #fffce0;
+    --text-color: #2b1055;
+    
+    /* アクセントカラー */
+    --neon-pink: #ff00cc;    
+    --neon-blue: #00ffff;    
+    --neon-yellow: #ffff00;
+    
+    /* フォント: 丸文字 & ドット文字 */
+    --text-font: 'Zen Maru Gothic', sans-serif;
+    --title-font: 'DotGothic16', sans-serif;
+    
+    /* 背景: 動くグリッド */
+    --bg-image: 
+        linear-gradient(rgba(117, 151, 222, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(117, 151, 222, 0.3) 1px, transparent 1px);
+    --bg-size: 40px 40px;
+    
+    /* アニメーション適用 */
+    --anim-grid: scrollGrid 4s linear infinite;
+    --anim-title: neonFlicker 3s infinite;
+    --anim-card: floatCard 6s ease-in-out infinite;
+    
+    /* 形状 & 装飾 */
+    --header-transform: translateX(-50%) rotate(2deg); /* ヘッダー傾き */
+    --card-transform: rotate(-1deg); /* カード傾き */
+    --border-style: 4px solid #000;
+    --card-radius: 8px;
+    --card-shadow: 10px 10px 0 var(--neon-blue);
+    
+    /* ヘッダー */
+    --header-bg: #ffff00;
+    --header-text: #2b1055;
+    --header-border: 3px solid #000;
+    --header-shadow: 5px 5px 0 var(--neon-pink);
+    
+    /* レイアウト */
+    --card-padding-pc: 3rem 2.5rem;
+    --card-padding-mobile: 2.5rem 1.5rem;
+    --card-width-mobile: 90%;
+    
+    /* 共通高さ */
+    --card-height-pc: 65vh;    
+    --card-height-mobile: 66vh; 
+    
+    /* 装飾の表示制御 (opacity) */
+    --pop-decor-opacity: 1; /* Pop装飾ON */
+    --rec-mark-display: block; /* RECマークON */
+}
+
+/* --- 2. Midnight Mode --- */
+[data-theme="midnight"] {
+    --bg-main: #0f0f10;
+    --card-bg: #1a1a1c;
+    --text-color: #c0c0c0;
+    
+    /* フォント: 明朝体 */
+    --text-font: 'Noto Serif JP', serif;
+    --title-font: 'Noto Serif JP', serif;
+    
+    /* 背景: 無地 */
+    --bg-image: none;
+    --bg-size: 0 0;
+    --anim-grid: none;
+    --anim-title: none;
+    --anim-card: none;
+    
+    /* 形状: 直線的・静止 */
+    --header-transform: none;
+    --card-transform: none;
+    --border-style: none; /* 枠線なし */
+    --card-radius: 2px;
+    --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    
+    /* ヘッダー: 透過・静か */
+    --header-bg: rgba(26, 26, 28, 0.8);
+    --header-text: #888;
+    --header-border: none; /* 下線は個別指定 */
+    --header-shadow: none;
+    
+    /* Pop装飾OFF */
+    --pop-decor-opacity: 0;
+    --rec-mark-display: none;
+    
+    /* Midnight特有色オーバーライド */
+    --neon-yellow: #555; /* ボタン用など */
+}
+
+/* --- 3. Retro Mode (指定された仕様) --- */
+[data-theme="retro"] {
+    /* 色: タバコパッケージ風 */
+    --bg-main: #003f5c;
+    --card-bg: #f7f4e9;
+    --text-color: #00203f;
+    
+    /* フォント: 明朝体 */
+    --text-font: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HiraMinProN-W3", "Noto Serif JP", serif;
+    --title-font: inherit;
+    
+    /* 背景: 無地 */
+    --bg-image: none;
+    --bg-size: 0 0;
+    --anim-grid: none;
+    --anim-title: none;
+    --anim-card: none;
+    
+    /* 形状: 直線的・静止 */
+    --header-transform: none;
+    --card-transform: none;
+    
+    /* 枠線: 二重線 */
+    --border-style: 3px double #00203f;
+    --card-radius: 4px;
+    --card-shadow: 8px 8px 0px rgba(0,0,0,0.25);
+    
+    /* ヘッダー */
+    --header-bg: #f7f4e9;
+    --header-text: #00203f;
+    --header-border: none;
+    --header-shadow: 0 4px 0 rgba(0,0,0,0.2);
+    
+    /* レイアウト調整 (指定値) */
+    --card-padding-pc: 1.5rem;
+    --card-padding-mobile: 2rem;
+    --card-width-mobile: 85%;
+    
+    /* Pop装飾OFF */
+    --pop-decor-opacity: 0;
+    --rec-mark-display: none;
 }
 
 /* =========================================
@@ -152,7 +179,7 @@ html, body {
     overflow-x: hidden; 
     
     background-color: var(--bg-main);
-    background-image: var(--bg-pattern);
+    background-image: var(--bg-image);
     background-size: var(--bg-size);
     animation: var(--anim-grid);
     
@@ -163,43 +190,34 @@ html, body {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* Popモード以外の背景装飾を消す */
-html[data-theme="midnight"] body::before, html[data-theme="midnight"] body::after,
-html[data-theme="retro"] body::before, html[data-theme="retro"] body::after {
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-
-/* Popモード時の背景装飾 */
-body::before {
+/* 背景装飾（メンフィス柄 - Pop Modeのみ表示） */
+body::before, body::after {
     content: "";
     position: fixed;
+    z-index: -1;
+    transition: opacity 0.5s;
+    opacity: var(--pop-decor-opacity); /* 変数で制御 */
+}
+
+body::before {
     top: 15vh;
     left: -5vw;
     width: 200px;
     height: 200px;
-    background: radial-gradient(circle, #ff00cc 20%, transparent 20%);
+    background: radial-gradient(circle, var(--neon-pink) 20%, transparent 20%);
     background-size: 20px 20px;
-    opacity: 0.2;
     transform: rotate(20deg);
-    z-index: -1;
-    transition: opacity 0.5s;
 }
 
 body::after {
-    content: "";
-    position: fixed;
     bottom: 10vh;
     right: -2vw;
     width: 0;
     height: 0;
     border-left: 80px solid transparent;
     border-right: 80px solid transparent;
-    border-bottom: 140px solid #00ffff;
-    opacity: 0.2;
+    border-bottom: 140px solid var(--neon-blue);
     transform: rotate(-15deg);
-    z-index: -1;
-    transition: opacity 0.5s;
 }
 
 /* =========================================
@@ -210,9 +228,14 @@ body::after {
     top: 1rem;
     z-index: 100;
     
-    width: auto;
+    /* 幅調整: Pop時はコンテンツ合わせ、他は100% */
+    width: auto; 
     max-width: 90%;
+    
+    /* 配置: 中央揃え */
     margin: 0 auto;
+    left: 50%; /* Pop用初期値 */
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -225,32 +248,31 @@ body::after {
     border: var(--header-border);
     box-shadow: var(--header-shadow);
     
-    /* Pop時のみ傾ける */
-    transform: translateX(0) rotate(2deg);
+    /* 傾き適用 */
+    transform: var(--header-transform);
     
     transition: all 0.5s ease;
 }
 
-/* Midnight & Retro 時のヘッダー調整（属性セレクタをhtmlに対して行うよう修正） */
-html[data-theme="midnight"] .story-header,
-html[data-theme="retro"] .story-header {
+/* Midnight & Retro ヘッダー調整 */
+[data-theme="midnight"] .story-header,
+[data-theme="retro"] .story-header {
     width: 100%;
     max-width: 100%;
     top: 0;
+    left: 0; /* Reset */
     padding: 1rem;
-    transform: none;
-    box-shadow: var(--header-shadow);
-    border: none;
+    /* transformは変数でnoneになっている */
 }
 
-html[data-theme="midnight"] .story-header {
+[data-theme="midnight"] .story-header {
     border-bottom: 1px solid #333;
     backdrop-filter: blur(5px);
 }
 
-html[data-theme="retro"] .story-header {
-    border-bottom: 3px double var(--border-color);
-    justify-content: space-between; 
+[data-theme="retro"] .story-header {
+    border-bottom: 3px double var(--text-color);
+    justify-content: space-between;
     box-sizing: border-box;
 }
 
@@ -259,26 +281,25 @@ html[data-theme="retro"] .story-header {
     font-size: 1.4rem;
     letter-spacing: 0.1em;
     color: inherit;
-}
-
-/* ★修正箇所: bodyではなくhtmlタグで判定してタイトル点滅を制御 */
-html:not([data-theme="midnight"]):not([data-theme="retro"]) .story-title {
-    color: var(--bg-main);
-    animation: neonFlicker 3s infinite;
+    
+    /* アニメーション適用 */
+    animation: var(--anim-title);
 }
 
 .story-meta {
     font-family: 'DotGothic16', sans-serif;
     font-size: 1rem;
     background: #000;
-    color: #ffff00;
+    color: var(--neon-yellow);
     padding: 0.2rem 0.8rem;
     border-radius: 4px;
 }
 
-/* MidnightとRetroではメタ情報のスタイルを変える/消す */
-html[data-theme="midnight"] .story-meta { display: none; }
-html[data-theme="retro"] .story-meta { display: none; }
+/* Pop以外ではメタ情報を隠す */
+[data-theme="midnight"] .story-meta,
+[data-theme="retro"] .story-meta { 
+    display: none; 
+}
 
 /* =========================================
    メインエリア
@@ -295,7 +316,7 @@ html[data-theme="retro"] .story-meta { display: none; }
     gap: 20rem; 
 }
 
-html[data-theme="retro"] .story-main {
+[data-theme="retro"] .story-main {
     padding: 7rem 1rem;
     max-width: 1000px;
     gap: 25rem;
@@ -327,41 +348,34 @@ html[data-theme="retro"] .story-main {
     white-space: normal;
     line-break: strict;
     
-    border: var(--border-width) var(--border-style) var(--border-color);
+    border: var(--border-style);
     border-radius: var(--card-radius);
     
-    box-shadow: var(--accent-shadow);
+    box-shadow: var(--card-shadow);
     
     position: relative;
     
     transform: var(--card-transform);
     animation: var(--anim-card);
     
-    background-image: radial-gradient(#ddd 15%, transparent 15%);
-    background-size: 16px 16px;
-    
     transition: all 0.5s ease;
 }
 
-/* Midnight & Retro では背景パターンなし */
-html[data-theme="midnight"] .story-main p,
-html[data-theme="retro"] .story-main p {
-    background-image: none;
+/* Pop Mode固有のカード背景（ドット） */
+html:not([data-theme]) .story-main p {
+    background-image: radial-gradient(#ddd 15%, transparent 15%);
+    background-size: 16px 16px;
 }
 
-html[data-theme="midnight"] .story-main p {
-    text-shadow: 0 0 2px rgba(255,255,255,0.2);
-}
-
-/* ★修正箇所: Popモード時のみ2枚目を傾ける */
-html:not([data-theme="midnight"]):not([data-theme="retro"]) .story-main p:nth-child(even) {
+/* Pop Mode固有: 2枚目のカードを逆回転・逆影 */
+html:not([data-theme]) .story-main p:nth-child(even) {
     transform: rotate(1deg);
     animation-delay: -3s; 
     box-shadow: -10px 10px 0 var(--neon-pink);
 }
 
-/* ★修正箇所: Popモード時のみカード右上にREC装飾 */
-html:not([data-theme="midnight"]):not([data-theme="retro"]) .story-main p::after {
+/* Pop Mode固有: RECマーク */
+.story-main p::after {
     content: "● REC";
     position: absolute;
     top: 10px;
@@ -371,9 +385,18 @@ html:not([data-theme="midnight"]):not([data-theme="retro"]) .story-main p::after
     font-size: 0.9rem;
     writing-mode: horizontal-tb;
     animation: neonFlicker 2s infinite;
+    
+    display: var(--rec-mark-display); /* 変数で表示切替 */
 }
 
-/* スクロールバー */
+/* Midnight固有: テキスト発光 */
+[data-theme="midnight"] .story-main p {
+    text-shadow: 0 0 2px rgba(255,255,255,0.2);
+}
+
+/* =========================================
+   スクロールバー
+   ========================================= */
 .story-main p::-webkit-scrollbar {
     height: 10px;
     width: 10px;
@@ -382,28 +405,35 @@ html:not([data-theme="midnight"]):not([data-theme="retro"]) .story-main p::after
     background: transparent;
 }
 .story-main p::-webkit-scrollbar-thumb {
+    /* デフォルト(Pop) */
     background: var(--neon-yellow);
     border: 2px solid #000;
     border-radius: 6px;
 }
-html[data-theme="midnight"] .story-main p::-webkit-scrollbar-thumb {
+
+[data-theme="midnight"] .story-main p::-webkit-scrollbar-thumb {
     background: #444;
     border: none;
     border-radius: 2px;
 }
-html[data-theme="retro"] .story-main p::-webkit-scrollbar-thumb {
+
+[data-theme="retro"] .story-main p::-webkit-scrollbar-track {
+    background: var(--card-bg);
+}
+[data-theme="retro"] .story-main p::-webkit-scrollbar-thumb {
     background: var(--text-color);
     border: 1px solid var(--card-bg);
     border-radius: 4px;
 }
 
 /* =========================================
-   モード切替スイッチ
+   モード切替スイッチ (右下へ移動)
    ========================================= */
 .theme-switch-wrapper {
     position: fixed;
-    top: 1rem;
-    right: 1rem;
+    /* ★変更点: タイトル被りを防ぐため右下へ */
+    bottom: 20px;
+    right: 20px;
     z-index: 999;
 }
 
@@ -432,14 +462,14 @@ html[data-theme="retro"] .story-main p::-webkit-scrollbar-thumb {
     box-shadow: 1px 1px 0 #000;
 }
 
-html[data-theme="midnight"] .theme-switch {
+[data-theme="midnight"] .theme-switch {
     background: #333;
     color: #ccc;
     border-color: #555;
     box-shadow: none;
 }
 
-html[data-theme="retro"] .theme-switch {
+[data-theme="retro"] .theme-switch {
     background: #f7f4e9;
     color: #00203f;
     border: 2px solid #00203f;
@@ -454,8 +484,17 @@ html[data-theme="retro"] .theme-switch {
     .story-header {
         width: auto;
         padding: 0.4rem 1rem;
-        transform: translateX(0) rotate(0deg); 
+        /* スマホではヘッダーの傾きを戻す */
+        transform: translateX(-50%) rotate(0deg); 
     }
+    
+    [data-theme="midnight"] .story-header,
+    [data-theme="retro"] .story-header {
+        transform: none;
+        width: 100%;
+        left: 0;
+    }
+
     .story-title {
         font-size: 1rem;
     }
@@ -465,7 +504,7 @@ html[data-theme="retro"] .theme-switch {
         gap: 8rem; 
     }
     
-    html[data-theme="retro"] .story-main {
+    [data-theme="retro"] .story-main {
         padding: 6rem 0.5rem;
         gap: 10rem;
     }
@@ -476,6 +515,7 @@ html[data-theme="retro"] .theme-switch {
         height: var(--card-height-mobile);
         padding: var(--card-padding-mobile);
         
+        /* スマホではカードの傾き・アニメーションを止める */
         transform: rotate(0deg) !important;
         animation: none !important;
         
@@ -484,20 +524,20 @@ html[data-theme="retro"] .theme-switch {
     }
     
     /* Popモードのスマホ影 */
-    html:not([data-theme="midnight"]):not([data-theme="retro"]) .story-main p {
+    html:not([data-theme]) .story-main p {
         box-shadow: 6px 6px 0 var(--neon-blue);
     }
-    html:not([data-theme="midnight"]):not([data-theme="retro"]) .story-main p:nth-child(even) {
+    html:not([data-theme]) .story-main p:nth-child(even) {
         box-shadow: 6px 6px 0 var(--neon-pink);
     }
     
     /* Retroモードのスマホ影 */
-    html[data-theme="retro"] .story-main p {
+    [data-theme="retro"] .story-main p {
         box-shadow: 5px 5px 0px rgba(0,0,0,0.25);
     }
     
     /* Midnightモードのスマホ影 */
-    html[data-theme="midnight"] .story-main p {
+    [data-theme="midnight"] .story-main p {
         box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     }
 }
