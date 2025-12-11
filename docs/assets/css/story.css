@@ -13,6 +13,7 @@
     --neon-pink: #ff00cc;    
     --neon-blue: #00ffff;    
     --neon-yellow: #ffff00;
+    --neon-green: #39ff14;   /* ★追加：アイコン用に緑を追加 */
     
     /* カードの高さ設定 */
     --card-height-pc: 65vh;    
@@ -46,6 +47,12 @@
     50% { transform: rotate(-1deg) translateY(-5px); }
 }
 
+/* ★追加：間のアイコンの浮遊（ゆったりと） */
+@keyframes floatIcon {
+    0%, 100% { transform: translateY(0) rotate(var(--icon-rotate)); }
+    50% { transform: translateY(-15px) rotate(var(--icon-rotate)); }
+}
+
 /* =========================================
    基本リセット
    ========================================= */
@@ -63,12 +70,11 @@ html, body {
         linear-gradient(rgba(117, 151, 222, 0.3) 1px, transparent 1px),
         linear-gradient(90deg, rgba(117, 151, 222, 0.3) 1px, transparent 1px);
     background-size: 40px 40px;
-    animation: scrollGrid 4s linear infinite; /* 常に動かす！ */
+    animation: scrollGrid 4s linear infinite; 
     
     color: var(--text-color);
-    /* ★本文フォント：丸文字で「ダサエモ」復活 */
-    font-family: 'Zen Maru Gothic', sans-serif;
-    font-weight: 500; /* 少し太めでポップに */
+    /* フォントはご指定のものを維持 */
+    font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HiraMinProN-W3", "Noto Serif JP", serif;
 }
 
 /* =========================================
@@ -114,9 +120,9 @@ body::after {
     width: auto;
     max-width: 90%;
     margin: 0 auto;
-    display: inline-flex; /* 幅をコンテンツに合わせる */
+    display: inline-flex; 
     left: 50%;
-    transform: translateX(-50%) rotate(2deg); /* 真ん中に置いて少し傾ける */
+    transform: translateX(-50%) rotate(2deg); 
     
     background: var(--neon-yellow);
     padding: 0.5rem 2rem;
@@ -130,10 +136,9 @@ body::after {
 }
 
 .story-title {
-    /* ★タイトルフォント：ドット文字でゲーム風 */
-    font-family: 'DotGothic16', sans-serif;
-    font-size: 1.4rem;
+    font-weight: bold;
     letter-spacing: 0.1em;
+    font-size: 1.2rem;
     color: var(--bg-main);
     
     /* アニメーション適用 */
@@ -141,8 +146,8 @@ body::after {
 }
 
 .story-meta {
-    font-family: 'DotGothic16', sans-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
     background: #000;
     color: var(--neon-yellow);
     padding: 0.2rem 0.8rem;
@@ -161,7 +166,8 @@ body::after {
     
     display: flex;
     flex-direction: column;
-    gap: 20rem; 
+    /* ★変更：gapを廃止して、pタグ側のmarginで調整（間に要素を置くため） */
+    gap: 0; 
 }
 
 /* =========================================
@@ -174,6 +180,9 @@ body::after {
     padding: 3rem 2.5rem;
     box-sizing: border-box;
     width: 100%; 
+
+    /* ★追加：gapの代わりに広めのマージンを設定 */
+    margin-bottom: 25rem; 
 
     writing-mode: vertical-rl;
     text-orientation: upright;
@@ -190,46 +199,124 @@ body::after {
     white-space: normal;
     line-break: strict;
     
-    /* ★枠線：太い黒枠でコミック風に引き締め */
+    /* 枠線 */
     border: 4px solid #000;
     border-radius: 8px;
     
-    /* 影：派手なシアン */
+    /* 影 */
     box-shadow: 10px 10px 0 var(--neon-blue);
     
     position: relative;
     
-    /* ★カード自体を少し傾けて配置 */
+    /* 傾き */
     transform: rotate(-1deg);
-    /* ふわふわアニメーション */
     animation: floatCard 6s ease-in-out infinite;
     
-    /* カードの背景にドットパターン */
+    /* 背景パターン */
     background-image: radial-gradient(#ddd 15%, transparent 15%);
     background-size: 16px 16px;
 }
 
-/* 2枚目のカードは逆に傾ける（リズムを作る） */
-.story-main p:nth-child(even) {
-    transform: rotate(1deg);
-    animation-delay: -3s; /* タイミングをずらす */
-    box-shadow: -10px 10px 0 var(--neon-pink); /* 影の色も変える！ */
+/* ★追加：最後のカードだけマージン不要 */
+.story-main p:last-child {
+    margin-bottom: 5rem;
 }
 
-/* カード右上の「SIDE A」みたいな装飾 */
+/* 2枚目のカードは逆に傾ける */
+.story-main p:nth-child(even) {
+    transform: rotate(1deg);
+    animation-delay: -3s; 
+    box-shadow: -10px 10px 0 var(--neon-pink); 
+}
+
+/* カード右上の「REC」装飾 */
 .story-main p::after {
     content: "● REC";
     position: absolute;
     top: 10px;
     left: 10px;
-    font-family: 'DotGothic16', sans-serif;
+    /* ここはドットフォントのままでも可愛いですが、一旦指定なし（親継承）にします */
+    font-family: sans-serif; 
+    font-weight: bold;
     color: red;
     font-size: 0.9rem;
     writing-mode: horizontal-tb;
     animation: neonFlicker 2s infinite;
 }
 
-/* スクロールバー */
+/* =========================================
+   ★新規追加：カード間の浮遊アイコン
+   JSで挿入される <div class="story-icon-spacer"></div> 用のスタイル
+   ========================================= */
+.story-icon-spacer {
+    height: 25rem; /* カード間の距離と同じにする */
+    position: relative;
+    width: 100%;
+    pointer-events: none;
+    /* マイナスマージンでカードと重ねる調整（必要に応じて） */
+    margin-top: -25rem; 
+    margin-bottom: 25rem;
+    z-index: -1; /* カードの後ろに */
+}
+
+/* アイコン本体 */
+.story-icon-spacer::before {
+    position: absolute;
+    font-family: "Font Awesome 6 Free"; /* FontAwesomeが読み込まれている前提 */
+    font-weight: 900;
+    font-size: 4rem;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    --icon-rotate: 10deg;
+    animation: floatIcon 4s ease-in-out infinite alternate;
+    
+    /* デフォルト（1枚目など） */
+    content: "\f001"; /* 音符 (music) */
+    color: var(--neon-yellow);
+    text-shadow: 3px 3px 0 #000;
+}
+
+/* --- カードごとのバリエーション（リズムを作る） --- */
+
+/* 1つ目のスペーサー */
+.story-icon-spacer:nth-of-type(1)::before {
+    content: "\f0e7"; /* bolt (イナズマ) */
+    color: var(--neon-blue);
+    left: 20%;
+    --icon-rotate: -20deg;
+    font-size: 5rem;
+}
+
+/* 2つ目のスペーサー */
+.story-icon-spacer:nth-of-type(2)::before {
+    content: "\f004"; /* heart (ハート) */
+    color: var(--neon-pink);
+    left: 70%;
+    --icon-rotate: 15deg;
+}
+
+/* 3つ目のスペーサー */
+.story-icon-spacer:nth-of-type(3)::before {
+    content: "\f6e2"; /* ghost (お化け) */
+    color: var(--neon-green);
+    left: 40%;
+    --icon-rotate: -5deg;
+}
+
+/* 4つ目のスペーサー */
+.story-icon-spacer:nth-of-type(4)::before {
+    content: "\f005"; /* star (星) */
+    color: var(--neon-yellow);
+    left: 80%;
+    --icon-rotate: 30deg;
+}
+
+/* =========================================
+   スクロールバー
+   ========================================= */
 .story-main p::-webkit-scrollbar {
     height: 12px;
     width: 12px;
@@ -251,7 +338,7 @@ body::after {
     .story-header {
         width: auto;
         padding: 0.4rem 1rem;
-        transform: translateX(-50%) rotate(0deg); /* スマホは傾けないほうが見やすいかも */
+        transform: translateX(-50%) rotate(0deg); 
     }
     .story-title {
         font-size: 1rem;
@@ -259,17 +346,21 @@ body::after {
 
     .story-main {
         padding: 5rem 0.5rem;
-        gap: 8rem; 
+        gap: 0; 
     }
     
-    .story-main p, .story-main p:nth-child(even) {
+    .story-main p {
         width: 90% !important;
         margin: 0 auto;
+        
+        /* ★変更：スマホでのカード間余白 */
+        margin-bottom: 12rem; 
+        
         height: var(--card-height-mobile);
         
-        /* スマホでは傾きをキャンセル（画面幅いっぱい使うため） */
+        /* スマホでは傾きキャンセル */
         transform: rotate(0deg);
-        animation: none; /* 動きも止める（重くなるのを防ぐ） */
+        animation: none; 
         
         font-size: 1rem; 
         line-height: 1.8;
@@ -281,5 +372,16 @@ body::after {
     /* スマホでも偶数は影の色だけ変える */
     .story-main p:nth-child(even) {
         box-shadow: 6px 6px 0 var(--neon-pink);
+    }
+    
+    /* ★追加：スマホでのアイコン位置調整 */
+    .story-icon-spacer {
+        height: 12rem;
+        margin-top: -12rem;
+        margin-bottom: 12rem;
+    }
+    
+    .story-icon-spacer::before {
+        font-size: 3rem;
     }
 }
