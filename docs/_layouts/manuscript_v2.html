@@ -4,24 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} | Hand to Hand</title>
-  <!-- CSS読み込み -->
   <link rel="stylesheet" href="{{ '/assets/css/story.css' | relative_url }}">
-  <!-- Font Awesome (アイコン用) -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Serif+JP:wght@400;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body class="story-page">
   
-  <!-- ★ここに追加: モード切替スイッチ -->
-  <div class="theme-switch-wrapper">
-      <button class="theme-switch" id="theme-toggle">
-          <i class="fa-solid fa-moon"></i> <span>Night Mode</span>
-      </button>
-  </div>
-
   <header class="story-header">
     <a href="/manuscript.html">目次へ戻る</a>
     <span class="story-title">{{ page.title }}</span>
@@ -33,61 +19,6 @@
 
   </main>
 
-   <script>
-        const toggleBtn = document.getElementById('theme-toggle');
-        const icon = toggleBtn.querySelector('i');
-        const text = toggleBtn.querySelector('span');
-        
-        // テーマ管理ステート: 'pop' (default) -> 'midnight' -> 'retro' -> 'pop'...
-        const themes = ['pop', 'midnight', 'retro'];
-        
-        // ローカルストレージからテーマ読み込み
-        let currentThemeIndex = 0;
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme && themes.includes(savedTheme)) {
-            currentThemeIndex = themes.indexOf(savedTheme);
-        }
-        
-        // 初期適用
-        applyTheme(themes[currentThemeIndex]);
-
-        function applyTheme(themeName) {
-            // HTML属性の設定/削除
-            if (themeName === 'pop') {
-                document.documentElement.removeAttribute('data-theme');
-            } else {
-                document.documentElement.setAttribute('data-theme', themeName);
-            }
-            
-            // ボタン表示の更新
-            updateButtonState(themeName);
-            
-            // 保存
-            localStorage.setItem('theme', themeName);
-        }
-
-        function updateButtonState(currentTheme) {
-            switch(currentTheme) {
-                case 'pop':
-                    icon.className = 'fa-solid fa-moon';
-                    text.textContent = 'Night Mode';
-                    break;
-                case 'midnight':
-                    icon.className = 'fa-solid fa-book';
-                    text.textContent = 'Retro Mode';
-                    break;
-                case 'retro':
-                    icon.className = 'fa-solid fa-sun';
-                    text.textContent = 'Pop Mode';
-                    break;
-            }
-        }
-
-        toggleBtn.addEventListener('click', () => {
-            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-            applyTheme(themes[currentThemeIndex]);
-        });
-    </script>
   
 </body>
 </html>
