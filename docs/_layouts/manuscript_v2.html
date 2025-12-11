@@ -18,7 +18,63 @@
     {{ content }}
 
   </main>
+   <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const icon = toggleBtn.querySelector('i');
+        const text = toggleBtn.querySelector('span');
+        
+        // テーマ管理ステート: 'pop' (default) -> 'midnight' -> 'retro' -> 'pop'...
+        const themes = ['pop', 'midnight', 'retro'];
+        
+        // ローカルストレージからテーマ読み込み
+        let currentThemeIndex = 0;
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme && themes.includes(savedTheme)) {
+            currentThemeIndex = themes.indexOf(savedTheme);
+        }
+        
+        // 初期適用
+        applyTheme(themes[currentThemeIndex]);
 
+        function applyTheme(themeName) {
+            // HTML属性の設定/削除
+            if (themeName === 'pop') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', themeName);
+            }
+            
+            // ボタン表示の更新（次はどのモードになるかを示す）
+            updateButtonState(themeName);
+            
+            // 保存
+            localStorage.setItem('theme', themeName);
+        }
+
+        function updateButtonState(currentTheme) {
+            // 現在のモードに合わせて、ボタンの見た目や次のモード名をセット
+            switch(currentTheme) {
+                case 'pop':
+                    icon.className = 'fa-solid fa-moon';
+                    text.textContent = 'Night Mode';
+                    break;
+                case 'midnight':
+                    icon.className = 'fa-solid fa-book';
+                    text.textContent = 'Retro Mode';
+                    break;
+                case 'retro':
+                    icon.className = 'fa-solid fa-sun';
+                    text.textContent = 'Pop Mode';
+                    break;
+            }
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            // 次のテーマへ
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            applyTheme(themes[currentThemeIndex]);
+        });
+    </script>
   
 </body>
 </html>
