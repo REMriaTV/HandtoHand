@@ -1,34 +1,130 @@
 /* =========================================
-   変数定義（80's シティポップ風）
+   変数定義 & テーマ管理
    ========================================= */
 :root {
-    /* 色パレット：ネオン＆パステル */
-    --bg-main: #2b1055;      /* 深いナイトパープル */
-    --bg-grid: #7597de;      /* グリッド線の色 */
+    /* --- 1. Pop Mode (Default) --- */
+    --bg-main: #2b1055;
+    --bg-pattern: 
+        linear-gradient(rgba(117, 151, 222, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(117, 151, 222, 0.3) 1px, transparent 1px);
+    --bg-size: 40px 40px;
     
-    --card-bg: #fffce0;      /* クリームイエロー */
-    --text-color: #2b1055;   /* 文字色 */
+    --card-bg: #fffce0;
+    --text-color: #2b1055;
+    --text-font: 'Zen Maru Gothic', sans-serif;
+    --title-font: 'DotGothic16', sans-serif;
     
-    /* アクセントカラー */
+    /* 枠線・形状 */
+    --border-color: #000;
+    --border-width: 4px;
+    --border-style: solid;
+    --card-radius: 8px;
+    
+    /* 影 */
+    --accent-shadow: 10px 10px 0 var(--neon-blue);
+    
+    /* ヘッダー */
+    --header-bg: #ffff00;
+    --header-text: #2b1055;
+    --header-border: 3px solid #000;
+    --header-shadow: 5px 5px 0 var(--neon-pink);
+    
+    /* 余白・サイズ設定 */
+    --card-padding-pc: 3rem 2.5rem;
+    --card-padding-mobile: 2.5rem 1.5rem;
+    --card-width-mobile: 90%;
+    
+    /* アニメーション */
+    --anim-grid: scrollGrid 4s linear infinite;
+    --anim-card: floatCard 6s ease-in-out infinite;
+    --card-transform: rotate(-1deg);
+    
+    /* Popモード専用色 */
     --neon-pink: #ff00cc;    
     --neon-blue: #00ffff;    
     --neon-yellow: #ffff00;
     
-    /* カードの高さ設定 */
+    /* 共通高さ設定 */
     --card-height-pc: 65vh;    
     --card-height-mobile: 66vh; 
+}
+
+/* --- 2. Midnight Mode --- */
+[data-theme="midnight"] {
+    --bg-main: #0f0f10;
+    --bg-pattern: none;
+    --bg-size: 0 0;
+    
+    --card-bg: #1a1a1c;
+    --text-color: #c0c0c0;
+    --text-font: 'Noto Serif JP', serif;
+    --title-font: 'Noto Serif JP', serif;
+    
+    --border-color: transparent;
+    --border-width: 0px;
+    --border-style: solid;
+    --card-radius: 2px;
+    
+    --accent-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    
+    --header-bg: rgba(26, 26, 28, 0.8);
+    --header-text: #888;
+    --header-border: none;
+    --header-shadow: none;
+    
+    --card-padding-pc: 3rem 2.5rem;
+    --card-padding-mobile: 2.5rem 1.5rem;
+    --card-width-mobile: 90%;
+    
+    --anim-grid: none;
+    --anim-card: none;
+    --card-transform: none;
+    
+    --neon-pink: #333; 
+    --neon-blue: #444;
+    --neon-yellow: #555;
+}
+
+/* --- 3. Retro Mode --- */
+[data-theme="retro"] {
+    --bg-main: #003f5c;      
+    --bg-pattern: none;
+    --bg-size: 0 0;
+    
+    --card-bg: #f7f4e9;      
+    --text-color: #00203f;   
+    --text-font: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HiraMinProN-W3", "Noto Serif JP", serif;
+    --title-font: inherit;   
+    
+    --border-color: #00203f;
+    --border-width: 3px;
+    --border-style: double;  
+    --card-radius: 4px;
+    
+    --accent-shadow: 8px 8px 0px rgba(0,0,0,0.25);
+    
+    --header-bg: #f7f4e9;
+    --header-text: #00203f;
+    --header-border: none; 
+    --header-shadow: 0 4px 0 rgba(0,0,0,0.2);
+    
+    --card-padding-pc: 1.5rem;
+    --card-padding-mobile: 2rem;
+    --card-width-mobile: 85%; 
+    
+    --anim-grid: none;
+    --anim-card: none;
+    --card-transform: none;
 }
 
 /* =========================================
    アニメーション定義
    ========================================= */
-/* 背景グリッドのスクロール */
 @keyframes scrollGrid {
     0% { background-position: 0 0; }
     100% { background-position: 40px 40px; }
 }
 
-/* ネオンの点滅 */
 @keyframes neonFlicker {
     0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
         opacity: 1;
@@ -40,14 +136,13 @@
     }
 }
 
-/* カードのふわふわ浮遊 */
 @keyframes floatCard {
     0%, 100% { transform: rotate(-1deg) translateY(0); }
     50% { transform: rotate(-1deg) translateY(-5px); }
 }
 
 /* =========================================
-   基本リセット
+   基本スタイル
    ========================================= */
 html, body {
     margin: 0;
@@ -57,23 +152,25 @@ html, body {
     overflow-x: hidden; 
     
     background-color: var(--bg-main);
-    
-    /* 背景：動くグリッド */
-    background-image: 
-        linear-gradient(rgba(117, 151, 222, 0.3) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(117, 151, 222, 0.3) 1px, transparent 1px);
-    background-size: 40px 40px;
-    animation: scrollGrid 4s linear infinite; /* 常に動かす！ */
+    background-image: var(--bg-pattern);
+    background-size: var(--bg-size);
+    animation: var(--anim-grid);
     
     color: var(--text-color);
-    /* ★本文フォント：丸文字で「ダサエモ」復活 */
-    font-family: 'Zen Maru Gothic', sans-serif;
-    font-weight: 500; /* 少し太めでポップに */
+    font-family: var(--text-font);
+    font-weight: 500;
+    
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* =========================================
-   背景装飾（メンフィス柄）
-   ========================================= */
+/* Popモード以外の背景装飾を消す */
+html[data-theme="midnight"] body::before, html[data-theme="midnight"] body::after,
+html[data-theme="retro"] body::before, html[data-theme="retro"] body::after {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* Popモード時の背景装飾 */
 body::before {
     content: "";
     position: fixed;
@@ -81,11 +178,12 @@ body::before {
     left: -5vw;
     width: 200px;
     height: 200px;
-    background: radial-gradient(circle, var(--neon-pink) 20%, transparent 20%);
+    background: radial-gradient(circle, #ff00cc 20%, transparent 20%);
     background-size: 20px 20px;
     opacity: 0.2;
     transform: rotate(20deg);
     z-index: -1;
+    transition: opacity 0.5s;
 }
 
 body::after {
@@ -97,14 +195,15 @@ body::after {
     height: 0;
     border-left: 80px solid transparent;
     border-right: 80px solid transparent;
-    border-bottom: 140px solid var(--neon-blue);
+    border-bottom: 140px solid #00ffff;
     opacity: 0.2;
     transform: rotate(-15deg);
     z-index: -1;
+    transition: opacity 0.5s;
 }
 
 /* =========================================
-   ヘッダー（ステッカー風）
+   ヘッダー
    ========================================= */
 .story-header {
     position: sticky;
@@ -114,29 +213,57 @@ body::after {
     width: auto;
     max-width: 90%;
     margin: 0 auto;
-    display: inline-flex; /* 幅をコンテンツに合わせる */
-    left: 50%;
-    transform: translateX(-50%) rotate(2deg); /* 真ん中に置いて少し傾ける */
-    
-    background: var(--neon-yellow);
-    padding: 0.5rem 2rem;
-    
-    border: 3px solid #000;
-    box-shadow: 5px 5px 0 var(--neon-pink);
-    
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 0.5rem 2rem;
+    
+    border: var(--header-border);
+    box-shadow: var(--header-shadow);
+    
+    /* Pop時のみ傾ける */
+    transform: translateX(0) rotate(2deg);
+    
+    transition: all 0.5s ease;
+}
+
+/* Midnight & Retro 時のヘッダー調整（属性セレクタをhtmlに対して行うよう修正） */
+html[data-theme="midnight"] .story-header,
+html[data-theme="retro"] .story-header {
+    width: 100%;
+    max-width: 100%;
+    top: 0;
+    padding: 1rem;
+    transform: none;
+    box-shadow: var(--header-shadow);
+    border: none;
+}
+
+html[data-theme="midnight"] .story-header {
+    border-bottom: 1px solid #333;
+    backdrop-filter: blur(5px);
+}
+
+html[data-theme="retro"] .story-header {
+    border-bottom: 3px double var(--border-color);
+    justify-content: space-between; 
+    box-sizing: border-box;
 }
 
 .story-title {
-    /* ★タイトルフォント：ドット文字でゲーム風 */
-    font-family: 'DotGothic16', sans-serif;
+    font-family: var(--title-font);
     font-size: 1.4rem;
     letter-spacing: 0.1em;
+    color: inherit;
+}
+
+/* ★修正箇所: bodyではなくhtmlタグで判定してタイトル点滅を制御 */
+html:not([data-theme="midnight"]):not([data-theme="retro"]) .story-title {
     color: var(--bg-main);
-    
-    /* アニメーション適用 */
     animation: neonFlicker 3s infinite;
 }
 
@@ -144,13 +271,17 @@ body::after {
     font-family: 'DotGothic16', sans-serif;
     font-size: 1rem;
     background: #000;
-    color: var(--neon-yellow);
+    color: #ffff00;
     padding: 0.2rem 0.8rem;
     border-radius: 4px;
 }
 
+/* MidnightとRetroではメタ情報のスタイルを変える/消す */
+html[data-theme="midnight"] .story-meta { display: none; }
+html[data-theme="retro"] .story-meta { display: none; }
+
 /* =========================================
-   メインエリア設定
+   メインエリア
    ========================================= */
 .story-main {
     box-sizing: border-box;
@@ -164,14 +295,20 @@ body::after {
     gap: 20rem; 
 }
 
+html[data-theme="retro"] .story-main {
+    padding: 7rem 1rem;
+    max-width: 1000px;
+    gap: 25rem;
+}
+
 /* =========================================
-   カード兼テキストブロック
+   カード
    ========================================= */
 .story-main p {
     margin: 0;
     display: block; 
     background-color: var(--card-bg);
-    padding: 3rem 2.5rem;
+    padding: var(--card-padding-pc);
     box-sizing: border-box;
     width: 100%; 
 
@@ -190,34 +327,41 @@ body::after {
     white-space: normal;
     line-break: strict;
     
-    /* ★枠線：太い黒枠でコミック風に引き締め */
-    border: 4px solid #000;
-    border-radius: 8px;
+    border: var(--border-width) var(--border-style) var(--border-color);
+    border-radius: var(--card-radius);
     
-    /* 影：派手なシアン */
-    box-shadow: 10px 10px 0 var(--neon-blue);
+    box-shadow: var(--accent-shadow);
     
     position: relative;
     
-    /* ★カード自体を少し傾けて配置 */
-    transform: rotate(-1deg);
-    /* ふわふわアニメーション */
-    animation: floatCard 6s ease-in-out infinite;
+    transform: var(--card-transform);
+    animation: var(--anim-card);
     
-    /* カードの背景にドットパターン */
     background-image: radial-gradient(#ddd 15%, transparent 15%);
     background-size: 16px 16px;
+    
+    transition: all 0.5s ease;
 }
 
-/* 2枚目のカードは逆に傾ける（リズムを作る） */
-.story-main p:nth-child(even) {
+/* Midnight & Retro では背景パターンなし */
+html[data-theme="midnight"] .story-main p,
+html[data-theme="retro"] .story-main p {
+    background-image: none;
+}
+
+html[data-theme="midnight"] .story-main p {
+    text-shadow: 0 0 2px rgba(255,255,255,0.2);
+}
+
+/* ★修正箇所: Popモード時のみ2枚目を傾ける */
+html:not([data-theme="midnight"]):not([data-theme="retro"]) .story-main p:nth-child(even) {
     transform: rotate(1deg);
-    animation-delay: -3s; /* タイミングをずらす */
-    box-shadow: -10px 10px 0 var(--neon-pink); /* 影の色も変える！ */
+    animation-delay: -3s; 
+    box-shadow: -10px 10px 0 var(--neon-pink);
 }
 
-/* カード右上の「SIDE A」みたいな装飾 */
-.story-main p::after {
+/* ★修正箇所: Popモード時のみカード右上にREC装飾 */
+html:not([data-theme="midnight"]):not([data-theme="retro"]) .story-main p::after {
     content: "● REC";
     position: absolute;
     top: 10px;
@@ -231,17 +375,76 @@ body::after {
 
 /* スクロールバー */
 .story-main p::-webkit-scrollbar {
-    height: 12px;
-    width: 12px;
+    height: 10px;
+    width: 10px;
 }
 .story-main p::-webkit-scrollbar-track {
-    background: #000;
-    border: 2px solid #fff;
+    background: transparent;
 }
 .story-main p::-webkit-scrollbar-thumb {
     background: var(--neon-yellow);
     border: 2px solid #000;
     border-radius: 6px;
+}
+html[data-theme="midnight"] .story-main p::-webkit-scrollbar-thumb {
+    background: #444;
+    border: none;
+    border-radius: 2px;
+}
+html[data-theme="retro"] .story-main p::-webkit-scrollbar-thumb {
+    background: var(--text-color);
+    border: 1px solid var(--card-bg);
+    border-radius: 4px;
+}
+
+/* =========================================
+   モード切替スイッチ
+   ========================================= */
+.theme-switch-wrapper {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 999;
+}
+
+.theme-switch {
+    background: #fff;
+    border: 3px solid #000;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'DotGothic16', sans-serif;
+    font-size: 0.9rem;
+    box-shadow: 3px 3px 0 #000;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.theme-switch:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #000;
+}
+
+.theme-switch:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #000;
+}
+
+html[data-theme="midnight"] .theme-switch {
+    background: #333;
+    color: #ccc;
+    border-color: #555;
+    box-shadow: none;
+}
+
+html[data-theme="retro"] .theme-switch {
+    background: #f7f4e9;
+    color: #00203f;
+    border: 2px solid #00203f;
+    font-family: serif;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
 }
 
 /* =========================================
@@ -251,7 +454,7 @@ body::after {
     .story-header {
         width: auto;
         padding: 0.4rem 1rem;
-        transform: translateX(-50%) rotate(0deg); /* スマホは傾けないほうが見やすいかも */
+        transform: translateX(0) rotate(0deg); 
     }
     .story-title {
         font-size: 1rem;
@@ -262,24 +465,39 @@ body::after {
         gap: 8rem; 
     }
     
-    .story-main p, .story-main p:nth-child(even) {
-        width: 90% !important;
+    html[data-theme="retro"] .story-main {
+        padding: 6rem 0.5rem;
+        gap: 10rem;
+    }
+    
+    .story-main p {
+        width: var(--card-width-mobile) !important;
         margin: 0 auto;
         height: var(--card-height-mobile);
+        padding: var(--card-padding-mobile);
         
-        /* スマホでは傾きをキャンセル（画面幅いっぱい使うため） */
-        transform: rotate(0deg);
-        animation: none; /* 動きも止める（重くなるのを防ぐ） */
+        transform: rotate(0deg) !important;
+        animation: none !important;
         
         font-size: 1rem; 
         line-height: 1.8;
-        padding: 2.5rem 1.5rem;
-        
-        box-shadow: 6px 6px 0 var(--neon-blue);
     }
     
-    /* スマホでも偶数は影の色だけ変える */
-    .story-main p:nth-child(even) {
+    /* Popモードのスマホ影 */
+    html:not([data-theme="midnight"]):not([data-theme="retro"]) .story-main p {
+        box-shadow: 6px 6px 0 var(--neon-blue);
+    }
+    html:not([data-theme="midnight"]):not([data-theme="retro"]) .story-main p:nth-child(even) {
         box-shadow: 6px 6px 0 var(--neon-pink);
+    }
+    
+    /* Retroモードのスマホ影 */
+    html[data-theme="retro"] .story-main p {
+        box-shadow: 5px 5px 0px rgba(0,0,0,0.25);
+    }
+    
+    /* Midnightモードのスマホ影 */
+    html[data-theme="midnight"] .story-main p {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     }
 }
