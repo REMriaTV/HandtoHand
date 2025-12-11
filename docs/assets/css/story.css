@@ -82,7 +82,7 @@ html, body {
     margin: 0;
     display: block; 
     background-color: var(--paper-bg);
-    padding: 1.5rem;
+    padding: 2.5rem;
     box-sizing: border-box;
     width: 100%; 
 
