@@ -9,7 +9,7 @@
     --border-color: #00203f;   /* 枠線：濃紺 */
     
     /* カードの高さ設定 */
-    --card-height-pc: 55vh;    
+    --card-height-pc: 70vh;    
     --card-height-mobile: 66vh; /* スマホは画面の70%まで広げる */
 }
 
@@ -49,7 +49,7 @@ html, body {
    ========================================= */
 .story-main {
     box-sizing: border-box;
-    padding: 30rem 1rem;
+    padding: 12rem 1rem;
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
