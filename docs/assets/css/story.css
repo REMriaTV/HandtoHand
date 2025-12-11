@@ -1,16 +1,20 @@
 /* =========================================
-   変数定義（タバコ・パッケージ風レトロ）
+   変数定義（夜汽車・アンティーク風）
    ========================================= */
 :root {
-    /* デスクトップ・モバイル共通の配色 */
-    --bg-color: #003f5c;       /* 背景：濃いネイビーブルー */
-    --paper-bg: #f7f4e9;       /* カード：温かみのあるクリーム色 */
-    --text-color: #00203f;     /* 文字：インクのような濃紺 */
-    --border-color: #00203f;   /* 枠線：濃紺 */
+    /* 色パレット：夜汽車アレンジ */
+    --bg-dark: #001f3f;        /* 非常に深い紺 */
+    --bg-light: #004e72;       /* 少し明るい紺（グラデーション中心用） */
+    
+    --paper-bg: #fdfbf7;       /* カード：より明るく白に近いクリーム色（清潔感） */
+    --text-color: #0d1b2a;     /* 文字：ほぼ黒に近いミッドナイトブルー */
+    
+    --accent-gold: #c5a059;    /* アクセント：アンティークゴールド */
+    --border-color: #0d1b2a;   
     
     /* カードの高さ設定 */
     --card-height-pc: 65vh;    
-    --card-height-mobile: 66vh; /* スマホは画面の70%まで広げる */
+    --card-height-mobile: 66vh; 
 }
 
 /* =========================================
@@ -20,28 +24,40 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
+    min-height: 100vh; 
     overflow-x: hidden; 
-    background-color: var(--bg-color);
+    
+    background: radial-gradient(circle at center, var(--bg-light), var(--bg-dark));
+    background-attachment: fixed;
+    
     color: var(--text-color);
     font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HiraMinProN-W3", "Noto Serif JP", serif;
 }
 
 /* ヘッダー */
 .story-header {
-    background: var(--paper-bg);
+    background: rgba(253, 251, 247, 0.95);
     padding: 1rem;
-    border-bottom: 3px double var(--border-color);
+    border-bottom: 3px double var(--accent-gold);
     position: sticky;
     top: 0;
     z-index: 100;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
 }
 
 .story-title {
     font-weight: bold;
     letter-spacing: 0.1em;
+    font-size: 1.2rem;
+}
+
+.story-meta {
+    font-size: 0.8rem;
+    color: var(--accent-gold); 
+    font-weight: bold;
 }
 
 /* =========================================
@@ -54,55 +70,49 @@ html, body {
     max-width: 1000px;
     margin: 0 auto;
     
-    /* カードを縦に並べる設定 */
     display: flex;
     flex-direction: column;
-    
-    /* カード間の隙間 */
     gap: 25rem; 
 }
 
 /* =========================================
-   カード兼テキストブロック (PC設定)
+   カード兼テキストブロック
    ========================================= */
 .story-main p {
-    /* デフォルト余白の削除 */
     margin: 0;
-    
-    /* カードとしての見た目 */
     display: block; 
     background-color: var(--paper-bg);
     padding: 1.5rem;
     box-sizing: border-box;
-    width: 100%; /* PCでは幅いっぱい */
+    width: 100%; 
 
-    /* 縦書き設定 */
     writing-mode: vertical-rl;
     text-orientation: upright;
     
-    /* ★追加：段落の字下げ設定 */
     text-indent: 1em;
     
-    /* 高さ固定 */
     height: var(--card-height-pc);
     
-    /* カード内スクロール */
     overflow-x: auto; 
     overflow-y: hidden;
     
-    /* テキスト設定 */
     line-height: 1.9;
     font-size: 1.1rem; 
     text-align: justify;
     
-    /* 禁則処理 */
     white-space: normal;
     line-break: strict;
     
-    /* デザイン装飾 */
-    border: 3px double var(--border-color);
-    border-radius: 4px;
-    box-shadow: 8px 8px 0px rgba(0,0,0,0.25); 
+    border: 1px solid var(--border-color);
+    outline: 4px double var(--accent-gold);
+    outline-offset: -10px;
+    
+    border-radius: 6px; 
+    
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 
+                0 0 0 1px rgba(197, 160, 89, 0.3);
+    
+    position: relative;
 }
 
 /* =========================================
@@ -111,27 +121,16 @@ html, body {
 @media (max-width: 640px) {
     .story-main {
         padding: 6rem 0.5rem;
-        /* スマホの隙間調整：PCの25remは広すぎるため調整 */
         gap: 10rem; 
     }
     
     .story-main p {
-        /* ★50%だと効果あり。60%ではどうか */
         width: 85% !important;
-
-        /* 中央寄せ */
         margin: 0 auto;
-        
-        /* スマホ用の高さ適用 */
         height: var(--card-height-mobile);
-        
-        /* 文字サイズ */
         font-size: 1rem; 
-        
         line-height: 1.8;
         padding: 2rem;
-        
-        /* 影を控えめに */
-        box-shadow: 5px 5px 0px rgba(0,0,0,0.25); 
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
     }
 }
