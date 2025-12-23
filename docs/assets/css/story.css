@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Maru+Gothic:wght@500;700;900&display=swap');
 /* インポート部分に追加 */
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap');
 /* =========================================
    アニメーション定義
    ========================================= */
@@ -48,7 +49,6 @@
     
         /* フォントをDotGothic16に変更 */
     --text-font: 'DotGothic16', sans-serif; 
-}
     
     --title-font: 'DotGothic16', sans-serif;
     
@@ -208,9 +208,9 @@ body::after {
     
     /* 読みやすくするため行間を少し開けるのがコツ */
     font-family: var(--text-font);
-    line-height: 2.0; /* ドット文字は少し隙間がある方が読みやすい */
+    line-height: 1.9; /* ドット文字は少し隙間がある方が読みやすい */
     font-weight: 400;
-    font-size: 1.5rem; 
+    font-size: 1.7rem; 
     
     text-align: justify;
     white-space: normal;
