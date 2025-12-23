@@ -3,40 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>短編小説タイトル</title>
+    <title>短編小説タイトル（2段組み）</title>
     <style>
         body {
             margin: 0;
-            padding: 20px;
-            background-color: #f5f0e6; /* 和紙風の背景色 */
-            font-family: "Hiragino Mincho ProN", "YuMincho", "游明朝", serif; /* 明朝体フォント優先 */
+            padding: 40px 20px;
+            background-color: #f5f0e6; /* 和紙風 */
+            font-family: "Hiragino Mincho ProN", "YuMincho", "游明朝", serif;
             color: #333;
         }
         .novel-container {
             writing-mode: vertical-rl; /* 縦書き（右から左） */
-            text-orientation: upright; /* 英数字も縦向きに（小説向き） */
-            height: 100vh; /* 画面高さいっぱい */
-            padding: 40px 20px;
-            overflow-y: auto; /* 長い場合縦スクロール */
-            line-height: 2; /* 行間を広めで読みやすく */
+            text-orientation: upright;
+            height: 100vh;
+            overflow-y: auto;
+
+            /* ここから段組み設定 */
+            columns: 20em;           /* 1段の幅を約20文字分に設定（自動で段数調整） */
+            column-gap: 60px;        /* 段間のスペース */
+            column-rule: 1px solid #ccc; /* 段間に薄い線（任意） */
+            column-fill: auto;       /* 内容が少ない場合でも高さを揃える（balanceがデフォルト） */
+
+            padding: 40px 30px;
+            line-height: 2;
             font-size: 18px;
         }
         h1 {
-            font-size: 32px;
-            margin: 0 20px 40px 0;
+            font-size: 36px;
+            margin: 0 30px 60px 0;
             writing-mode: vertical-rl;
+            break-after: column; /* タイトル後に段をまたがないように */
         }
         .author {
-            font-size: 20px;
-            margin: 0 20px 60px 0;
+            font-size: 22px;
+            margin: 0 30px 80px 0;
             writing-mode: vertical-rl;
+            break-after: column;
         }
         p {
             margin: 0;
-            text-indent: 1em; /* 段落始めの字下げ */
+            text-indent: 1em;
         }
         ruby rt {
-            font-size: 0.5em; /* ルビのサイズ調整 */
+            font-size: 0.5em;
         }
     </style>
 </head>
@@ -44,10 +53,11 @@
     <div class="novel-container">
         <h1>短編小説のタイトル</h1>
         <div class="author">作者名</div>
-        <p>ここに短編小説の本文を入力してください。段落ごとに&lt;p&gt;タグで囲むと読みやすくなります。</p>
-        <p>例: ある日のこと、主人公は森を散策していた。突然、木々の間から不思議な光が差し込んできた……。</p>
-        <p>ルビの例: <ruby>東京<rt>とうきょう</rt></ruby>へ向かう。</p>
-        <!-- ここに続きの本文を追加 -->
+        <p>ここから本文を入力してください。段落ごとに&lt;p&gt;タグで囲むと読みやすくなります。</p>
+        <p>ある秋の夕暮れ、主人公は古い書斎で一冊の本を見つけた。その本を開くと、ページから淡い光が溢れ出し……。</p>
+        <p>長い文章をたくさん入れると、自動的に2段（または画面幅によっては3段）に分かれます。試しに本文をコピーして増やしてみてください。</p>
+        <!-- ここに続きの本文をたくさん追加 -->
+        <p>（本文が短い場合は1段だけになりますが、長くなると自動で段が増えます）</p>
     </div>
 </body>
 </html>
