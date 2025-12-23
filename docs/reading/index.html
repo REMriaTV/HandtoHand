@@ -2,117 +2,318 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Hand to Hand - 縦書き小説リーダー</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- ページナビゲーション -->
-    <div class="navigation">
-        <button id="prev-btn" class="nav-btn" aria-label="前のページ">
-            <span class="nav-arrow">〈</span>
-        </button>
-        <div class="page-info">
-            <span id="current-page">1</span> / <span id="total-pages">5</span>
-        </div>
-        <button id="next-btn" class="nav-btn" aria-label="次のページ">
-            <span class="nav-arrow">〉</span>
-        </button>
-    </div>
-
-    <!-- 設定パネル -->
-    <div class="settings">
-        <button id="settings-toggle" class="settings-btn">設定</button>
-        <div class="settings-panel hidden">
-            <div class="setting-item">
-                <label for="font-size">文字サイズ</label>
-                <input type="range" id="font-size" min="14" max="28" value="18" step="1">
-                <span id="font-size-value">18px</span>
-            </div>
-            <div class="setting-item">
-                <button id="theme-toggle" class="theme-btn">🌙 ダークモード</button>
+    <!-- ヘッダー -->
+    <header class="app-header">
+        <div class="header-title">
+            <h1>Hand to Hand</h1>
+            <div class="book-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <span id="progress-text">0%</span>
             </div>
         </div>
-    </div>
+    </header>
 
     <!-- 本のコンテナ -->
-    <div class="book-container">
-        <!-- ページ1 -->
-        <div class="page active" data-page="1">
-            <div class="page-content">
-                <div class="chapter-title">第1章 「手」</div>
-                <div class="vertical-text">
-                    <p>好きな子と付き合えたら何したい？と聞かれて、僕はすぐに答えられた。</p>
-                    <p>「手を繋ぎたい」</p>
-                    <p>友人たちは笑った。</p>
-                    <p>「そんなの当たり前じゃん！」「もっとスケベなこと考えてると思った！」</p>
-                    <p>でも、僕にとって手を繋ぐことは特別な意味を持っていた。</p>
+    <main class="book-wrapper">
+        <div class="book-container" id="book-container">
+            <!-- ページ1 -->
+            <div class="page active" data-page="1" id="page-1">
+                <div class="page-content">
+                    <div class="chapter-header">
+                        <div class="chapter-marker">第壱章</div>
+                        <div class="chapter-title">「手」</div>
+                    </div>
+                    <div class="vertical-text">
+                        <p>好きな子と付き合えたら何したい？</p>
+                        <p>僕はすぐに答えられた。</p>
+                        <p>「手を繋ぎたい」</p>
+                        <p>友人たちは笑った。</p>
+                        <p>「そんなの当たり前じゃん！」</p>
+                        <p>「もっとスケベなこと考えてると思った！」</p>
+                        <p>でも、僕にとって手を繋ぐことは特別な意味を持っていた。</p>
+                    </div>
+                    <div class="page-footer">
+                        <div class="page-number">1</div>
+                    </div>
                 </div>
-                <div class="page-number">1</div>
+            </div>
+
+            <!-- ページ2 -->
+            <div class="page" data-page="2" id="page-2">
+                <div class="page-content">
+                    <div class="vertical-text">
+                        <p>小学校の時、クラスに一人だけ左手のない子がいた。</p>
+                        <p>事故で失ったのだと聞いていた。</p>
+                        <p>みんな気にしてないふりをしていたが、</p>
+                        <p>僕は彼の手を見つめてしまっていた。</p>
+                        <p>ある日、図工の時間。</p>
+                        <p>彼は紙を押さえることができずに困っていた。</p>
+                        <p>僕は何も考えずに、そっと手を差し伸べた。</p>
+                    </div>
+                    <div class="page-footer">
+                        <div class="page-number">2</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ページ3 -->
+            <div class="page" data-page="3" id="page-3">
+                <div class="page-content">
+                    <div class="vertical-text">
+                        <p>「ありがとう」</p>
+                        <p>彼は照れくさそうに笑った。</p>
+                        <p>その瞬間、彼の右手が僕の左手を強く握り返してきた。</p>
+                        <p>温かかった。</p>
+                        <p>そして、ずっと離したくないと思った。</p>
+                        <p>あの日から、手を繋ぐことは僕にとって特別な行為になった。</p>
+                        <p>高校に入り、僕は野球部に入った。</p>
+                    </div>
+                    <div class="page-footer">
+                        <div class="page-number">3</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ページ4 -->
+            <div class="page" data-page="4" id="page-4">
+                <div class="page-content">
+                    <div class="vertical-text">
+                        <p>毎日グラウンドで汗を流す日々。</p>
+                        <p>彼女との出会いは、そんなある日の帰り道だった。</p>
+                        <p>雨が降り始め、僕は傘を持っていなかった。</p>
+                        <p>駅までの道を走ろうとしたその時、</p>
+                        <p>「一緒にいかがですか？」</p>
+                        <p>振り向くと、白いハンカチを差し出す手が見えた。</p>
+                        <p>「傘はないんですけど…顔の汗、拭きませんか？」</p>
+                    </div>
+                    <div class="page-footer">
+                        <div class="page-number">4</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ページ5 -->
+            <div class="page" data-page="5" id="page-5">
+                <div class="page-content">
+                    <div class="chapter-header">
+                        <div class="chapter-marker">第弐章</div>
+                        <div class="chapter-title">「ハンカチ」</div>
+                    </div>
+                    <div class="vertical-text">
+                        <p>彼女は微笑んでいた。</p>
+                        <p>その笑顔に、僕の心は一瞬で奪われた。</p>
+                        <p>「あ、ありがとうございます」</p>
+                        <p>受け取ったハンカチには、ほのかな花の香りがした。</p>
+                        <p>次の日、洗って返そうと学校へ持っていった。</p>
+                        <p>でも、彼女がどのクラスか知らなかった。</p>
+                    </div>
+                    <div class="page-footer">
+                        <div class="page-number">5</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ページ6 -->
+            <div class="page" data-page="6" id="page-6">
+                <div class="page-content">
+                    <div class="vertical-text">
+                        <p>一週間が経ち、僕は諦めかけていた。</p>
+                        <p>図書室で勉強していると、</p>
+                        <p>「あの、ハンカチ…」</p>
+                        <p>聞き覚えのある声がした。</p>
+                        <p>振り向くと、彼女が立っていた。</p>
+                        <p>「探していました。返していただけますか？」</p>
+                        <p>「はい、もちろん。洗ってあります」</p>
+                    </div>
+                    <div class="page-footer">
+                        <div class="page-number">6</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ページ7 -->
+            <div class="page" data-page="7" id="page-7">
+                <div class="page-content">
+                    <div class="vertical-text">
+                        <p>ハンカチを渡すと、彼女は嬉しそうに受け取った。</p>
+                        <p>「ありがとうございます。大事なものなんです」</p>
+                        <p>「お母さんからもらったんですか？」</p>
+                        <p>彼女は少し間を置いてから答えた。</p>
+                        <p>「いえ、亡くなった祖母の形見なんです」</p>
+                        <p>僕は慌てて謝った。</p>
+                        <p>「すみません、知らずに…」</p>
+                    </div>
+                    <div class="page-footer">
+                        <div class="page-number">7</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ページ8 -->
+            <div class="page" data-page="8" id="page-8">
+                <div class="page-content">
+                    <div class="vertical-text">
+                        <p>「大丈夫です。でも…一つお願いがあります」</p>
+                        <p>彼女は真剣な目で僕を見つめた。</p>
+                        <p>「このハンカチ、また汚した時は…」</p>
+                        <p>「…洗って返してくれますか？」</p>
+                        <p>僕は思わず笑ってしまった。</p>
+                        <p>「え、それだけ？」</p>
+                        <p>「それだけです」</p>
+                    </div>
+                    <div class="page-footer">
+                        <div class="page-number">8</div>
+                    </div>
+                </div>
             </div>
         </div>
+    </main>
 
-        <!-- ページ2 -->
-        <div class="page" data-page="2">
-            <div class="page-content">
-                <div class="vertical-text">
-                    <p>小学校の時、クラスに一人だけ左手のない子がいた。</p>
-                    <p>事故で失ったのだと聞いていた。みんな気にしてないふりをしていたが、僕は彼の手を見つめてしまっていた。</p>
-                    <p>ある日、図工の時間。彼は紙を押さえることができずに困っていた。</p>
-                    <p>僕は何も考えずに、そっと手を差し伸べた。</p>
-                </div>
-                <div class="page-number">2</div>
-            </div>
+    <!-- ナビゲーションコントロール -->
+    <div class="navigation-controls">
+        <button id="prev-btn" class="nav-btn" aria-label="前のページ" title="前のページ (←キー)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="page-info">
+            <span id="current-page">1</span>
+            <span class="page-separator">/</span>
+            <span id="total-pages">8</span>
         </div>
+        
+        <button id="next-btn" class="nav-btn" aria-label="次のページ" title="次のページ (→キー)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
 
-        <!-- ページ3 -->
-        <div class="page" data-page="3">
-            <div class="page-content">
-                <div class="vertical-text">
-                    <p>「ありがとう」</p>
-                    <p>彼は照れくさそうに笑った。その瞬間、彼の右手が僕の左手を強く握り返してきた。</p>
-                    <p>温かかった。そして、ずっと離したくないと思った。</p>
-                    <p>あの日から、手を繋ぐことは僕にとって特別な行為になった。</p>
-                </div>
-                <div class="page-number">3</div>
+    <!-- 設定メニュー -->
+    <div class="settings-menu">
+        <button id="settings-toggle" class="settings-toggle-btn" aria-label="設定メニュー" title="設定">
+            <i class="fas fa-sliders-h"></i>
+        </button>
+        
+        <div class="settings-panel" id="settings-panel">
+            <div class="settings-header">
+                <h3>読書設定</h3>
+                <button class="close-settings" id="close-settings">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-        </div>
-
-        <!-- ページ4 -->
-        <div class="page" data-page="4">
-            <div class="page-content">
-                <div class="vertical-text">
-                    <p>高校に入り、僕は野球部に入った。毎日グラウンドで汗を流す日々。</p>
-                    <p>彼女との出会いは、そんなある日の帰り道だった。</p>
-                    <p>雨が降り始め、僕は傘を持っていなかった。駅までの道を走ろうとしたその時、</p>
-                    <p>「一緒にいかがですか？」</p>
+            
+            <div class="settings-content">
+                <div class="setting-group">
+                    <label for="font-size">文字サイズ</label>
+                    <div class="slider-container">
+                        <input type="range" id="font-size" min="14" max="28" value="18" step="1">
+                        <span class="slider-value" id="font-size-value">18px</span>
+                    </div>
                 </div>
-                <div class="page-number">4</div>
-            </div>
-        </div>
-
-        <!-- ページ5 -->
-        <div class="page" data-page="5">
-            <div class="page-content">
-                <div class="chapter-title">第2章 「ハンカチ」</div>
-                <div class="vertical-text">
-                    <p>振り向くと、白いハンカチを差し出す手が見えた。</p>
-                    <p>「傘はないんですけど…顔の汗、拭きませんか？」</p>
-                    <p>彼女は微笑んでいた。その笑顔に、僕の心は一瞬で奪われた。</p>
-                    <p>「あ、ありがとうございます」</p>
-                    <p>受け取ったハンカチには、ほのかな花の香りがした。</p>
+                
+                <div class="setting-group">
+                    <label for="line-height">行間</label>
+                    <div class="slider-container">
+                        <input type="range" id="line-height" min="150" max="250" value="200" step="10">
+                        <span class="slider-value" id="line-height-value">2.0</span>
+                    </div>
                 </div>
-                <div class="page-number">5</div>
+                
+                <div class="setting-group">
+                    <label for="swipe-sensitivity">スワイプ感度</label>
+                    <div class="slider-container">
+                        <input type="range" id="swipe-sensitivity" min="30" max="100" value="50" step="10">
+                        <span class="slider-value" id="sensitivity-value">標準</span>
+                    </div>
+                </div>
+                
+                <div class="setting-buttons">
+                    <button id="theme-toggle" class="theme-btn">
+                        <i class="fas fa-moon"></i>
+                        <span>ダークモード</span>
+                    </button>
+                    
+                    <button id="toc-toggle" class="toc-btn">
+                        <i class="fas fa-list"></i>
+                        <span>目次</span>
+                    </button>
+                    
+                    <button id="bookmark-btn" class="bookmark-btn">
+                        <i class="far fa-bookmark"></i>
+                        <span>しおり</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- キーボード操作の案内 -->
-    <div class="keyboard-hint">
-        ←→ キーでもページめくりできます
+    <!-- 目次オーバーレイ -->
+    <div class="toc-overlay" id="toc-overlay">
+        <div class="toc-container">
+            <div class="toc-header">
+                <h2>目次</h2>
+                <button class="close-toc" id="close-toc">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="toc-content">
+                <ul class="toc-list" id="toc-list">
+                    <!-- JavaScriptで動的に生成 -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- スワイプ操作案内（モバイルのみ） -->
+    <div class="swipe-hint" id="swipe-hint">
+        <i class="fas fa-arrow-left"></i>
+        <span>スワイプでページめくり</span>
+        <i class="fas fa-arrow-right"></i>
+    </div>
+
+    <!-- キーボード操作案内（デスクトップのみ） -->
+    <div class="keyboard-hint" id="keyboard-hint">
+        <span><kbd>←</kbd> <kbd>→</kbd> キーでページめくり</span>
+        <span class="hint-separator">|</span>
+        <span><kbd>スペース</kbd> キーで次ページ</span>
+    </div>
+
+    <!-- しおりメニュー -->
+    <div class="bookmark-overlay" id="bookmark-overlay">
+        <div class="bookmark-container">
+            <div class="bookmark-header">
+                <h3>しおり</h3>
+                <button class="close-bookmark" id="close-bookmark">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="bookmark-content">
+                <div class="bookmark-list" id="bookmark-list">
+                    <!-- しおりが保存されていません -->
+                </div>
+                <div class="bookmark-actions">
+                    <button id="add-bookmark" class="add-bookmark-btn">
+                        <i class="far fa-bookmark"></i>
+                        このページにしおりを追加
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 読み込みインジケーター -->
+    <div class="loading-indicator" id="loading-indicator">
+        <div class="spinner"></div>
+        <p>読み込み中...</p>
     </div>
 
     <script src="pagination.js"></script>
