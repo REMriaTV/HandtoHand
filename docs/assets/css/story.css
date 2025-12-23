@@ -196,7 +196,7 @@ body::after {
     height: var(--card-height-pc);
     
     overflow-x: auto; 
-    overflow-y: hidden;
+    overflow-y: visible;
     
     /* フォント設定 */
     font-family: var(--text-font);
