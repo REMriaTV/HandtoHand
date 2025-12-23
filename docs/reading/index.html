@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand to Hand - 縦書き小説リーダー</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ページナビゲーション -->
+    <div class="navigation">
+        <button id="prev-btn" class="nav-btn" aria-label="前のページ">
+            <span class="nav-arrow">〈</span>
+        </button>
+        <div class="page-info">
+            <span id="current-page">1</span> / <span id="total-pages">5</span>
+        </div>
+        <button id="next-btn" class="nav-btn" aria-label="次のページ">
+            <span class="nav-arrow">〉</span>
+        </button>
+    </div>
+
+    <!-- 設定パネル -->
+    <div class="settings">
+        <button id="settings-toggle" class="settings-btn">設定</button>
+        <div class="settings-panel hidden">
+            <div class="setting-item">
+                <label for="font-size">文字サイズ</label>
+                <input type="range" id="font-size" min="14" max="28" value="18" step="1">
+                <span id="font-size-value">18px</span>
+            </div>
+            <div class="setting-item">
+                <button id="theme-toggle" class="theme-btn">🌙 ダークモード</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 本のコンテナ -->
+    <div class="book-container">
+        <!-- ページ1 -->
+        <div class="page active" data-page="1">
+            <div class="page-content">
+                <div class="chapter-title">第1章 「手」</div>
+                <div class="vertical-text">
+                    <p>好きな子と付き合えたら何したい？と聞かれて、僕はすぐに答えられた。</p>
+                    <p>「手を繋ぎたい」</p>
+                    <p>友人たちは笑った。</p>
+                    <p>「そんなの当たり前じゃん！」「もっとスケベなこと考えてると思った！」</p>
+                    <p>でも、僕にとって手を繋ぐことは特別な意味を持っていた。</p>
+                </div>
+                <div class="page-number">1</div>
+            </div>
+        </div>
+
+        <!-- ページ2 -->
+        <div class="page" data-page="2">
+            <div class="page-content">
+                <div class="vertical-text">
+                    <p>小学校の時、クラスに一人だけ左手のない子がいた。</p>
+                    <p>事故で失ったのだと聞いていた。みんな気にしてないふりをしていたが、僕は彼の手を見つめてしまっていた。</p>
+                    <p>ある日、図工の時間。彼は紙を押さえることができずに困っていた。</p>
+                    <p>僕は何も考えずに、そっと手を差し伸べた。</p>
+                </div>
+                <div class="page-number">2</div>
+            </div>
+        </div>
+
+        <!-- ページ3 -->
+        <div class="page" data-page="3">
+            <div class="page-content">
+                <div class="vertical-text">
+                    <p>「ありがとう」</p>
+                    <p>彼は照れくさそうに笑った。その瞬間、彼の右手が僕の左手を強く握り返してきた。</p>
+                    <p>温かかった。そして、ずっと離したくないと思った。</p>
+                    <p>あの日から、手を繋ぐことは僕にとって特別な行為になった。</p>
+                </div>
+                <div class="page-number">3</div>
+            </div>
+        </div>
+
+        <!-- ページ4 -->
+        <div class="page" data-page="4">
+            <div class="page-content">
+                <div class="vertical-text">
+                    <p>高校に入り、僕は野球部に入った。毎日グラウンドで汗を流す日々。</p>
+                    <p>彼女との出会いは、そんなある日の帰り道だった。</p>
+                    <p>雨が降り始め、僕は傘を持っていなかった。駅までの道を走ろうとしたその時、</p>
+                    <p>「一緒にいかがですか？」</p>
+                </div>
+                <div class="page-number">4</div>
+            </div>
+        </div>
+
+        <!-- ページ5 -->
+        <div class="page" data-page="5">
+            <div class="page-content">
+                <div class="chapter-title">第2章 「ハンカチ」</div>
+                <div class="vertical-text">
+                    <p>振り向くと、白いハンカチを差し出す手が見えた。</p>
+                    <p>「傘はないんですけど…顔の汗、拭きませんか？」</p>
+                    <p>彼女は微笑んでいた。その笑顔に、僕の心は一瞬で奪われた。</p>
+                    <p>「あ、ありがとうございます」</p>
+                    <p>受け取ったハンカチには、ほのかな花の香りがした。</p>
+                </div>
+                <div class="page-number">5</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- キーボード操作の案内 -->
+    <div class="keyboard-hint">
+        ←→ キーでもページめくりできます
+    </div>
+
+    <script src="pagination.js"></script>
+</body>
+</html>
