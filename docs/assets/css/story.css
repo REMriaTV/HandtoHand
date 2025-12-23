@@ -48,8 +48,7 @@
     --neon-green: #39ff14;
     
         /* フォントをDotGothic16に変更 */
-    --text-font: 'DotGothic16', sans-serif; 
-    
+    --text-font: 'Shippori Mincho B1', serif;
     --title-font: 'DotGothic16', sans-serif;
     
     /* ★変更点: カードの高さを画面いっぱいまで広げる */
