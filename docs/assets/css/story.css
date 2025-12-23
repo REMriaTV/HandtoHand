@@ -207,7 +207,6 @@ body::after {
     
     
     /* 読みやすくするため行間を少し開けるのがコツ */
-.story-main p {
     font-family: var(--text-font);
     line-height: 2.0; /* ドット文字は少し隙間がある方が読みやすい */
     font-weight: 400;
