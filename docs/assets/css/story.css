@@ -1,7 +1,7 @@
 /* =========================================
    Google Fonts Import
    ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Maru+Gothic:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Maru+Gothic:wght@500;700;900&display=swap');
 
 /* =========================================
    アニメーション定義
@@ -48,8 +48,9 @@
     --text-font: 'Zen Maru Gothic', sans-serif;
     --title-font: 'DotGothic16', sans-serif;
     
-    --card-height-pc: 65vh;    
-    --card-height-mobile: 66vh; 
+    /* ★変更点: カードの高さを画面いっぱいまで広げる */
+    --card-height-pc: 85vh;    
+    --card-height-mobile: 85vh; 
 }
 
 /* =========================================
@@ -74,9 +75,9 @@ body {
     animation: scrollGrid 4s linear infinite;
     
     color: var(--text-color);
-    /* ★修正点③: フォントをZen Maru Gothicに戻しました */
     font-family: 'Zen Maru Gothic', sans-serif;
-    font-weight: 500;
+    /* ★変更点: デフォルトを少し太くして存在感を出す */
+    font-weight: 700;
     
     position: relative;
 }
@@ -115,13 +116,12 @@ body::after {
    ヘッダー
    ========================================= */
 .story-header {
-    /* ★修正点①: 固定表示をやめる (sticky -> relative) */
     position: relative; 
     top: 1rem;
     z-index: 100;
     
     width: auto;
-    max-width: 90%;
+    max-width: 95%;
     margin: 0 auto;
     
     left: 50%;
@@ -134,7 +134,7 @@ body::after {
     
     background: var(--neon-yellow);
     color: var(--text-color);
-    padding: 0.5rem 2rem;
+    padding: 0.8rem 2.5rem; /* ヘッダーも少し大きく */
     
     border: 3px solid #000;
     box-shadow: 5px 5px 0 var(--neon-pink);
@@ -142,7 +142,7 @@ body::after {
 
 .story-title {
     font-family: var(--title-font);
-    font-size: 1.4rem;
+    font-size: 1.8rem; /* タイトルも大きく */
     letter-spacing: 0.1em;
     color: var(--bg-main);
     animation: neonFlicker 3s infinite;
@@ -150,10 +150,10 @@ body::after {
 
 .story-meta {
     font-family: 'DotGothic16', sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     background: #000;
     color: var(--neon-yellow);
-    padding: 0.2rem 0.8rem;
+    padding: 0.3rem 1rem;
     border-radius: 4px;
 }
 
@@ -164,7 +164,8 @@ body::after {
     box-sizing: border-box;
     padding: 6rem 1rem;
     width: 100%;
-    max-width: 900px;
+    /* ★変更点: PC画面での横幅制限を大幅に緩和 */
+    max-width: 1400px; 
     margin: 0 auto;
     
     display: flex;
@@ -182,7 +183,10 @@ body::after {
     margin: 0;
     display: block; 
     background-color: var(--card-bg);
-    padding: 3rem 2.5rem;
+    
+    /* ★変更点: カード内の余白を広げて圧迫感を防ぐ */
+    padding: 4rem 3rem;
+    
     box-sizing: border-box;
     width: 100%; 
 
@@ -197,23 +201,25 @@ body::after {
     overflow-x: auto; 
     overflow-y: hidden;
     
-    line-height: 1.9;
-    font-size: 1.15rem; 
+    /* ★変更点: 文字サイズを極大化＆太字 */
+    font-size: 1.8rem; 
+    font-weight: 700;
+    line-height: 1.8; /* 太文字なので少し詰まった感じの方が迫力が出る */
+    
     text-align: justify;
     white-space: normal;
     line-break: strict;
     
-    border: 4px solid #000;
-    border-radius: 8px;
+    border: 5px solid #000; /* 枠線も太く */
+    border-radius: 12px;
     
-    box-shadow: 10px 10px 0 var(--neon-blue);
+    box-shadow: 12px 12px 0 var(--neon-blue);
     
     position: relative;
     
     transform: rotate(-1deg);
     animation: floatCard 6s ease-in-out infinite;
     
-     /* ★修正点②: 背景のドットを薄くする (0.05で極薄に) */
     background-image: radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 15%);
     background-size: 16px 16px;
 }
@@ -221,17 +227,17 @@ body::after {
 .story-main p:nth-child(even) {
     transform: rotate(1deg);
     animation-delay: -3s; 
-    box-shadow: -10px 10px 0 var(--neon-pink);
+    box-shadow: -12px 12px 0 var(--neon-pink);
 }
 
 .story-main p::after {
     content: "● REC";
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 15px;
+    left: 15px;
     font-family: 'DotGothic16', sans-serif;
     color: red;
-    font-size: 0.9rem;
+    font-size: 1.2rem; /* RECマークも少し大きく */
     writing-mode: horizontal-tb;
     animation: neonFlicker 2s infinite;
     pointer-events: none;
@@ -251,7 +257,7 @@ body::after {
     position: absolute;
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
-    font-size: 4rem;
+    font-size: 5rem; /* アイコンも大きく */
     
     top: 50%;
     left: 50%;
@@ -262,7 +268,7 @@ body::after {
     
     content: "\f001";
     color: var(--neon-yellow);
-    text-shadow: 3px 3px 0 #000;
+    text-shadow: 4px 4px 0 #000;
 }
 
 .story-icon-spacer:nth-of-type(1)::before {
@@ -270,7 +276,7 @@ body::after {
     color: var(--neon-blue);
     left: 20%;
     --icon-rotate: -20deg;
-    font-size: 5rem;
+    font-size: 6rem;
 }
 
 .story-icon-spacer:nth-of-type(2)::before {
@@ -298,8 +304,8 @@ body::after {
    スクロールバー
    ========================================= */
 .story-main p::-webkit-scrollbar {
-    height: 10px;
-    width: 10px;
+    height: 12px;
+    width: 12px;
 }
 .story-main p::-webkit-scrollbar-track {
     background: transparent;
@@ -311,34 +317,42 @@ body::after {
 }
 
 /* =========================================
-   スマホ用調整
+   スマホ用調整（ここが最重要）
    ========================================= */
 @media (max-width: 640px) {
     .story-header {
         width: auto;
-        padding: 0.4rem 1rem;
+        padding: 0.6rem 1.2rem;
         transform: translateX(-50%) rotate(0deg); 
     }
 
     .story-title {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .story-main {
-        padding: 5rem 0.5rem;
+        /* 上下の余白を減らして画面を有効活用 */
+        padding: 4rem 0.5rem;
     }
     
     .story-main p {
-        width: 90% !important;
+        /* ★変更点: スマホの横幅ギリギリまでカードを広げる */
+        width: 96% !important;
         margin: 0 auto;
+        
+        /* 高さは変数で制御 (85vh) */
         height: var(--card-height-mobile);
-        padding: 2.5rem 1.5rem;
+        
+        /* 内側の余白調整 */
+        padding: 3rem 2rem;
         
         transform: rotate(0deg) !important;
         animation: none !important;
         
-        font-size: 1rem; 
-        line-height: 1.8;
+        /* ★変更点: スマホでも文字をかなり大きく、太く */
+        font-size: 1.4rem; 
+        font-weight: 700;
+        line-height: 1.7;
         
         box-shadow: 6px 6px 0 var(--neon-blue);
     }
@@ -352,6 +366,6 @@ body::after {
     }
     
     .story-icon-spacer::before {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 }
