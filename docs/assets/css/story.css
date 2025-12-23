@@ -2,7 +2,8 @@
    Google Fonts Import
    ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Maru+Gothic:wght@500;700;900&display=swap');
-
+/* インポート部分に追加 */
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 /* =========================================
    アニメーション定義
    ========================================= */
@@ -45,7 +46,10 @@
     --neon-yellow: #ffff00;
     --neon-green: #39ff14;
     
-    --text-font: 'Zen Maru Gothic', sans-serif;
+        /* フォントをDotGothic16に変更 */
+    --text-font: 'DotGothic16', sans-serif; 
+}
+    
     --title-font: 'DotGothic16', sans-serif;
     
     /* ★変更点: カードの高さを画面いっぱいまで広げる */
@@ -201,10 +205,13 @@ body::after {
     overflow-x: auto; 
     overflow-y: hidden;
     
-    /* ★変更点: 文字サイズを極大化＆太字 */
-    font-size: 1.8rem; 
-    font-weight: 700;
-    line-height: 1.8; /* 太文字なので少し詰まった感じの方が迫力が出る */
+    
+    /* 読みやすくするため行間を少し開けるのがコツ */
+.story-main p {
+    font-family: var(--text-font);
+    line-height: 2.0; /* ドット文字は少し隙間がある方が読みやすい */
+    font-weight: 400;
+    font-size: 1.5rem; 
     
     text-align: justify;
     white-space: normal;
