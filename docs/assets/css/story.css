@@ -1,7 +1,6 @@
 /* =========================================
    Google Fonts Import
    ========================================= */
-/* Yusei Magic を追加済み */
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Shippori+Mincho+B1&family=Zen+Maru+Gothic:wght@500;700;900&family=Yusei+Magic&display=swap');
 
 /* =========================================
@@ -33,6 +32,19 @@
     50% { transform: translateY(-15px) rotate(var(--icon-rotate)); }
 }
 
+/* 矢印のバウンドアニメーション */
+@keyframes neonBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-15px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-7px);
+    }
+}
+
 /* =========================================
    変数定義
    ========================================= */
@@ -46,9 +58,8 @@
     --neon-yellow: #ffff00;
     --neon-green: #39ff14;
     
-    /* ★フォントを油性マジックに変更 */
+    /* フォント設定: 油性マジック */
     --text-font: 'Yusei Magic', sans-serif;
-    
     --title-font: 'DotGothic16', sans-serif;
     
     /* カードの高さ */
@@ -195,21 +206,21 @@ body::after {
     
     height: var(--card-height-pc);
     
+    /* PCでは横スクロールあり、縦は隠す */
     overflow-x: auto; 
-    overflow-y: visible;
+    overflow-y: hidden;
     
     /* フォント設定 */
     font-family: var(--text-font);
-    /* マジック文字は見やすいので行間は少し詰めてもOK */
     line-height: 1.8;
     font-weight: 400;
-    /* マジック文字はデカい方がカワイイ */
     font-size: 1.9rem; 
     
     text-align: justify;
     white-space: normal;
     line-break: strict;
     
+    /* PCではカード型 */
     border: 5px solid #000;
     border-radius: 12px;
     box-shadow: 12px 12px 0 var(--neon-blue);
@@ -242,7 +253,38 @@ body::after {
 }
 
 /* =========================================
-   カード間の浮遊アイコン
+   次の章へのネオン矢印 (共通設定)
+   ========================================= */
+.story-main p::before {
+    content: "\f078"; /* Font Awesomeの下矢印 */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    font-size: 2.5rem;
+    color: var(--neon-blue);
+    
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px var(--neon-blue),
+        0 0 20px var(--neon-blue);
+    
+    animation: neonBounce 2s infinite;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* 最後のカードには矢印を表示しない */
+.story-main p:last-of-type::before {
+    display: none;
+}
+
+
+/* =========================================
+   PC用: カード間の浮遊アイコン
    ========================================= */
 .story-icon-spacer {
     height: 25rem;
@@ -256,47 +298,21 @@ body::after {
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     font-size: 5rem;
-    
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
     --icon-rotate: 10deg;
     animation: floatIcon 4s ease-in-out infinite alternate;
-    
-    content: "\f001";
+    content: "\f001"; /* 音符など */
     color: var(--neon-yellow);
     text-shadow: 4px 4px 0 #000;
 }
+/* アイコンのバリエーション設定 */
+.story-icon-spacer:nth-of-type(1)::before { content: "\f0e7"; color: var(--neon-blue); left: 20%; --icon-rotate: -20deg; font-size: 6rem; }
+.story-icon-spacer:nth-of-type(2)::before { content: "\f004"; color: var(--neon-pink); left: 70%; --icon-rotate: 15deg; }
+.story-icon-spacer:nth-of-type(3)::before { content: "\f6e2"; color: var(--neon-green); left: 40%; --icon-rotate: -5deg; }
+.story-icon-spacer:nth-of-type(4)::before { content: "\f005"; color: var(--neon-yellow); left: 80%; --icon-rotate: 30deg; }
 
-.story-icon-spacer:nth-of-type(1)::before {
-    content: "\f0e7";
-    color: var(--neon-blue);
-    left: 20%;
-    --icon-rotate: -20deg;
-    font-size: 6rem;
-}
-
-.story-icon-spacer:nth-of-type(2)::before {
-    content: "\f004";
-    color: var(--neon-pink);
-    left: 70%;
-    --icon-rotate: 15deg;
-}
-
-.story-icon-spacer:nth-of-type(3)::before {
-    content: "\f6e2";
-    color: var(--neon-green);
-    left: 40%;
-    --icon-rotate: -5deg;
-}
-
-.story-icon-spacer:nth-of-type(4)::before {
-    content: "\f005";
-    color: var(--neon-yellow);
-    left: 80%;
-    --icon-rotate: 30deg;
-}
 
 /* =========================================
    スクロールバー
@@ -314,8 +330,9 @@ body::after {
     border-radius: 6px;
 }
 
+
 /* =========================================
-   スマホ用調整（没入モード）
+   【重要】スマホ用調整（没入モード ＆ 矢印修正）
    ========================================= */
 @media (max-width: 640px) {
     .story-header {
@@ -329,8 +346,9 @@ body::after {
     }
 
     .story-main {
+        /* カード間の隙間を広くする（ここに矢印が住む） */
+        gap: 6rem; 
         padding: 4rem 0;
-        gap: 3rem; 
     }
     
     .story-main p {
@@ -338,24 +356,30 @@ body::after {
         margin: 0;
         height: var(--card-height-mobile);
         
+        /* カード内の余白：矢印を外に出したので、読みやすいバランスに戻す */
         padding: 3rem 1.5rem;
         
         transform: none !important;
         animation: none !important;
         
-        /* 左右の枠線を消す */
+        /* 没入モード：左右の線を消す */
         border-left: none;
         border-right: none;
         border-radius: 0;
-        
         border-top: 5px solid #000;
         border-bottom: 5px solid #000;
         
         box-shadow: 0 10px 0 var(--neon-blue);
         
+        /* ★ここが修正ポイント！ */
+        /* カード枠外の矢印を表示するために visible にする */
+        overflow-y: visible; 
+        /* 横スクロール（文章）は維持する */
+        overflow-x: auto;
+        
         /* マジック文字用のサイズ調整 */
         font-size: 1.5rem; 
-        font-weight: 400; /* マジックは太字にしなくてOK */
+        font-weight: 400;
         line-height: 1.7;
     }
     
@@ -363,72 +387,15 @@ body::after {
         box-shadow: 0 10px 0 var(--neon-pink);
     }
     
-    .story-icon-spacer {
-        height: 12rem;
-    }
-    
-    .story-icon-spacer::before {
-        font-size: 3.5rem;
-    }
-}
-
-/* =========================================
-   【追加演出】次の章へのネオン矢印
-   ========================================= */
-
-/* 1. 矢印のアニメーション定義（バウンド） */
-@keyframes neonBounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    40% {
-        transform: translateX(-50%) translateY(-15px); /* 上に跳ねる */
-    }
-    60% {
-        transform: translateX(-50%) translateY(-7px); /* 軽く跳ねる */
-    }
-}
-
-/* 2. 矢印のスタイル設定 */
-/* 各カード(pタグ)の「直前(::before)」に要素を追加します */
-/* ※RECマークは ::after を使っているので競合しません */
-.story-main p::before {
-    content: "\f078"; /* Font Awesomeの下矢印アイコンコード */
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    
-    position: absolute;
-    /* カードの下端から少しはみ出させる */
-    bottom: -45px; 
-    left: 50%;
-    /* translateX(-50%)で完全に中央揃えにする */
-    transform: translateX(-50%);
-    
-    font-size: 2.5rem; /* 少し大きめに */
-    color: var(--neon-blue); /* 青ネオン色 */
-    
-    /* ネオンのような強い発光表現 */
-    text-shadow: 
-        0 0 5px #fff,
-        0 0 10px var(--neon-blue),
-        0 0 20px var(--neon-blue);
-    
-    /* バウンドアニメーションを適用 */
-    animation: neonBounce 2s infinite;
-    
-    pointer-events: none; /* 矢印が操作の邪魔にならないように */
-    z-index: 10; /* カードより手前に表示 */
-}
-
-/* 3. 最後のカードの下には矢印を表示しない設定 */
-.story-main p:last-of-type::before {
-    display: none;
-}
-
-/* スマホでの微調整 */
-@media (max-width: 640px) {
+    /* スマホでの矢印位置調整 */
     .story-main p::before {
-        font-size: 2rem; /* スマホでは少し小さく */
-        bottom: -35px;   /* 位置を調整 */
+        /* カードの下端からさらに離して隙間の中央へ */
+        bottom: -65px; 
+        font-size: 2rem;
+    }
+
+    /* スマホでは矢印と被らないように浮遊アイコン（音符など）を隠す */
+    .story-icon-spacer {
+        display: none;
     }
 }
