@@ -263,6 +263,8 @@ body::after {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    /* PCでも一旦外に出しておく */
+    bottom: -45px;
     
     font-size: 2.5rem;
     color: var(--neon-blue);
@@ -356,7 +358,7 @@ body::after {
         margin: 0;
         height: var(--card-height-mobile);
         
-        /* カード内の余白：矢印を外に出したので、読みやすいバランスに戻す */
+        /* カード内の余白 */
         padding: 3rem 1.5rem;
         
         transform: none !important;
@@ -371,10 +373,8 @@ body::after {
         
         box-shadow: 0 10px 0 var(--neon-blue);
         
-        /* ★ここが修正ポイント！ */
         /* カード枠外の矢印を表示するために visible にする */
         overflow-y: visible; 
-        /* 横スクロール（文章）は維持する */
         overflow-x: auto;
         
         /* マジック文字用のサイズ調整 */
@@ -389,8 +389,8 @@ body::after {
     
     /* スマホでの矢印位置調整 */
     .story-main p::before {
-        /* カードの下端からさらに離して隙間の中央へ */
-        bottom: -65px; 
+        /* ★修正点: !important をつけて強制的に外に出す */
+        bottom: -70px !important; 
         font-size: 2rem;
     }
 
